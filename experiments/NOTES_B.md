@@ -57,3 +57,13 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
   then timestral_all_known). When done: CopyToBox C:\Users\gusta\master\tbf-gus\reports\retail\{census,m5}\backtest.parquet
   -> reports/retail/{census,m5}/, `bsforecast report --config experiments/retail/{census,m5}.yaml`, headline.py,
   write findings_{census,m5}.md (ETS / seasonal-naive baselines, ARIMA dropped), report again, ruff, pytest, push.
+
+## 2026-10-18 19:21 ET (session 5)
+- DONE + pushed: census (Gus run, report on box) b2e90ac.
+- M5: box went idle ~18:55, so M5 re-launched on the box as 3 shards (/tmp/m5_box.yaml = m5.yaml with threads 3):
+  A (seasonal_naive, ets, timestral) DONE -> reports/retail/m5/backtest_A.parquet (plain timestral 150 s vs 708 s on Gus);
+  B (timestral_calendar_known) and C (timestral_all_known) running since 18:58 (logs reports/retail/m5/run_{B,C}.log).
+  /tmp/m5_finish.sh (nohup) waits for backtest_B/C, runs `bsforecast report --config experiments/retail/m5.yaml`
+  (merges shards) + headline.py -> reports/retail/m5/headline.txt, appends M5_DONE to experiments/queue_b.log.
+  Gus M5 (single process, still on timestral_calendar_known since 17:57) is a backup; kill it once box M5_DONE.
+- Remaining: write experiments/retail/findings_m5.md (baseline seasonal naive; ARIMA dropped), re-run report, ruff, pytest, push.
