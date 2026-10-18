@@ -17,13 +17,14 @@ backtest:
   n_origins: 36
   step: 3
   min_train: 60
+  max_context: 240
   live_forecast: false
   stress_windows:
     covid: ['2019-03-31', '2020-06-30']
     inflation_2022: ['2021-03-31', '2022-12-31']
+# AutoARIMA dropped (seasonal m=12, h=24 too slow on the shared box); baselines = AutoETS (reference) + seasonal naive.
 models:
 - {name: seasonal_naive, type: seasonal_naive, season_length: 12}
-- {name: arima, type: auto_arima, season_length: 12, n_jobs: 3}
 - {name: ets, type: auto_ets, season_length: 12, n_jobs: 3}
 - {name: timestral, type: timestral, threads: 4}
 - name: timestral_calendar_known
@@ -34,16 +35,16 @@ models:
 - {name: timestral_macro_past, type: timestral, threads: 4, covariates: past}
 - {name: timestral_macro_known, type: timestral, threads: 4, covariates: known_oracle}
 evaluation:
-  baseline: arima
+  baseline: ets
   challenger: timestral
   mase_season: 12
   quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
 plots:
-  spaghetti_models: [seasonal_naive, arima, timestral, timestral_macro_known]
+  spaghetti_models: [seasonal_naive, ets, timestral, timestral_macro_known]
   spaghetti_by_group: true
   spaghetti_ids: [total_ex_food_services, motor_vehicles, gasoline, nonstore, general_merch, food_services, clothing, electronics]
   compare_pairs:
   - [timestral_calendar_known, timestral]
   - [timestral_macro_known, timestral]
   - [timestral_macro_past, timestral]
-  - [timestral, arima]
+  - [timestral, ets]
