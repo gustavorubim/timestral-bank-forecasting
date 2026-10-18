@@ -67,3 +67,13 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
   (merges shards) + headline.py -> reports/retail/m5/headline.txt, appends M5_DONE to experiments/queue_b.log.
   Gus M5 (single process, still on timestral_calendar_known since 17:57) is a backup; kill it once box M5_DONE.
 - Remaining: write experiments/retail/findings_m5.md (baseline seasonal naive; ARIMA dropped), re-run report, ruff, pytest, push.
+
+## 2026-10-18 19:45 ET (session 6)
+- Site: `python -m bsforecast site` (src/bsforecast/site.py) -> docs/ (index.html, summary_relmase.png, summary.csv,
+  one page per experiment, figures as JPEG ~32 MB). Pushed 5df32f1. GitHub Pages enabled (main:/docs):
+  https://gustavorubim.github.io/timestral-bank-forecasting/ (200 OK).
+- PhoneShare: CopyFromBox of the zip failed ("Gus temporarily unreachable"), so docs were copied on Gus from a fresh
+  clone (C:\Users\gusta\master\tbf-site) into C:\Users\gusta\PhoneShare\timestral\; server (tailscale serve -> 127.0.0.1:8765)
+  serves subfolders: https://gus.tail8b7b2e.ts.net/timestral/index.html -> 200.
+- M5 box shards B/C still running; when M5_DONE: findings_m5.md, report, then `bsforecast site`, push, and refresh
+  PhoneShare (git pull in tbf-site + Copy-Item docs). Gus M5: calendar_known done 19:10 (4383 s), now on all_known.
