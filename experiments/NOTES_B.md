@@ -21,3 +21,10 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
   then fhfa -> zillow -> census -> m5 -> live_tampa.py; progress in experiments/queue_b.log (ends with QUEUE_DONE).
 - After queue: write experiments/<domain>/findings*.md (headline numbers), re-run `bsforecast report --config ...`
   to prepend them into REPORT.md, then ruff/pytest, commit, pull --rebase, push main.
+
+## 2026-10-18 17:08 ET (session 1 end)
+- Code pushed to main 7e2fee3 (rebased over domains-a 85e593c; their StatsForecastModel `auto_ets` kept, mine dropped).
+- Earnings run: seasonal_naive/arima/ets/timestral done; timestral_macro_past + _known running (pid in `pgrep -f earnings/config`).
+- Queue (experiments/run_queue_b.sh, nohup) will run fhfa -> zillow -> census -> m5 -> live_tampa automatically.
+- Next session: check experiments/queue_b.log for QUEUE_DONE / FAILED; read reports/<domain>/summary.json + tables;
+  write findings*.md; `uv run python -m bsforecast report --config <cfg>` for each; ruff+pytest; commit reports; pull --rebase; push.
