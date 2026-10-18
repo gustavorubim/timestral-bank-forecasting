@@ -1,0 +1,125 @@
+2026-10-18 13:59:15,030 INFO model naive: 25 origins in 0.1s
+2026-10-18 13:59:15,099 INFO model snaive: 25 origins in 0.1s
+2026-10-18 14:00:24,729 INFO model arima: 25 origins in 69.6s
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/statsforecast/arima.py:213: RuntimeWarning: divide by zero encountered in scalar divide
+  mod["Pn"][0, 0] = 1 / (1 - phi[0] ** 2) if p > 0 else 1
+2026-10-18 14:04:20,214 INFO model arimax_oracle: 25 origins in 235.5s
+2026-10-18 14:04:21,737 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 651.95it/s]
+2026-10-18 14:04:33,863 INFO model timestral: 25 origins in 13.6s
+2026-10-18 14:07:24,038 INFO model timestral_cov: 25 origins in 170.2s
+2026-10-18 14:10:16,525 INFO model timestral_cov_oracle: 25 origins in 172.5s
+/workspace/timestral-bank-forecasting/.venv/lib/python3.12/site-packages/timestral/forecaster.py:234: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  x = torch.as_tensor(context, dtype=torch.float32, device=self.device)
+2026-10-18 14:10:25,790 INFO model timestral_mv: 25 origins in 9.3s
+          timestral_mv  rel MASE vs baseline = 0.975
+         timestral_cov  rel MASE vs baseline = 0.987
+             timestral  rel MASE vs baseline = 0.990
+                 arima  rel MASE vs baseline = 1.000
+                 naive  rel MASE vs baseline = 1.037
+  timestral_cov_oracle  rel MASE vs baseline = 1.122
+                snaive  rel MASE vs baseline = 1.176
+         arimax_oracle  rel MASE vs baseline = 1.830
+report: reports/y9c_top4/REPORT.md

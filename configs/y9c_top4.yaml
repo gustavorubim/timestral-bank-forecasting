@@ -1,0 +1,51 @@
+name: y9c_top4
+output_dir: reports/y9c_top4
+data:
+  path: data/processed/top4_bhc_panel.parquet
+  date_col: date
+  id_col: bank
+  freq: QE
+  min_date: "2001-03-31"
+  targets: [total_assets, loans_net, cash_due, securities, deposits, equity,
+            nii, nonint_income, nonint_expense, provisions, net_income,
+            roa, nim, efficiency_ratio, loan_to_deposit]
+  covariates: [gdp_growth, unemployment, fed_funds, ust10y, ust3m, term_spread, cpi_inflation, baa_spread, hpi_growth]
+  groups:
+    balance_sheet: [total_assets, loans_net, cash_due, securities, deposits, equity]
+    income: [nii, nonint_income, nonint_expense, provisions, net_income]
+    ratios: [roa, nim, efficiency_ratio, loan_to_deposit]
+backtest:
+  horizon: 8
+  n_origins: 24        # origins 2018Q3 .. 2024Q2, each with 8 realised quarters
+  step: 1
+  min_train: 40
+  live_forecast: true  # extra forecast from the last observed quarter (no actuals)
+  stress_windows:
+    covid: ["2019-06-30", "2020-06-30"]   # origins whose 8q window spans the COVID shock
+models:
+  - {name: naive, type: naive}
+  - {name: snaive, type: seasonal_naive, season_length: 4}
+  - {name: arima, type: auto_arima, season_length: 4}
+  - {name: arimax_oracle, type: auto_arima, season_length: 4, covariates: known_oracle,
+     covariate_subset: [unemployment, fed_funds, baa_spread]}
+  - {name: timestral, type: timestral, model_id: mistralai/Timestral-209M}
+  - {name: timestral_cov, type: timestral, model_id: mistralai/Timestral-209M, covariates: past}
+  - {name: timestral_cov_oracle, type: timestral, model_id: mistralai/Timestral-209M, covariates: known_oracle}
+  - {name: timestral_mv, type: timestral, model_id: mistralai/Timestral-209M, multivariate: true}
+evaluation:
+  baseline: arima
+  challenger: timestral
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+identities:
+  # Pre-tax income proxy: NII + nonint income - nonint expense - provisions vs net income.
+  # The actual gap (taxes etc.) is plotted as a reference; a coherent forecast should track it.
+  - name: earnings_bridge
+    total: net_income
+    components: [nii, nonint_income, nonint_expense, provisions]
+    signs: [1, 1, -1, -1]
+plots:
+  fan_series: [total_assets, loans_net, deposits, nii, net_income, efficiency_ratio]
+  fan_origins: ["2022-06-30", "2024-06-30"]
+  stress_series: [total_assets, deposits, cash_due, provisions, net_income]
+  stress_origin: "2019-12-31"

@@ -1,0 +1,10 @@
+2026-10-18 14:13:57,442 INFO model arimax_oracle: 25 origins in 136.8s
+          timestral_mv  rel MASE vs baseline = 0.975
+         timestral_cov  rel MASE vs baseline = 0.987
+             timestral  rel MASE vs baseline = 0.990
+                 arima  rel MASE vs baseline = 1.000
+                 naive  rel MASE vs baseline = 1.037
+  timestral_cov_oracle  rel MASE vs baseline = 1.122
+                snaive  rel MASE vs baseline = 1.176
+         arimax_oracle  rel MASE vs baseline = 1.178
+report: reports/y9c_top4/REPORT.md
