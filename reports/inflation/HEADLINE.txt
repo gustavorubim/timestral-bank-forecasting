@@ -1,0 +1,45 @@
+baseline=arima  H=24
+h                          1      6     12     24  overall  coverage80   MASE
+model                                                                        
+timestral_macro_known  0.874  0.709  0.677  0.615    0.659       0.759  5.628
+timestral_oil_known    0.872  0.710  0.684  0.639    0.676       0.737  5.876
+arimax_macro_known     0.937  0.885  0.860  0.816    0.845       0.660  7.013
+timestral_macro_past   0.952  0.914  0.914  0.830    0.881       0.722  6.538
+timestral              0.994  0.909  0.919  0.846    0.892       0.729  6.692
+arima                  1.000  1.000  1.000  1.000    1.000       0.677  7.859
+naive                  1.087  1.036  1.052  1.105    1.071       0.587  7.981
+
+DM share better/worse at 5% (h in [1, 6, 12, 24] )
+                      better                  worse                 
+h                         1     6     12   24    1     6     12   24
+model                                                               
+arimax_macro_known      0.11  0.11  0.22  0.0   0.0  0.00  0.00  0.0
+naive                   0.00  0.00  0.00  0.0   0.0  0.22  0.00  0.0
+timestral               0.00  0.00  0.00  0.0   0.0  0.00  0.11  0.0
+timestral_macro_known   0.22  0.11  0.11  0.0   0.0  0.00  0.00  0.0
+timestral_macro_past    0.00  0.00  0.00  0.0   0.0  0.00  0.00  0.0
+timestral_oil_known     0.22  0.00  0.11  0.0   0.0  0.00  0.00  0.0
+
+rel MASE by id:
+model           arima  arimax_macro_known  naive  timestral  timestral_macro_known  timestral_macro_past  timestral_oil_known
+id                                                                                                                           
+core              1.0                0.94   0.92       0.79                   0.78                  0.81                 0.78
+core_goods        1.0                1.03   1.03       0.84                   0.77                  0.77                 0.80
+core_services     1.0                0.79   0.82       0.76                   0.66                  0.71                 0.72
+energy            1.0                0.53   1.38       1.07                   0.40                  1.13                 0.38
+food              1.0                0.92   1.19       0.98                   1.01                  0.99                 0.95
+headline          1.0                0.98   1.16       1.01                   0.67                  1.03                 0.65
+medical           1.0                0.99   0.98       0.76                   0.77                  0.75                 0.77
+shelter           1.0                0.82   0.92       0.82                   0.62                  0.75                 0.80
+transportation    1.0                0.74   1.40       1.09                   0.47                  1.12                 0.45
+
+by slice MASE:
+slice                   covid  normal  surge_2021_22
+model                                               
+arima                  13.007   5.359         13.791
+arimax_macro_known     11.368   4.250         14.328
+naive                  13.194   5.177         14.950
+timestral              12.650   3.915         13.139
+timestral_macro_known  10.723   3.163         11.462
+timestral_macro_past   12.893   3.643         13.179
+timestral_oil_known    11.172   3.379         11.710
