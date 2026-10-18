@@ -36,3 +36,17 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
 - Box load ~30 (domains-a runs + ours). Progress at 17:32: earnings on timestral_macro_past (since 17:04);
   fhfa baselines done, on timestral; zillow + census still in seasonal AutoARIMA (season 12, h=24).
 - NOTE: box appears frozen while the agent is idle (AwaitShell without shell_id); keep a Shell `sleep` running to make progress.
+
+## 2026-10-18 18:03 ET (session 3)
+- Zillow + census restarted WITHOUT AutoARIMA (baseline = AutoETS, plus seasonal naive; census max_context 240), commit 5637833.
+  Box restart via experiments/run_restart_b.sh (log experiments/queue_b.log, ends RESTART_DONE).
+- Offloaded to Gus (Windows, 24 threads; clone C:\Users\gusta\master\tbf-gus, `python -m uv sync` took ~2 min):
+  M5 (experiments/retail/m5_gus.yaml = m5.yaml with threads 12; M5 is NOT running on the box any more),
+  plus duplicate races of earnings, zillow, census. Logs: C:\Users\gusta\master\tbf-gus\<domain>_<cfg>.err.log, m5_err.log.
+  Results: C:\Users\gusta\master\tbf-gus\reports\<domain>\...\backtest.parquet -> CopyToBox into reports/<same path>,
+  then `uv run python -m bsforecast report --config <cfg>` on the box (whichever copy finishes first wins).
+- Box state 18:02: earnings still in timestral_macro_past (since 17:04); fhfa in timestral_macro_past;
+  zillow + census done baselines + timestral, now on covariate variants.
+- Gus state 18:02: earnings in arima (slow); zillow/census done timestral; m5 in timestral.
+- Remaining after runs: experiments/housing/live_tampa.py; experiments/headline.py per report -> findings*.md
+  (note ARIMA dropped for zillow/census/m5; known-future = scenario test); `bsforecast report`; ruff; pytest; commit; push.
