@@ -1,0 +1,1973 @@
+{
+ "overall": [
+  {
+   "model": "timestral_temp_known",
+   "MAE": 26.65737143623827,
+   "RMSE": 43.793926219362305,
+   "MAPE": 2.029252432132007,
+   "sMAPE": 2.8883742105442716,
+   "MASE": 0.3971065093562769,
+   "coverage80": 0.7524208322428684,
+   "dir_acc": 0.8662303664921466,
+   "n": 3821
+  },
+  {
+   "model": "timestral_temp_past",
+   "MAE": 53.64557010009291,
+   "RMSE": 93.39035104335188,
+   "MAPE": 3.8387004157720077,
+   "sMAPE": 5.296541370973128,
+   "MASE": 0.7346857053606914,
+   "coverage80": 0.7754514524993458,
+   "dir_acc": 0.720753729390212,
+   "n": 3821
+  },
+  {
+   "model": "timestral",
+   "MAE": 53.86712167503954,
+   "RMSE": 91.97945413198892,
+   "MAPE": 3.819479337919133,
+   "sMAPE": 5.345906048102258,
+   "MASE": 0.7416566067313057,
+   "coverage80": 0.7927244176917038,
+   "dir_acc": 0.7191834598272704,
+   "n": 3821
+  },
+  {
+   "model": "mstl",
+   "MAE": 70.29843561672607,
+   "RMSE": 119.11981225142044,
+   "MAPE": 5.086149582994993,
+   "sMAPE": 6.981029118496629,
+   "MASE": 0.9630423519549984,
+   "coverage80": 0.665532583093431,
+   "dir_acc": 0.6220884585187124,
+   "n": 3821
+  },
+  {
+   "model": "seasonal_naive",
+   "MAE": 81.49617441006792,
+   "RMSE": 132.48501155282364,
+   "MAPE": 6.107050502426523,
+   "sMAPE": 7.949029750483669,
+   "MASE": 1.1097455415471467,
+   "coverage80": 0.8026694582570008,
+   "dir_acc": 0.6027480916030534,
+   "n": 3821
+  }
+ ],
+ "rel_mase": [
+  {
+   "model": "mstl",
+   "rel_mase": 1.0
+  },
+  {
+   "model": "seasonal_naive",
+   "rel_mase": 1.1568569594635583
+  },
+  {
+   "model": "timestral",
+   "rel_mase": 0.7720834066622065
+  },
+  {
+   "model": "timestral_temp_known",
+   "rel_mase": 0.4070116959135173
+  },
+  {
+   "model": "timestral_temp_past",
+   "rel_mase": 0.7649720803937626
+  }
+ ],
+ "mase_by_h": [
+  {
+   "h": 1,
+   "seasonal_naive": 1.1086408937679966,
+   "mstl": 0.6036543595858304,
+   "timestral": 0.46932623189226325,
+   "timestral_temp_past": 0.45795958841731593,
+   "timestral_temp_known": 0.33314120374425304
+  },
+  {
+   "h": 2,
+   "seasonal_naive": 1.130234412666755,
+   "mstl": 0.836521025111677,
+   "timestral": 0.6842436139868985,
+   "timestral_temp_past": 0.6744199035614507,
+   "timestral_temp_known": 0.38835873896088124
+  },
+  {
+   "h": 3,
+   "seasonal_naive": 1.060250531802419,
+   "mstl": 0.9098278818499799,
+   "timestral": 0.7108002794407853,
+   "timestral_temp_past": 0.70549450678567,
+   "timestral_temp_known": 0.36196100265650394
+  },
+  {
+   "h": 4,
+   "seasonal_naive": 1.053122626766832,
+   "mstl": 0.9884308672275602,
+   "timestral": 0.756613309247254,
+   "timestral_temp_past": 0.7623562901311598,
+   "timestral_temp_known": 0.4223868128176868
+  },
+  {
+   "h": 5,
+   "seasonal_naive": 1.1093959977486305,
+   "mstl": 1.0726728275001782,
+   "timestral": 0.834929310638518,
+   "timestral_temp_past": 0.8320459347937835,
+   "timestral_temp_known": 0.45127834690691726
+  },
+  {
+   "h": 6,
+   "seasonal_naive": 1.1618977203683403,
+   "mstl": 1.1607587486494537,
+   "timestral": 0.874857961286112,
+   "timestral_temp_past": 0.8641587781527179,
+   "timestral_temp_known": 0.3955705311195973
+  },
+  {
+   "h": 7,
+   "seasonal_naive": 1.1447141331140347,
+   "mstl": 1.1691990297184724,
+   "timestral": 0.8607203886259461,
+   "timestral_temp_past": 0.8462545587563697,
+   "timestral_temp_known": 0.42703290773059793
+  }
+ ],
+ "rel_mase_by_h": [
+  {
+   "model": "mstl",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 1,
+   "rel_mase": 1.864044925743901
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 2,
+   "rel_mase": 1.3625677551062658
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 3,
+   "rel_mase": 1.1663431194416405
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 4,
+   "rel_mase": 1.0655699649181833
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 5,
+   "rel_mase": 1.0377715525606441
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 6,
+   "rel_mase": 1.0094118412019057
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 7,
+   "rel_mase": 0.9787666460417439
+  },
+  {
+   "model": "timestral",
+   "h": 1,
+   "rel_mase": 0.7544788349815382
+  },
+  {
+   "model": "timestral",
+   "h": 2,
+   "rel_mase": 0.8115767506626085
+  },
+  {
+   "model": "timestral",
+   "h": 3,
+   "rel_mase": 0.7845762079341737
+  },
+  {
+   "model": "timestral",
+   "h": 4,
+   "rel_mase": 0.76664487720656
+  },
+  {
+   "model": "timestral",
+   "h": 5,
+   "rel_mase": 0.7807480191040327
+  },
+  {
+   "model": "timestral",
+   "h": 6,
+   "rel_mase": 0.7580491117620293
+  },
+  {
+   "model": "timestral",
+   "h": 7,
+   "rel_mase": 0.7385069140663401
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 1,
+   "rel_mase": 0.5407705945669065
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 2,
+   "rel_mase": 0.46538200967612225
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 3,
+   "rel_mase": 0.3914404894770162
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 4,
+   "rel_mase": 0.4197051107884711
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 5,
+   "rel_mase": 0.41786628513419105
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 6,
+   "rel_mase": 0.3374765557955289
+  },
+  {
+   "model": "timestral_temp_known",
+   "h": 7,
+   "rel_mase": 0.3549066114615378
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 1,
+   "rel_mase": 0.7401063575225325
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 2,
+   "rel_mase": 0.8024705770799313
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 3,
+   "rel_mase": 0.7789080812795142
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 4,
+   "rel_mase": 0.7719661988553526
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 5,
+   "rel_mase": 0.7778733179520666
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 6,
+   "rel_mase": 0.7492052734046729
+  },
+  {
+   "model": "timestral_temp_past",
+   "h": 7,
+   "rel_mase": 0.7272827243317679
+  }
+ ],
+ "rel_mase_by_bank_h": [
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "CISO",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ERCO",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "FPL",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "ISNE",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "MISO",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "NYIS",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "mstl",
+   "id": "PJM",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 1,
+   "rel_mase": 2.3711239661304364
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 2,
+   "rel_mase": 1.700997606050755
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 3,
+   "rel_mase": 1.3241172180781386
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 4,
+   "rel_mase": 1.1328673101166415
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 5,
+   "rel_mase": 1.0796367514046847
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 6,
+   "rel_mase": 1.127778395150411
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "CISO",
+   "h": 7,
+   "rel_mase": 1.0677742560043564
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 1,
+   "rel_mase": 1.7232487652890058
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 2,
+   "rel_mase": 1.3281556845029987
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 3,
+   "rel_mase": 1.0519162036365617
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 4,
+   "rel_mase": 1.0955306990221356
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 5,
+   "rel_mase": 1.2175584678721771
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 6,
+   "rel_mase": 1.0262538895123359
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ERCO",
+   "h": 7,
+   "rel_mase": 0.8582753710070556
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 1,
+   "rel_mase": 1.8947237348382098
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 2,
+   "rel_mase": 1.296513603509623
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 3,
+   "rel_mase": 1.217481193143193
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 4,
+   "rel_mase": 1.1562447289336915
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 5,
+   "rel_mase": 1.1171181833921804
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 6,
+   "rel_mase": 1.0654874901064852
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "FPL",
+   "h": 7,
+   "rel_mase": 1.0773533380226314
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 1,
+   "rel_mase": 1.406018021728509
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 2,
+   "rel_mase": 1.1245117521574297
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 3,
+   "rel_mase": 0.9734063147552046
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 4,
+   "rel_mase": 1.0281284422293555
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 5,
+   "rel_mase": 0.9290249832614665
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 6,
+   "rel_mase": 0.9465118385793235
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "ISNE",
+   "h": 7,
+   "rel_mase": 0.9408258066105607
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 1,
+   "rel_mase": 2.181236341014395
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 2,
+   "rel_mase": 1.440620121370522
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 3,
+   "rel_mase": 1.2377741973529446
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 4,
+   "rel_mase": 1.1051795139217186
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 5,
+   "rel_mase": 1.151830833307192
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 6,
+   "rel_mase": 1.116591429687022
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "MISO",
+   "h": 7,
+   "rel_mase": 1.0201428795677112
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 1,
+   "rel_mase": 1.575493647593082
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 2,
+   "rel_mase": 1.2120128121151912
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 3,
+   "rel_mase": 1.1149160667918496
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 4,
+   "rel_mase": 0.9622636407591857
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 5,
+   "rel_mase": 0.9355825857036071
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 6,
+   "rel_mase": 0.8971253209994302
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NYIS",
+   "h": 7,
+   "rel_mase": 0.9626063398149428
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 1,
+   "rel_mase": 2.0904328719692056
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 2,
+   "rel_mase": 1.5161993260856788
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 3,
+   "rel_mase": 1.2889519391176203
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 4,
+   "rel_mase": 0.9941368114596633
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 5,
+   "rel_mase": 0.881754130118203
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 6,
+   "rel_mase": 0.9132262123432456
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "PJM",
+   "h": 7,
+   "rel_mase": 0.943345819799673
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 1,
+   "rel_mase": 0.7540932680267393
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 2,
+   "rel_mase": 0.8319972230534377
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 3,
+   "rel_mase": 0.7700568614311416
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 4,
+   "rel_mase": 0.7589895561143704
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 5,
+   "rel_mase": 0.8227030688283213
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 6,
+   "rel_mase": 0.8623616893747009
+  },
+  {
+   "model": "timestral",
+   "id": "CISO",
+   "h": 7,
+   "rel_mase": 0.8550797949911668
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 1,
+   "rel_mase": 0.7296504391122492
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 2,
+   "rel_mase": 0.8483990498501556
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 3,
+   "rel_mase": 0.7952956030907878
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 4,
+   "rel_mase": 0.7937092149637787
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 5,
+   "rel_mase": 0.8053903530023466
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 6,
+   "rel_mase": 0.7469558077276834
+  },
+  {
+   "model": "timestral",
+   "id": "ERCO",
+   "h": 7,
+   "rel_mase": 0.6873995743928254
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 1,
+   "rel_mase": 0.7076230042224761
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 2,
+   "rel_mase": 0.8238010893893168
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 3,
+   "rel_mase": 0.8336734870024296
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 4,
+   "rel_mase": 0.8109481292663937
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 5,
+   "rel_mase": 0.8562456084346691
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 6,
+   "rel_mase": 0.7713517529938739
+  },
+  {
+   "model": "timestral",
+   "id": "FPL",
+   "h": 7,
+   "rel_mase": 0.7846736352329605
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 1,
+   "rel_mase": 0.8694154351200293
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 2,
+   "rel_mase": 0.8229556710427832
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 3,
+   "rel_mase": 0.6986891672644187
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 4,
+   "rel_mase": 0.7151587932528491
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 5,
+   "rel_mase": 0.7058543222951993
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 6,
+   "rel_mase": 0.7032960116489724
+  },
+  {
+   "model": "timestral",
+   "id": "ISNE",
+   "h": 7,
+   "rel_mase": 0.6604791472266827
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 1,
+   "rel_mase": 0.6314921478559715
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 2,
+   "rel_mase": 0.6844221358954803
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 3,
+   "rel_mase": 0.7983923224741158
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 4,
+   "rel_mase": 0.7883180305070651
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 5,
+   "rel_mase": 0.8354607058760803
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 6,
+   "rel_mase": 0.8446977489919063
+  },
+  {
+   "model": "timestral",
+   "id": "MISO",
+   "h": 7,
+   "rel_mase": 0.8096684637247484
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 1,
+   "rel_mase": 0.8888634579676893
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 2,
+   "rel_mase": 0.867350836003519
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 3,
+   "rel_mase": 0.783813542460191
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 4,
+   "rel_mase": 0.7115882214873261
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 5,
+   "rel_mase": 0.7289119616147683
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 6,
+   "rel_mase": 0.703203789578003
+  },
+  {
+   "model": "timestral",
+   "id": "NYIS",
+   "h": 7,
+   "rel_mase": 0.6811368280865969
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 1,
+   "rel_mase": 0.7324149836790569
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 2,
+   "rel_mase": 0.8163332341161114
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 3,
+   "rel_mase": 0.8197575928155822
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 4,
+   "rel_mase": 0.7942124190250711
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 5,
+   "rel_mase": 0.7251237924817513
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 6,
+   "rel_mase": 0.6929850645915863
+  },
+  {
+   "model": "timestral",
+   "id": "PJM",
+   "h": 7,
+   "rel_mase": 0.7131424655874856
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 1,
+   "rel_mase": 0.6394371909035798
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 2,
+   "rel_mase": 0.5247082597730479
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 3,
+   "rel_mase": 0.42595590818367957
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 4,
+   "rel_mase": 0.4280522152499022
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 5,
+   "rel_mase": 0.46763300792032725
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 6,
+   "rel_mase": 0.4158050052566215
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "CISO",
+   "h": 7,
+   "rel_mase": 0.36293234131220486
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 1,
+   "rel_mase": 0.43165917340276855
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 2,
+   "rel_mase": 0.4602726112624868
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 3,
+   "rel_mase": 0.2978491072776371
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 4,
+   "rel_mase": 0.3906652154518817
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 5,
+   "rel_mase": 0.4322510289563842
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 6,
+   "rel_mase": 0.3192510090390023
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ERCO",
+   "h": 7,
+   "rel_mase": 0.2901312396925775
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 1,
+   "rel_mase": 0.4635946915337414
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 2,
+   "rel_mase": 0.44181108786326345
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 3,
+   "rel_mase": 0.4931132463199269
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 4,
+   "rel_mase": 0.49267499437787066
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 5,
+   "rel_mase": 0.41416899484554537
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 6,
+   "rel_mase": 0.3975770147204121
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "FPL",
+   "h": 7,
+   "rel_mase": 0.3471025361888828
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 1,
+   "rel_mase": 0.5567371269968339
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 2,
+   "rel_mase": 0.4744903862276015
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 3,
+   "rel_mase": 0.422155727987292
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 4,
+   "rel_mase": 0.52707575170365
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 5,
+   "rel_mase": 0.4427907477931146
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 6,
+   "rel_mase": 0.4274289326440779
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "ISNE",
+   "h": 7,
+   "rel_mase": 0.4526178507656817
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 1,
+   "rel_mase": 0.6080045010973175
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 2,
+   "rel_mase": 0.5073206079912758
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 3,
+   "rel_mase": 0.3592473109672297
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 4,
+   "rel_mase": 0.3733323591835081
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 5,
+   "rel_mase": 0.3937113786838208
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 6,
+   "rel_mase": 0.31802591502145744
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "MISO",
+   "h": 7,
+   "rel_mase": 0.40514395521253077
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 1,
+   "rel_mase": 0.6007850823047599
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 2,
+   "rel_mase": 0.41388739098115945
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 3,
+   "rel_mase": 0.38480244890691745
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 4,
+   "rel_mase": 0.44767733162007617
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 5,
+   "rel_mase": 0.48268522291086
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 6,
+   "rel_mase": 0.31038981308595637
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "NYIS",
+   "h": 7,
+   "rel_mase": 0.42431376646895225
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 1,
+   "rel_mase": 0.5196824323042533
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 2,
+   "rel_mase": 0.44473916144481457
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 3,
+   "rel_mase": 0.38569904440511954
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 4,
+   "rel_mase": 0.31609237174228033
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 5,
+   "rel_mase": 0.3157926661086777
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 6,
+   "rel_mase": 0.22388660500928828
+  },
+  {
+   "model": "timestral_temp_known",
+   "id": "PJM",
+   "h": 7,
+   "rel_mase": 0.24939773989972197
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 1,
+   "rel_mase": 0.7233423724965325
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 2,
+   "rel_mase": 0.8052255464277842
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 3,
+   "rel_mase": 0.7588579622045493
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 4,
+   "rel_mase": 0.751690697485516
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 5,
+   "rel_mase": 0.8039062170420839
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 6,
+   "rel_mase": 0.8028455652053711
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "CISO",
+   "h": 7,
+   "rel_mase": 0.8141286665429174
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 1,
+   "rel_mase": 0.7011206433203289
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 2,
+   "rel_mase": 0.8119531470215287
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 3,
+   "rel_mase": 0.7511299985047004
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 4,
+   "rel_mase": 0.7629899582072536
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 5,
+   "rel_mase": 0.7995863658455432
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 6,
+   "rel_mase": 0.7503258395338617
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ERCO",
+   "h": 7,
+   "rel_mase": 0.6811590132096695
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 1,
+   "rel_mase": 0.7102514458694481
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 2,
+   "rel_mase": 0.8147788963747434
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 3,
+   "rel_mase": 0.8405902611785693
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 4,
+   "rel_mase": 0.8168694385743024
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 5,
+   "rel_mase": 0.8595333792577495
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 6,
+   "rel_mase": 0.7746530573301013
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "FPL",
+   "h": 7,
+   "rel_mase": 0.7929815174763496
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 1,
+   "rel_mase": 0.857051727321354
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 2,
+   "rel_mase": 0.811131589844404
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 3,
+   "rel_mase": 0.6981207523133437
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 4,
+   "rel_mase": 0.7313128696016707
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 5,
+   "rel_mase": 0.6922479945711563
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 6,
+   "rel_mase": 0.7014182727790407
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "ISNE",
+   "h": 7,
+   "rel_mase": 0.6566290824368697
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 1,
+   "rel_mase": 0.6824983891754699
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 2,
+   "rel_mase": 0.7279311310140969
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 3,
+   "rel_mase": 0.8131777174524303
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 4,
+   "rel_mase": 0.8151616560629299
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 5,
+   "rel_mase": 0.8296728749911043
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 6,
+   "rel_mase": 0.8555876801177233
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "MISO",
+   "h": 7,
+   "rel_mase": 0.8036515159411646
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 1,
+   "rel_mase": 0.8321462400396461
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 2,
+   "rel_mase": 0.8353031999957689
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 3,
+   "rel_mase": 0.767040155092517
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 4,
+   "rel_mase": 0.7169216222829606
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 5,
+   "rel_mase": 0.7252495341112394
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 6,
+   "rel_mase": 0.6907445259035713
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "NYIS",
+   "h": 7,
+   "rel_mase": 0.6694628718631759
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 1,
+   "rel_mase": 0.6937481470338566
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 2,
+   "rel_mase": 0.8156236023294682
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 3,
+   "rel_mase": 0.833699217319622
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 4,
+   "rel_mase": 0.8159409123398998
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 5,
+   "rel_mase": 0.7488115827697079
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 6,
+   "rel_mase": 0.6849479564973199
+  },
+  {
+   "model": "timestral_temp_past",
+   "id": "PJM",
+   "h": 7,
+   "rel_mase": 0.6927936571703188
+  }
+ ],
+ "rel_mase_by_bank": [
+  {
+   "id": "CISO",
+   "mstl": 1.0,
+   "seasonal_naive": 1.3161902255444513,
+   "timestral": 0.8124985459780714,
+   "timestral_temp_known": 0.4498440868811168,
+   "timestral_temp_past": 0.7841739371013244
+  },
+  {
+   "id": "ERCO",
+   "mstl": 1.0,
+   "seasonal_naive": 1.1329036462775985,
+   "timestral": 0.7703068290135955,
+   "timestral_temp_known": 0.3651938998866312,
+   "timestral_temp_past": 0.7509669634079641
+  },
+  {
+   "id": "FPL",
+   "mstl": 1.0,
+   "seasonal_naive": 1.215216225751902,
+   "timestral": 0.803417291737233,
+   "timestral_temp_known": 0.4325610464069165,
+   "timestral_temp_past": 0.8067166685817928
+  },
+  {
+   "id": "ISNE",
+   "mstl": 1.0,
+   "seasonal_naive": 1.0330936436221605,
+   "timestral": 0.7325916476559914,
+   "timestral_temp_known": 0.46728432865392844,
+   "timestral_temp_past": 0.728687980445321
+  },
+  {
+   "id": "MISO",
+   "mstl": 1.0,
+   "seasonal_naive": 1.2421563735695162,
+   "timestral": 0.7875518455936232,
+   "timestral_temp_known": 0.4043344040572957,
+   "timestral_temp_past": 0.8025314691609651
+  },
+  {
+   "id": "NYIS",
+   "mstl": 1.0,
+   "seasonal_naive": 1.0579868484977901,
+   "timestral": 0.7540342755920154,
+   "timestral_temp_known": 0.4261718857886621,
+   "timestral_temp_past": 0.7380075456682078
+  },
+  {
+   "id": "PJM",
+   "mstl": 1.0,
+   "seasonal_naive": 1.1271876422219302,
+   "timestral": 0.7476353239460685,
+   "timestral_temp_known": 0.3233765910956578,
+   "timestral_temp_past": 0.7476534601451454
+  }
+ ],
+ "dm_summary": [
+  {
+   "h": 1,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 2,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 3,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 4,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 5,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 6,
+   "better": 1.0,
+   "worse": 0.0
+  },
+  {
+   "h": 7,
+   "better": 1.0,
+   "worse": 0.0
+  }
+ ],
+ "series_win_rates": [
+  {
+   "id": "CISO",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "ERCO",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "FPL",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "ISNE",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "MISO",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "NYIS",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "PJM",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  }
+ ],
+ "slices": [
+  {
+   "model": "mstl",
+   "normal": 0.8812559222310231,
+   "summer_2025": 1.2426335495593026,
+   "winter_2025_26": 0.9549876704842069
+  },
+  {
+   "model": "seasonal_naive",
+   "normal": 1.0318004075266425,
+   "summer_2025": 1.4322359229518273,
+   "winter_2025_26": 1.0373165289965098
+  },
+  {
+   "model": "timestral",
+   "normal": 0.6742271194332752,
+   "summer_2025": 0.9486102345313258,
+   "winter_2025_26": 0.7622404549186647
+  },
+  {
+   "model": "timestral_temp_known",
+   "normal": 0.37600151026004747,
+   "summer_2025": 0.4918306421904812,
+   "winter_2025_26": 0.3689382863258081
+  },
+  {
+   "model": "timestral_temp_past",
+   "normal": 0.6501664396598376,
+   "summer_2025": 0.9542849209023295,
+   "winter_2025_26": 0.8064888147065841
+  }
+ ]
+}

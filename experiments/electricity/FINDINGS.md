@@ -1,0 +1,43 @@
+## Headline numbers (auto-generated; narrative pending)
+
+```
+baseline=mstl  H=7
+h                         1      3      7  overall  coverage80   MASE
+model                                                                
+timestral_temp_known  0.541  0.391  0.355    0.407       0.752  0.397
+timestral_temp_past   0.740  0.779  0.727    0.765       0.775  0.735
+timestral             0.754  0.785  0.739    0.772       0.793  0.742
+mstl                  1.000  1.000  1.000    1.000       0.666  0.963
+seasonal_naive        1.864  1.166  0.979    1.157       0.803  1.110
+
+DM share better/worse at 5% (h in [1, 3, 7] )
+                     better             worse           
+h                         1     3     7     1     3    7
+model                                                   
+seasonal_naive          0.0  0.00  0.00   1.0  0.14  0.0
+timestral               1.0  0.71  0.57   0.0  0.00  0.0
+timestral_temp_known    1.0  1.00  1.00   0.0  0.00  0.0
+timestral_temp_past     1.0  0.57  0.57   0.0  0.00  0.0
+
+rel MASE by id:
+model  mstl  seasonal_naive  timestral  timestral_temp_known  timestral_temp_past
+id                                                                               
+CISO    1.0            1.32       0.81                  0.45                 0.78
+ERCO    1.0            1.13       0.77                  0.37                 0.75
+FPL     1.0            1.22       0.80                  0.43                 0.81
+ISNE    1.0            1.03       0.73                  0.47                 0.73
+MISO    1.0            1.24       0.79                  0.40                 0.80
+NYIS    1.0            1.06       0.75                  0.43                 0.74
+PJM     1.0            1.13       0.75                  0.32                 0.75
+
+by slice MASE:
+slice                 normal  summer_2025  winter_2025_26
+model                                                    
+mstl                   0.881        1.243           0.955
+seasonal_naive         1.032        1.432           1.037
+timestral              0.674        0.949           0.762
+timestral_temp_known   0.376        0.492           0.369
+timestral_temp_past    0.650        0.954           0.806
+```
+
+Known-future variants use the realised covariate path (perfect-foresight scenario test), not real-time forecasts.

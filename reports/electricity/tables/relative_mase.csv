@@ -1,0 +1,6 @@
+model,rel_mase
+mstl,1.0
+seasonal_naive,1.1568569594635583
+timestral,0.7720834066622065
+timestral_temp_known,0.4070116959135173
+timestral_temp_past,0.7649720803937626
