@@ -1,0 +1,4 @@
+2026-10-18 17:38:23,768 INFO model seasonal_naive: 31 origins in 0.3s
+2026-10-18 17:41:14,016 INFO model ets: 31 origins in 170.2s
+2026-10-18 17:41:17,491 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 108.58it/s]

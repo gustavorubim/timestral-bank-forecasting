@@ -1,0 +1,58 @@
+baseline=ets  H=24
+h                           1      6     12     24  overall  coverage80    MASE
+model                                                                          
+timestral_macro_past    0.603  0.826  0.911  0.861    0.869       0.729  13.578
+timestral               0.603  0.854  0.949  0.865    0.887       0.715  13.906
+timestral_macro_known   0.625  0.840  0.927  0.894    0.892       0.728  13.904
+ets                     1.000  1.000  1.000  1.000    1.000       0.378  15.919
+seasonal_naive         13.545  2.177  1.245  1.080    1.576       0.424  24.465
+
+DM share better/worse at 5% (h in [1, 6, 12, 24] )
+                      better                  worse                  
+h                         1     6     12   24    1     6     12    24
+model                                                                
+seasonal_naive          0.00  0.00  0.00  0.0   1.0  0.09  0.11  0.05
+timestral               0.68  0.25  0.09  0.0   0.0  0.00  0.00  0.00
+timestral_macro_known   0.57  0.30  0.14  0.0   0.0  0.00  0.00  0.00
+timestral_macro_past    0.70  0.30  0.20  0.0   0.0  0.00  0.00  0.00
+
+rel MASE by id:
+model         ets  seasonal_naive  timestral  timestral_macro_known  timestral_macro_past
+id                                                                                       
+Atlanta       1.0            1.54       0.82                   0.85                  0.85
+Austin        1.0            1.23       0.77                   0.77                  0.75
+Boston        1.0            1.86       1.09                   0.94                  0.90
+Charlotte     1.0            1.75       0.84                   0.85                  0.83
+Chicago       1.0            1.93       0.94                   0.91                  0.90
+Dallas        1.0            1.41       0.81                   0.86                  0.81
+Denver        1.0            1.22       0.74                   0.80                  0.74
+Detroit       1.0            2.06       0.91                   0.91                  0.88
+Houston       1.0            1.59       0.96                   0.89                  0.93
+LasVegas      1.0            1.16       0.82                   0.84                  0.81
+LosAngeles    1.0            1.61       0.89                   0.91                  0.90
+Miami         1.0            1.64       0.89                   0.86                  0.85
+Minneapolis   1.0            2.47       1.15                   1.28                  1.19
+Nashville     1.0            1.42       0.86                   0.85                  0.81
+NewYork       1.0            1.67       0.92                   0.89                  0.91
+Orlando       1.0            1.47       0.83                   0.84                  0.81
+Philadelphia  1.0            2.55       0.93                   0.90                  0.90
+Phoenix       1.0            1.32       0.82                   0.79                  0.79
+SanFrancisco  1.0            1.00       0.93                   0.98                  0.94
+Seattle       1.0            1.36       0.92                   0.95                  0.90
+Tampa         1.0            1.57       0.84                   0.85                  0.83
+Washington    1.0            1.76       0.95                   1.01                  0.97
+
+rel MASE by target:
+model   ets  seasonal_naive  timestral  timestral_macro_known  timestral_macro_past
+target                                                                             
+zhvi    1.0            1.60       0.93                   0.94                  0.91
+zori    1.0            1.55       0.84                   0.85                  0.83
+
+by slice MASE:
+slice                  covid_boom  normal  rate_shock_2022
+model                                                     
+ets                        23.338   7.243           20.068
+seasonal_naive             39.348  12.242           25.880
+timestral                  24.646   6.933           12.463
+timestral_macro_known      23.926   6.526           13.719
+timestral_macro_past       24.494   6.228           12.461
