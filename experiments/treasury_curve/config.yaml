@@ -1,0 +1,52 @@
+# Treasury curve: quarterly-average yields 3m..30y forecast jointly, 8-quarter one-shot.
+# Known-future covariates: realised fed funds path (policy scenario) and macro (unemployment, core CPI).
+# Build data: python -m bsforecast.data.treasury_curve ; run: python -m bsforecast run --config experiments/treasury_curve/config.yaml
+name: treasury_curve
+output_dir: reports/treasury_curve
+notes_file: experiments/treasury_curve/FINDINGS.md
+data:
+  path: data/processed/treasury_curve.parquet
+  date_col: date
+  id_col: id
+  freq: QE
+  targets: [ust_3m, ust_6m, ust_1y, ust_2y, ust_3y, ust_5y, ust_7y, ust_10y, ust_20y, ust_30y]
+  covariates: [fed_funds, unemployment, core_cpi_yoy]
+  groups:
+    short: [ust_3m, ust_6m, ust_1y, ust_2y]
+    belly: [ust_3y, ust_5y, ust_7y]
+    long: [ust_10y, ust_20y, ust_30y]
+backtest:
+  horizon: 8
+  n_origins: 40        # quarterly origins 2014Q3 .. 2024Q3
+  step: 1
+  min_train: 40
+  live_forecast: true
+  stress_windows:
+    covid: ["2019-09-30", "2020-06-30"]
+    hiking_2022: ["2021-09-30", "2022-12-31"]
+models:
+  - {name: random_walk, type: naive}
+  - {name: arima, type: auto_arima, season_length: 1}
+  - {name: timestral, type: timestral}
+  - {name: timestral_joint, type: timestral, multivariate: true}
+  - {name: timestral_joint_macro_past, type: timestral, multivariate: true, covariates: past}
+  - {name: timestral_joint_ff_known, type: timestral, multivariate: true, covariates: known_oracle,
+     covariate_subset: [fed_funds]}
+  - {name: timestral_joint_macro_known, type: timestral, multivariate: true, covariates: known_oracle,
+     covariate_subset: [unemployment, core_cpi_yoy]}
+evaluation:
+  baseline: random_walk
+  challenger: timestral_joint
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  fan_series: [ust_3m, ust_2y, ust_10y, ust_30y]
+  fan_origins: ["2021-12-31", "2023-09-30"]
+  highlight_origins: ["2015-12-31", "2019-06-30", "2020-03-31", "2021-12-31", "2023-09-30"]
+  highlight_series: [ust_2y, ust_10y]
+  highlight_models: [random_walk, timestral_joint, timestral_joint_ff_known]
+  spaghetti_targets_grid: true
+  spaghetti_models: [random_walk, arima, timestral_joint, timestral_joint_ff_known]
+  compare_pairs: [[timestral_joint, timestral], [timestral_joint_ff_known, timestral_joint],
+                  [timestral_joint_macro_known, timestral_joint], [timestral_joint_macro_past, timestral_joint],
+                  [timestral, random_walk], [arima, random_walk]]

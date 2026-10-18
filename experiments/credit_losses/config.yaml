@@ -1,0 +1,51 @@
+# Credit losses: Fed charge-off and delinquency rates (all commercial banks, %) for 7 loan types,
+# 8-quarter one-shot forecasts. Known-future macro = realised CCAR-style path (scenario test).
+# Build data: python -m bsforecast.data.credit_losses ; run: python -m bsforecast run --config experiments/credit_losses/config.yaml
+name: credit_losses
+output_dir: reports/credit_losses
+notes_file: experiments/credit_losses/FINDINGS.md
+data:
+  path: data/processed/credit_losses.parquet
+  date_col: date
+  id_col: id
+  freq: QE
+  targets: [chargeoff, delinquency]
+  covariates: [unemployment, gdp_growth, hpi_growth, cre_price_growth, baa_spread, ust_10y]
+  groups:
+    chargeoff: [chargeoff]
+    delinquency: [delinquency]
+backtest:
+  horizon: 8
+  n_origins: 36        # quarterly origins 2015Q3 .. 2024Q2
+  step: 1
+  min_train: 40
+  live_forecast: true
+  stress_windows:
+    covid: ["2019-06-30", "2020-06-30"]
+    normalisation_22_23: ["2021-12-31", "2023-06-30"]
+models:
+  - {name: naive, type: naive}
+  - {name: arima, type: auto_arima, season_length: 1}
+  - {name: timestral, type: timestral}
+  - {name: timestral_joint, type: timestral, multivariate: true}
+  - {name: timestral_macro_past, type: timestral, covariates: past}
+  - {name: timestral_macro_known, type: timestral, covariates: known_oracle}
+  - {name: timestral_unemp_known, type: timestral, covariates: known_oracle, covariate_subset: [unemployment, baa_spread]}
+  - {name: arimax_macro_known, type: auto_arima, season_length: 1, covariates: known_oracle,
+     covariate_subset: [unemployment, baa_spread]}
+evaluation:
+  baseline: arima
+  challenger: timestral_macro_known
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  fan_series: [chargeoff, delinquency]
+  fan_origins: ["2019-12-31", "2022-06-30"]
+  stress_series: [chargeoff, delinquency]
+  stress_origin: "2019-12-31"
+  spaghetti_by_group: true
+  spaghetti_models: [arima, timestral, timestral_macro_known, timestral_unemp_known]
+  compare_pairs: [[timestral_macro_known, timestral], [timestral_unemp_known, timestral],
+                  [timestral_macro_past, timestral], [timestral_joint, timestral], [timestral, arima],
+                  [arimax_macro_known, arima]]
+  id_heatmaps: true

@@ -1,0 +1,47 @@
+# Inflation components: CPI y/y (%) for 9 components, 24-month one-shot forecasts, quarterly-spaced origins.
+# Known-future covariates = realised WTI y/y, 3m/2y/10y Treasury, unemployment (scenario test).
+# Build data: python -m bsforecast.data.inflation ; run: python -m bsforecast run --config experiments/inflation/config.yaml
+name: inflation
+output_dir: reports/inflation
+notes_file: experiments/inflation/FINDINGS.md
+data:
+  path: data/processed/inflation.parquet
+  date_col: date
+  id_col: id
+  freq: ME
+  targets: [yoy]
+  covariates: [wti_yoy, ust_3m, ust_2y, ust_10y, unemployment, term_spread]
+  groups:
+    cpi: [yoy]
+backtest:
+  horizon: 24
+  n_origins: 36        # every 3 months, ~2015-12 .. 2024-09
+  step: 3
+  min_train: 120
+  live_forecast: true
+  stress_windows:
+    covid: ["2019-12-31", "2020-09-30"]
+    surge_2021_22: ["2020-12-31", "2022-06-30"]
+models:
+  - {name: naive, type: naive}
+  - {name: arima, type: auto_arima, season_length: 1}
+  - {name: timestral, type: timestral, clip_nonnegative: false}
+  - {name: timestral_macro_past, type: timestral, covariates: past, clip_nonnegative: false}
+  - {name: timestral_macro_known, type: timestral, covariates: known_oracle, clip_nonnegative: false}
+  - {name: timestral_oil_known, type: timestral, covariates: known_oracle, clip_nonnegative: false,
+     covariate_subset: [wti_yoy]}
+  - {name: arimax_macro_known, type: auto_arima, season_length: 1, covariates: known_oracle,
+     covariate_subset: [wti_yoy, unemployment]}
+evaluation:
+  baseline: arima
+  challenger: timestral_macro_known
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  fan_series: [yoy]
+  fan_origins: ["2020-12-31", "2022-06-30"]
+  spaghetti_by_group: true
+  spaghetti_models: [arima, timestral, timestral_macro_known, timestral_oil_known]
+  compare_pairs: [[timestral_macro_known, timestral], [timestral_oil_known, timestral],
+                  [timestral_macro_past, timestral], [timestral, arima], [arimax_macro_known, arima]]
+  id_heatmaps: true

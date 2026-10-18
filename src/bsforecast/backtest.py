@@ -26,10 +26,11 @@ def origin_indices(n_time: int, horizon: int, n_origins: int, step: int, min_tra
     return idx
 
 
-def _batch(panel: Panel, o: int, horizon: int, multivariate: bool, freq: str) -> Batch:
+def _batch(panel: Panel, o: int, horizon: int, multivariate: bool, freq: str, max_context: int | None = None) -> Batch:
     t_end = o + 1
-    y = panel.y[:, :, :t_end]
-    xp = panel.x[:, :, :t_end]
+    t0 = max(0, t_end - max_context) if max_context else 0
+    y = panel.y[:, :, t0:t_end]
+    xp = panel.x[:, :, t0:t_end]
     xf = panel.x[:, :, t_end : t_end + horizon]
     if xf.shape[-1] < horizon:  # live origin: no realised covariates -> hold last value
         pad = np.repeat(xp[:, :, -1:], horizon - xf.shape[-1], axis=-1)
@@ -38,7 +39,7 @@ def _batch(panel: Panel, o: int, horizon: int, multivariate: bool, freq: str) ->
         return Batch(y=y, x_past=xp, x_future=xf, horizon=horizon, freq=freq, cov_names=panel.covariates)
     n_id, n_tg, _ = y.shape
     return Batch(
-        y=y.reshape(n_id * n_tg, 1, t_end),
+        y=y.reshape(n_id * n_tg, 1, y.shape[-1]),
         x_past=np.repeat(xp, n_tg, axis=0),
         x_future=np.repeat(xf, n_tg, axis=0),
         horizon=horizon,
@@ -79,7 +80,7 @@ def run_backtest(cfg: Config, panel: Panel) -> pd.DataFrame:
         t0 = time.time()
         mpanel = model_view(panel, mc.params.get("covariate_subset"))
         for o in origins:
-            b = _batch(mpanel, o, h, model.multivariate, cfg.data.freq)
+            b = _batch(mpanel, o, h, model.multivariate, cfg.data.freq, cfg.backtest.max_context)
             q = model.predict(b).reshape(n_id, n_tg, h, len(qs))
             ctx = panel.y[:, :, : o + 1]
             last = pd.DataFrame(ctx.reshape(-1, o + 1)).ffill(axis=1).to_numpy()[:, -1].reshape(n_id, n_tg)

@@ -1,0 +1,44 @@
+# Electricity demand: EIA-930 daily load (GWh) for 7 balancing authorities, 7-day one-shot forecasts,
+# weekly rolling origins. Known-future covariate = realised population-weighted temperature (scenario test).
+# Build data: python -m bsforecast.data.electricity ; run: python -m bsforecast run --config experiments/electricity/config.yaml
+name: electricity
+output_dir: reports/electricity
+notes_file: experiments/electricity/FINDINGS.md
+data:
+  path: data/processed/electricity.parquet
+  date_col: date
+  id_col: id
+  freq: D
+  targets: [gwh]
+  covariates: [temp_mean, cdd, hdd]
+  groups:
+    load: [gwh]
+backtest:
+  horizon: 7
+  n_origins: 78        # weekly origins over ~1.5 years
+  step: 7
+  min_train: 365
+  max_context: 1100
+  live_forecast: true
+  stress_windows:
+    summer_2025: ["2025-06-01", "2025-09-15"]
+    winter_2025_26: ["2025-12-01", "2026-02-28"]
+models:
+  - {name: seasonal_naive, type: seasonal_naive, season_length: 7}
+  - {name: mstl, type: mstl, season_lengths: [7, 365]}
+  - {name: arima, type: auto_arima, season_length: 7}
+  - {name: timestral, type: timestral}
+  - {name: timestral_temp_past, type: timestral, covariates: past}
+  - {name: timestral_temp_known, type: timestral, covariates: known_oracle}
+evaluation:
+  baseline: mstl
+  challenger: timestral_temp_known
+  mase_season: 7
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  fan_series: [gwh]
+  fan_origins: ["2025-07-13", "2026-01-18"]
+  spaghetti_by_group: true
+  spaghetti_models: [mstl, timestral, timestral_temp_known]
+  compare_pairs: [[timestral_temp_known, timestral], [timestral_temp_past, timestral], [timestral, mstl], [arima, mstl]]
+  id_heatmaps: true

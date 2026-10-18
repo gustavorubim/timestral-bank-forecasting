@@ -373,6 +373,14 @@ def _extra_sections(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, m
         ]
     if pc.spaghetti_by_group:
         lines += _group_pages(cfg, panel, bt, err, figs, base, models)
+    if pc.spaghetti_targets_grid:
+        sm = pc.spaghetti_models or models[:3]
+        for i in panel.ids:
+            tag = str(i).replace("/", "_").replace(" ", "_")
+            P.spaghetti_targets(bt, panel, i, panel.targets, sm, figs / f"spaghetti_targets_{tag}.png")
+            lines += [f"## Spaghetti grid: {i} (rows = targets)", f"![](figures/spaghetti_targets_{tag}.png)", ""]
+    if pc.id_heatmaps and len(panel.ids) > 1:
+        lines += _id_heatmaps(err, figs, base, models, panel.ids)
     if pc.yield_curve:
         P.yield_curves(
             panel,
@@ -450,4 +458,40 @@ def _group_pages(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, mode
             idx += [f"## {t}", f"![](spaghetti_{t}.png)", ""]
         (gdir / "index.md").write_text("\n".join(idx))
         out.append(f"- [{g}](figures/{g}/index.md) ({len(ts)} lines)")
+    return out + [""]
+
+
+def _id_heatmaps(err: pd.DataFrame, figs: Path, base: str, models: list[str], ids: list[str]) -> list[str]:
+    """Relative MASE heatmaps where the ids are the series of interest (id x variant, id x horizon)."""
+    rel = M.relative_mase(err, base, by=["id"]).pivot(index="id", columns="model", values="rel_mase")
+    rel = rel.reindex([i for i in ids if i in rel.index])[[m for m in models if m in rel.columns and m != base]]
+    P.heatmap(
+        rel,
+        figs / "relmase_id_x_variant.png",
+        f"Relative MASE vs {base} by series and variant (<1 = better)",
+        center=1.0,
+        fmt="{:.2f}",
+        cmap="RdBu_r",
+        span=0.6,
+    )
+    out = [
+        f"## Relative MASE vs `{base}` by series",
+        "![](figures/relmase_id_x_variant.png)",
+        "",
+        _md(rel.reset_index()),
+        "",
+    ]
+    for m in [x for x in models if x != base]:
+        rh = M.relative_mase(err[err.model.isin([m, base])], base, by=["id", "h"])
+        pv = rh[rh.model == m].pivot(index="id", columns="h", values="rel_mase").reindex(rel.index)
+        P.heatmap(
+            pv,
+            figs / f"relmase_id_x_horizon_{m}.png",
+            f"{m} / {base}: relative MASE by series and horizon",
+            center=1.0,
+            fmt="{:.2f}",
+            cmap="RdBu_r",
+            span=0.6,
+        )
+        out += [f"![](figures/relmase_id_x_horizon_{m}.png)"]
     return out + [""]

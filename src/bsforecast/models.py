@@ -159,6 +159,69 @@ class AutoARIMAModel(Forecaster):
         return out
 
 
+class StatsForecastModel(Forecaster):
+    """Univariate statsforecast models without covariates: ``auto_ets`` and ``mstl`` (multi-seasonal).
+
+    params: season_length (int, auto_ets) or season_lengths (list, mstl; trend model = AutoETS).
+    """
+
+    kind = "auto_ets"
+
+    def _sf_model(self):
+        from statsforecast.models import MSTL, AutoETS
+
+        p = self.cfg.params
+        if self.kind == "mstl":
+            sl = p.get("season_lengths", [int(p.get("season_length", 7))])
+            return MSTL(season_length=sl, trend_forecaster=AutoETS(model="ZZN"), alias="m")
+        return AutoETS(season_length=int(p.get("season_length", 1)), alias="m")
+
+    def predict(self, batch):
+        from statsforecast import StatsForecast
+
+        b, v, t = batch.y.shape
+        qs = self.quantiles
+        levels = sorted({int(round(abs(1 - 2 * q) * 100)) for q in qs if abs(q - 0.5) > 1e-9})
+        dates = pd.date_range("2000-03-31", periods=t + batch.horizon, freq=batch.freq)
+        rows = []
+        for i in range(b):
+            for j in range(v):
+                s = pd.Series(batch.y[i, j], index=dates[:t])
+                first = s.first_valid_index()
+                if first is None:
+                    continue
+                s = s.loc[first:].ffill()
+                rows.append(pd.DataFrame({"unique_id": f"{i}|{j}", "ds": s.index, "y": s.to_numpy()}))
+        sf = StatsForecast(
+            models=[self._sf_model()],
+            freq=batch.freq,
+            n_jobs=int(self.cfg.params.get("n_jobs", min(8, os.cpu_count() or 1))),
+            fallback_model=Naive_(),
+        )
+        fc = sf.forecast(df=pd.concat(rows, ignore_index=True), h=batch.horizon, level=levels)
+        if "unique_id" not in fc.columns:
+            fc = fc.reset_index()
+        out = np.full((b, v, batch.horizon, len(qs)), np.nan)
+        for uid, g in fc.groupby("unique_id"):
+            i, j = map(int, str(uid).split("|"))
+            g = g.sort_values("ds")
+            for k, q in enumerate(qs):
+                if abs(q - 0.5) < 1e-9:
+                    col = "m"
+                else:
+                    col = f"m-{'lo' if q < 0.5 else 'hi'}-{int(round(abs(1 - 2 * q) * 100))}"
+                out[i, j, :, k] = g[col].to_numpy()
+        return out
+
+
+class AutoETSModel(StatsForecastModel):
+    kind = "auto_ets"
+
+
+class MSTLModel(StatsForecastModel):
+    kind = "mstl"
+
+
 class TimestralModel(Forecaster):
     _cache: dict[str, object] = {}
 
@@ -205,6 +268,8 @@ REGISTRY = {
     "naive": Naive,
     "seasonal_naive": SeasonalNaive,
     "auto_arima": AutoARIMAModel,
+    "auto_ets": AutoETSModel,
+    "mstl": MSTLModel,
     "timestral": TimestralModel,
 }
 

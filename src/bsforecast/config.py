@@ -31,6 +31,8 @@ class BacktestConfig:
     # Named windows of *origin* dates, e.g. covid: ["2019-06-30", "2020-06-30"].
     stress_windows: dict[str, list[str]] = field(default_factory=dict)
     live_forecast: bool = True
+    # Optional cap on context length fed to the models (e.g. long hourly/daily histories).
+    max_context: int | None = None
 
 
 @dataclass
@@ -76,6 +78,10 @@ class PlotConfig:
     yield_curve: dict = field(default_factory=dict)
     # Spaghetti grid for every target, written to figures/<group>/ with an index.md per group.
     spaghetti_by_group: bool = False
+    # Extra spaghetti grids with rows = targets (for multivariate ids such as a yield curve).
+    spaghetti_targets_grid: bool = False
+    # Per-id heatmaps (id x variant, id x horizon) for panels where ids are the series of interest.
+    id_heatmaps: bool = False
 
 
 @dataclass

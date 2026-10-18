@@ -49,7 +49,7 @@ def fan_grid(bt, panel: Panel, series, origin, models, path: Path, title: str, h
             ax = axes[r, c]
             ii = ids.index(i)
             lo = max(0, o_idx - history)
-            hi = min(len(panel.dates), o_idx + 9)
+            hi = min(len(panel.dates), o_idx + 1 + int(bt["h"].max()))
             ax.plot(panel.dates[lo:hi], panel.y[ii, j, lo:hi], color="k", lw=1.4, label="actual")
             for m in models:
                 d = bt[(bt.model == m) & (bt.id == i) & (bt.target == tgt) & (bt.origin == origin)].sort_values("h")
@@ -297,8 +297,10 @@ def spaghetti(bt, panel: Panel, target: str, models, path: Path):
                 ax.set_title(m, fontsize=9)
             if c == 0:
                 ax.set_ylabel(f"{i}\n{target}", fontsize=8)
+    hz = int(d0["h"].max()) if len(d0) else 8
     fig.suptitle(
-        f"{target}: all {len(origins)} origins' 8-quarter median paths (colour = origin date) vs actual", y=1.01
+        f"{target}: all {len(origins)} origins' {hz}-step one-shot median paths (colour = origin date) vs actual",
+        y=1.01,
     )
     fig.tight_layout()
     fig.savefig(path, dpi=110, bbox_inches="tight")
@@ -381,4 +383,42 @@ def helps_by_line(hv: pd.DataFrame, gmap: dict, path: Path):
     ax.grid(axis="x", alpha=0.3)
     fig.tight_layout()
     fig.savefig(path, dpi=120)
+    plt.close(fig)
+
+
+def spaghetti_targets(bt, panel: Panel, id_: str, targets, models, path: Path, before: int = 4):
+    """Like ``spaghetti`` but rows = targets of one id (e.g. maturities of a jointly forecast curve)."""
+    r = panel.ids.index(id_)
+    d0 = bt[(bt.id == id_) & ~bt.live]
+    first = d0["origin"].min()
+    fi = max(0, int(np.searchsorted(panel.dates, first)) - before)
+    fig, axes = plt.subplots(len(targets), len(models), figsize=(4.6 * len(models), 2.3 * len(targets)), squeeze=False)
+    cmap = plt.get_cmap("viridis")
+    origins = sorted(d0["origin"].unique())
+    rank = {o: k for k, o in enumerate(origins)}
+    for c, m in enumerate(models):
+        for rr, t in enumerate(targets):
+            ax = axes[rr, c]
+            j = panel.targets.index(t)
+            ax.plot(panel.dates[fi:], panel.y[r, j, fi:], color="k", lw=2, zorder=5)
+            d = d0[(d0.model == m) & (d0.target == t)]
+            for o, g in d.groupby("origin"):
+                g = g.sort_values("h")
+                x = pd.DatetimeIndex([o]).append(pd.DatetimeIndex(g["date"]))
+                ax.plot(
+                    x,
+                    np.r_[g["y_origin"].iloc[0], g["q0.5"]],
+                    color=cmap(rank[o] / max(1, len(origins) - 1)),
+                    lw=0.9,
+                    alpha=0.85,
+                )
+            ax.tick_params(labelsize=6)
+            if rr == 0:
+                ax.set_title(m, fontsize=9)
+            if c == 0:
+                ax.set_ylabel(t, fontsize=8)
+    hz = int(d0["h"].max()) if len(d0) else 8
+    fig.suptitle(f"{id_}: all {len(origins)} origins' {hz}-step one-shot median paths vs actual (black)", y=1.01)
+    fig.tight_layout()
+    fig.savefig(path, dpi=110, bbox_inches="tight")
     plt.close(fig)
