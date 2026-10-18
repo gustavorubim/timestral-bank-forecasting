@@ -37,7 +37,7 @@ evaluation:
   quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
 plots:
   fan_series: [gwh]
-  fan_origins: ["2025-07-13", "2026-01-18"]
+  fan_origins: ["2025-07-16", "2026-01-14"]
   spaghetti_by_group: true
   spaghetti_models: [mstl, timestral, timestral_temp_known]
   compare_pairs: [[timestral_temp_known, timestral], [timestral_temp_past, timestral], [timestral, mstl]]

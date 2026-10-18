@@ -28,3 +28,6 @@
 - Killed inflation/credit/electricity chains; relaunched as shards: experiments/lanes_a.sh 1|2 (logs reports/lane{1,2}.log,
   per-shard logs reports/run_<d>_<shard>.log). Treasury (pid 89823) continues unsharded (5/7 models done at 17:13).
 - autofinish_a.sh restarted (own pid; waits for lanes too; `report` merges shards; then HEADLINE.txt, stub FINDINGS, commit, push).
+
+## 2026-10-18 18:55 ET - DONE
+- All four domains finished, findings written, reports rebuilt, ruff + pytest green (28 passed, 1 skipped).

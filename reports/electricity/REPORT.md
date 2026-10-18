@@ -1,48 +1,31 @@
 # Backtest report: electricity
 
-## Headline numbers (auto-generated; narrative pending)
+## Findings: EIA-930 daily electricity demand, 7 balancing authorities, 7-day one-shot, 78 weekly origins 2025-04-16..2026-10-07 (+ live)
 
-```
-baseline=mstl  H=7
-h                         1      3      7  overall  coverage80   MASE
-model                                                                
-timestral_temp_known  0.541  0.391  0.355    0.407       0.752  0.397
-timestral_temp_past   0.740  0.779  0.727    0.765       0.775  0.735
-timestral             0.754  0.785  0.739    0.772       0.793  0.742
-mstl                  1.000  1.000  1.000    1.000       0.666  0.963
-seasonal_naive        1.864  1.166  0.979    1.157       0.803  1.110
+Relative MASE vs MSTL (weekly + annual seasonality, AutoETS trend; <1 = better; geometric mean over 7 BAs):
 
-DM share better/worse at 5% (h in [1, 3, 7] )
-                     better             worse           
-h                         1     3     7     1     3    7
-model                                                   
-seasonal_naive          0.0  0.00  0.00   1.0  0.14  0.0
-timestral               1.0  0.71  0.57   0.0  0.00  0.0
-timestral_temp_known    1.0  1.00  1.00   0.0  0.00  0.0
-timestral_temp_past     1.0  0.57  0.57   0.0  0.00  0.0
+| Model | day 1 | day 3 | day 7 | Overall | 80% coverage |
+|---|---|---|---|---|---|
+| **Timestral + known temperature (mean, CDD, HDD)** | 0.54 | 0.39 | 0.36 | **0.41** | 0.75 |
+| Timestral + past temperature | 0.74 | 0.78 | 0.73 | 0.77 | 0.78 |
+| Timestral (no covariates) | 0.75 | 0.79 | 0.74 | 0.77 | 0.79 |
+| MSTL | 1.00 | 1.00 | 1.00 | 1.00 | 0.67 |
+| Seasonal naive (last week) | 1.86 | 1.17 | 0.98 | 1.16 | 0.80 |
 
-rel MASE by id:
-model  mstl  seasonal_naive  timestral  timestral_temp_known  timestral_temp_past
-id                                                                               
-CISO    1.0            1.32       0.81                  0.45                 0.78
-ERCO    1.0            1.13       0.77                  0.37                 0.75
-FPL     1.0            1.22       0.80                  0.43                 0.81
-ISNE    1.0            1.03       0.73                  0.47                 0.73
-MISO    1.0            1.24       0.79                  0.40                 0.80
-NYIS    1.0            1.06       0.75                  0.43                 0.74
-PJM     1.0            1.13       0.75                  0.32                 0.75
+- **Plain Timestral beats MSTL by 23%** with no weather information, in every BA (0.73-0.81) and significantly
+  (Diebold-Mariano at 5%) on all 7 BAs at day 1 and 4 of 7 at day 7.
+- **Knowing the temperature cuts error a further ~45%** vs plain Timestral (PJM 0.43, ERCOT 0.47, MISO 0.51, ISO-NE 0.64)
+  - 0.41 vs MSTL overall, significantly better in all 7 BAs at every horizon. Unlike the macro panels, the gain *grows* with
+  horizon (0.54 at day 1 to 0.36 at day 7), because weather is what the model cannot extrapolate from the load history.
+- **Past-only temperature adds nothing** (0.77 vs 0.77): the value is entirely in the future path.
+- **Heat waves and cold snaps:** in summer 2025 origins MASE goes 1.24 (MSTL) -> 0.95 (Timestral) -> 0.49 (with temperature);
+  in winter 2025-26 0.96 -> 0.76 -> 0.37.
+- **Intervals** are somewhat narrow for Timestral (75-79% for nominal 80%); MSTL's are much too narrow (67%).
 
-by slice MASE:
-slice                 normal  summer_2025  winter_2025_26
-model                                                    
-mstl                   0.881        1.243           0.955
-seasonal_naive         1.032        1.432           1.037
-timestral              0.674        0.949           0.762
-timestral_temp_known   0.376        0.492           0.369
-timestral_temp_past    0.650        0.954           0.806
-```
-
-Known-future variants use the realised covariate path (perfect-foresight scenario test), not real-time forecasts.
+Caveats: "known" temperature is the realised daily mean at 3-4 load centres per BA (a perfect weather forecast), so real
+7-day weather-forecast error would erode part of the gain, especially at days 5-7. Daily totals, not hourly; no holiday
+calendar; AutoARIMA(7) was dropped as too slow on the shared CPU box. EIA's own day-ahead demand forecast in the bulk files
+is a natural next benchmark.
 
 ---
 
@@ -160,8 +143,8 @@ Share of bank x target series where the challenger is significantly better / wor
 
 ## Forecast fans
 
-![](figures/fan_20250713.png)
-![](figures/fan_20260118.png)
+![](figures/fan_20250716.png)
+![](figures/fan_20260114.png)
 ![](figures/fan_live.png)
 
 ## Diebold-Mariano vs baseline, all models
