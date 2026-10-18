@@ -26,7 +26,7 @@ backtest:
 models:
   - {name: seasonal_naive, type: seasonal_naive, season_length: 7}
   - {name: mstl, type: mstl, season_lengths: [7, 365]}
-  - {name: arima, type: auto_arima, season_length: 7}
+  # AutoARIMA(season 7) on ~1,100-day contexts x 553 fits was too slow on the shared CPU box; dropped.
   - {name: timestral, type: timestral}
   - {name: timestral_temp_past, type: timestral, covariates: past}
   - {name: timestral_temp_known, type: timestral, covariates: known_oracle}
@@ -40,5 +40,5 @@ plots:
   fan_origins: ["2025-07-13", "2026-01-18"]
   spaghetti_by_group: true
   spaghetti_models: [mstl, timestral, timestral_temp_known]
-  compare_pairs: [[timestral_temp_known, timestral], [timestral_temp_past, timestral], [timestral, mstl], [arima, mstl]]
+  compare_pairs: [[timestral_temp_known, timestral], [timestral_temp_past, timestral], [timestral, mstl]]
   id_heatmaps: true
