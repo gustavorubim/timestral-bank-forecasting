@@ -13,3 +13,5 @@
   unemployment, fed funds, Baa spread (6-regressor version overfit badly: rel MASE 1.83).
 - Possible next steps: Y-9C proper (download BHCF zips manually in browser -> loader), log-transform levels, CRPS metric,
   Timestral-28M/123M size comparison, scenario runs with CCAR macro paths for the oracle models.
+- 14:50 ET term-structure experiment: configs/term_structure.yaml, curve in data build; running reports/term_structure/run.log
+- 15:00 ET term-structure experiment done, report regenerated, committing

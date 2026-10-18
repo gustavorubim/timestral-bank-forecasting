@@ -61,6 +61,13 @@ of MASE(model) / MASE(AutoARIMA), so a value below 1 means the model beats ARIMA
   multivariate Timestral are the most coherent of the learned models. Their median excess gap vs actual is 10pp, against
   19pp for univariate Timestral and 26pp for ARIMA.
 
+## Experiment 2: Treasury term structure as a known-future covariate
+
+`uv run python -m bsforecast run --config configs/term_structure.yaml` produces [`reports/term_structure/REPORT.md`](reports/term_structure/REPORT.md).
+Given the realised curve, Timestral cuts interest-expense MASE about 40% vs no covariates (0.51× ARIMA). The gain
+grows with horizon. The exception is the 2023Q2 rate peak, where lagged deposit repricing defeats a level-only mapping.
+See [`docs/term_structure_findings.md`](docs/term_structure_findings.md).
+
 ## Design
 
 ```

@@ -1,0 +1,15 @@
+2026-10-18 14:43:58,953 INFO model arima: 39 origins in 43.6s
+2026-10-18 14:45:19,652 INFO model arimax_curve_factors: 39 origins in 80.7s
+2026-10-18 14:45:21,004 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 1209.60it/s]
+2026-10-18 14:45:30,914 INFO model timestral: 39 origins in 11.3s
+2026-10-18 14:48:57,176 INFO model timestral_curve_past: 39 origins in 206.3s
+2026-10-18 14:49:45,541 INFO model timestral_curve_known: 39 origins in 48.4s
+2026-10-18 14:49:59,907 INFO model timestral_factors_known: 39 origins in 14.4s
+ timestral_curve_known  rel MASE vs baseline = 0.638
+timestral_factors_known  rel MASE vs baseline = 0.656
+  timestral_curve_past  rel MASE vs baseline = 0.831
+             timestral  rel MASE vs baseline = 0.906
+  arimax_curve_factors  rel MASE vs baseline = 0.909
+                 arima  rel MASE vs baseline = 1.000
+report: reports/term_structure/REPORT.md

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -77,6 +78,8 @@ def build_report(cfg: Config, panel: Panel, bt: pd.DataFrame) -> dict:
         .reset_index()
     )
     dm = M.dm_table(err, chal, base)
+    if dm.empty:
+        dm = pd.DataFrame(columns=["id", "target", "h", "dm_stat", "p_value", "n"])
     dm_sum = (
         dm.assign(
             better=(dm.dm_stat < 0) & (dm.p_value < 0.05),
@@ -181,6 +184,8 @@ def build_report(cfg: Config, panel: Panel, bt: pd.DataFrame) -> dict:
         t.insert(0, "identity", ident.name)
         id_tables.append(t)
 
+    extra = _extra_sections(cfg, panel, bt, err, figs, base, models)
+
     # ---- tables
     tables = out / "tables"
     tables.mkdir(exist_ok=True)
@@ -264,6 +269,9 @@ def build_report(cfg: Config, panel: Panel, bt: pd.DataFrame) -> dict:
     lines += ["", "## Forecast fans", ""]
     lines += [f"![](figures/fan_{pd.Timestamp(o).strftime('%Y%m%d')}.png)" for o in cfg.plots.fan_origins]
     lines += ["![](figures/fan_live.png)", ""]
+    lines += extra
+    if cfg.notes_file and Path(cfg.notes_file).exists():
+        lines[1:1] = ["", Path(cfg.notes_file).read_text().strip(), "", "---", "", "# Full tables"]
     (out / "REPORT.md").write_text("\n".join(lines))
     summary = {
         "overall": overall.to_dict("records"),
@@ -278,3 +286,98 @@ def build_report(cfg: Config, panel: Panel, bt: pd.DataFrame) -> dict:
     }
     (out / "summary.json").write_text(json.dumps(summary, indent=1, default=str))
     return summary
+
+
+def _dm_all(err: pd.DataFrame, base: str, models: list[str]) -> pd.DataFrame:
+    rows = []
+    for m in models:
+        if m == base:
+            continue
+        d = M.dm_table(err, m, base)
+        if d.empty:
+            continue
+        d = d.assign(better=(d.dm_stat < 0) & (d.p_value < 0.05), worse=(d.dm_stat > 0) & (d.p_value < 0.05))
+        for h, g in d.groupby("h"):
+            rows.append({"model": m, "h": h, "better": g.better.mean(), "worse": g.worse.mean()})
+    return pd.DataFrame(rows)
+
+
+def _extra_sections(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, models: list[str]) -> list[str]:
+    pc = cfg.plots
+    lines: list[str] = []
+    dm_all = _dm_all(err, base, models)
+    if not dm_all.empty:
+        b = dm_all.pivot(index="h", columns="model", values="better")
+        w = dm_all.pivot(index="h", columns="model", values="worse")
+        lines += [
+            "## Diebold-Mariano vs baseline, all models",
+            f"Share of series significantly **better** than `{base}` at 5% (squared error):",
+            "",
+            _md(b.reset_index(), "{:.0%}"),
+            "",
+            "Share significantly **worse**:",
+            "",
+            _md(w.reset_index(), "{:.0%}"),
+            "",
+        ]
+        (cfg.out / "tables").mkdir(exist_ok=True)
+        dm_all.to_csv(cfg.out / "tables" / "dm_all_models.csv", index=False)
+    cov = err.groupby(["model", "target"])["covered"].mean().unstack()
+    lines += ["## 80% interval coverage by line", _md(cov.reset_index()), ""]
+    rel_t = M.relative_mase(err, base, by=["target"]).pivot(index="target", columns="model", values="rel_mase")
+    lines += [f"## Relative MASE vs `{base}` by line", _md(rel_t.reset_index()), ""]
+    rel_th = M.relative_mase(err, base, by=["target", "h"])
+    for t, g in rel_th.groupby("target"):
+        lines += [
+            f"### {t}: relative MASE by horizon",
+            _md(g.pivot(index="h", columns="model", values="rel_mase").reset_index()),
+            "",
+        ]
+    if pc.highlight_origins:
+        ho = [pd.Timestamp(o) for o in pc.highlight_origins]
+        eh = err[err.origin.isin(ho)]
+        if not eh.empty:
+            r = M.relative_mase(eh, base, by=["target"]).pivot(index="target", columns="model", values="rel_mase")
+            lines += [
+                "## Highlighted origins only: relative MASE",
+                ", ".join(str(o.date()) for o in ho),
+                "",
+                _md(r.reset_index()),
+                "",
+            ]
+            per = eh.groupby(["model", "origin", "target"])["ase"].mean().unstack("model").reset_index()
+            per["origin"] = per["origin"].dt.date
+            lines += ["### MASE per highlighted origin", _md(per), ""]
+        hm = pc.highlight_models or models[:2]
+        for t in pc.highlight_series:
+            P.multi_origin_fans(bt, panel, t, ho, hm, figs / f"fans_{t}.png")
+            lines.append(f"![](figures/fans_{t}.png)")
+        lines.append("")
+    for t in pc.spaghetti_series:
+        P.spaghetti(bt, panel, t, pc.spaghetti_models or models[:2], figs / f"spaghetti_{t}.png")
+        lines.append(f"![](figures/spaghetti_{t}.png)")
+    for a, b in pc.compare_pairs:
+        sub = err[err.model.isin([a, b])]
+        tb = M.relative_mase(sub, b, by=["target", "id"])
+        th = M.relative_mase(sub, b, by=["target", "h"])
+        tb, th = tb[tb.model == a], th[th.model == a]
+        P.help_bars(tb, th, f"How much does `{a}` help vs `{b}`?", figs / f"help_{a}_vs_{b}.png")
+        tot = M.relative_mase(sub, b, by=["target"])
+        tot = tot[tot.model == a][["target", "rel_mase"]]
+        lines += [
+            f"## How much does `{a}` help vs `{b}`? (relative MASE, <1 = helps)",
+            _md(tot),
+            "",
+            f"![](figures/help_{a}_vs_{b}.png)",
+            "",
+        ]
+    if pc.yield_curve:
+        P.yield_curves(
+            panel,
+            pc.yield_curve["columns"],
+            pc.yield_curve["maturities"],
+            pc.highlight_origins,
+            figs / "yield_curves.png",
+        )
+        lines += ["## Yield curve at highlighted origins", "![](figures/yield_curves.png)", ""]
+    return lines

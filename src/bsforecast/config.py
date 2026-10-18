@@ -64,6 +64,16 @@ class PlotConfig:
     fan_origins: list[str] = field(default_factory=list)
     stress_series: list[str] = field(default_factory=list)
     stress_origin: str | None = None
+    # Optional "highlighted origins" analysis (e.g. rate-regime turning points).
+    highlight_origins: list[str] = field(default_factory=list)
+    highlight_series: list[str] = field(default_factory=list)
+    highlight_models: list[str] = field(default_factory=list)
+    spaghetti_series: list[str] = field(default_factory=list)
+    spaghetti_models: list[str] = field(default_factory=list)
+    # [model, reference] pairs for "how much does X help vs Y" bars.
+    compare_pairs: list[list[str]] = field(default_factory=list)
+    # {"columns": [...covariate names...], "maturities": [...years...]} to draw the curve at highlighted origins.
+    yield_curve: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -76,6 +86,7 @@ class Config:
     identities: list[IdentityConfig] = field(default_factory=list)
     plots: PlotConfig = field(default_factory=PlotConfig)
     output_dir: str = "reports"
+    notes_file: str | None = None  # markdown prepended to REPORT.md (headline findings)
 
     @property
     def out(self) -> Path:
@@ -99,4 +110,5 @@ def load_config(path: str | Path) -> Config:
         identities=[IdentityConfig(**i) for i in raw.get("identities", [])],
         plots=PlotConfig(**raw.get("plots", {})),
         output_dir=raw.get("output_dir", f"reports/{raw.get('name', 'run')}"),
+        notes_file=raw.get("notes_file"),
     )

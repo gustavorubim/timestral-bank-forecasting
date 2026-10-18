@@ -1,0 +1,13 @@
+id,target,win_rate
+BAC,interest_expense,0.7763157894736842
+BAC,interest_income,0.7171052631578947
+BAC,nii,0.5460526315789473
+C,interest_expense,0.8486842105263158
+C,interest_income,0.8157894736842105
+C,nii,0.5230263157894737
+JPM,interest_expense,0.7532894736842105
+JPM,interest_income,0.7269736842105263
+JPM,nii,0.625
+WFC,interest_expense,0.8223684210526315
+WFC,interest_income,0.7072368421052632
+WFC,nii,0.6611842105263158

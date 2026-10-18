@@ -73,7 +73,7 @@ def diebold_mariano(e1: np.ndarray, e2: np.ndarray, h: int, power: int = 2) -> t
     if n < 4 or np.allclose(d, d[0]):
         return np.nan, np.nan
     dbar = d.mean()
-    gam = [np.mean((d[k:] - dbar) * (d[: n - k] - dbar)) for k in range(h)]
+    gam = [np.mean((d[k:] - dbar) * (d[: n - k] - dbar)) for k in range(min(h, n - 1))]
     var = (gam[0] + 2 * sum(gam[1:])) / n
     if var <= 0:
         var = gam[0] / n

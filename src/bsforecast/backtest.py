@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import dataclasses
 import logging
 import time
 
@@ -46,6 +47,17 @@ def _batch(panel: Panel, o: int, horizon: int, multivariate: bool, freq: str) ->
     )
 
 
+def model_view(panel: Panel, subset: list[str] | None) -> Panel:
+    """Restrict the covariates a model sees (``covariate_subset`` in its config)."""
+    if not subset:
+        return panel
+    missing = [c for c in subset if c not in panel.covariates]
+    if missing:
+        raise KeyError(f"covariate_subset not in data.covariates: {missing}")
+    idx = [panel.covariates.index(c) for c in subset]
+    return dataclasses.replace(panel, x=panel.x[:, idx, :], covariates=list(subset))
+
+
 def mase_scale(y: np.ndarray, m: int) -> np.ndarray:
     d = np.abs(y[..., m:] - y[..., :-m])
     with np.errstate(all="ignore"):
@@ -65,8 +77,9 @@ def run_backtest(cfg: Config, panel: Panel) -> pd.DataFrame:
     for mc in cfg.models:
         model = build_model(mc, qs)
         t0 = time.time()
+        mpanel = model_view(panel, mc.params.get("covariate_subset"))
         for o in origins:
-            b = _batch(panel, o, h, model.multivariate, cfg.data.freq)
+            b = _batch(mpanel, o, h, model.multivariate, cfg.data.freq)
             q = model.predict(b).reshape(n_id, n_tg, h, len(qs))
             ctx = panel.y[:, :, : o + 1]
             last = pd.DataFrame(ctx.reshape(-1, o + 1)).ffill(axis=1).to_numpy()[:, -1].reshape(n_id, n_tg)

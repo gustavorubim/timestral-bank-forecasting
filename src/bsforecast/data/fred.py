@@ -71,3 +71,50 @@ def quarterly_macro(cache_dir: Path | None = None) -> pd.DataFrame:
     out["hpi_growth"] = 100 * np.log(m["hpi"]).diff(4)  # y/y, %
     out.index.name = "date"
     return out
+
+
+# Constant-maturity Treasury yields (daily, H.15). Maturity in years.
+CURVE = {
+    "ust_3m": ("DGS3MO", 0.25),
+    "ust_6m": ("DGS6MO", 0.5),
+    "ust_1y": ("DGS1", 1.0),
+    "ust_2y": ("DGS2", 2.0),
+    "ust_3y": ("DGS3", 3.0),
+    "ust_5y": ("DGS5", 5.0),
+    "ust_7y": ("DGS7", 7.0),
+    "ust_10y": ("DGS10", 10.0),
+    "ust_20y": ("DGS20", 20.0),
+    "ust_30y": ("DGS30", 30.0),
+}
+
+
+def fill_curve_gaps(curve: pd.DataFrame) -> pd.DataFrame:
+    """Fill maturity gaps (20y: 1987-93, 30y: 2002-06) via the spread to the next-shorter maturity.
+
+    The spread is interpolated linearly in time between observed quarters (held flat at the ends),
+    then added back to the shorter yield. Gaps where the shorter yield is itself missing stay NaN.
+    """
+    out = curve.copy()
+    cols = list(curve.columns)
+    for k in range(1, len(cols)):
+        c, short = cols[k], cols[k - 1]
+        if out[c].isna().any():
+            spread = (out[c] - out[short]).interpolate(limit_area="inside").ffill().bfill()
+            inside = out[c].ffill().notna() & out[c].bfill().notna()  # interior gaps only, no extrapolation
+            out[c] = out[c].where(~inside | out[c].notna(), out[short] + spread)
+    return out
+
+
+def quarterly_curve(cache_dir: Path | None = None) -> pd.DataFrame:
+    """Quarterly-average Treasury curve + empirical level / slope / curvature factors."""
+    raw = pd.DataFrame({name: fetch_series(fid, cache_dir) for name, (fid, _) in CURVE.items()})
+    q = raw.resample("QE").mean()
+    q = q[q.notna().sum(axis=1) >= 3]  # drop pre-1962 / empty quarters
+    n_filled = int((q.isna() & fill_curve_gaps(q).notna()).sum().sum())
+    q = fill_curve_gaps(q)
+    q["curve_level"] = q[["ust_3m", "ust_2y", "ust_10y"]].mean(axis=1, skipna=False)
+    q["curve_slope"] = q["ust_10y"] - q["ust_3m"]
+    q["curve_curvature"] = 2 * q["ust_2y"] - q["ust_3m"] - q["ust_10y"]
+    q.attrs["n_gap_filled"] = n_filled
+    q.index.name = "date"
+    return q

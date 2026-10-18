@@ -69,11 +69,18 @@ def build(raw_dir: Path, out_dir: Path, start_panel: str = "2001-03-31") -> pd.D
     macro = fred.quarterly_macro(raw_dir)
     banks["date"] = banks["date"] + pd.offsets.QuarterEnd(0)
     panel = banks.merge(macro.reset_index(), on="date", how="left")
+    curve = fred.quarterly_curve(raw_dir)
+    panel = panel.merge(curve.reset_index(), on="date", how="left")
+    # Cross-check: NII must equal total interest income minus total interest expense.
+    gap = (panel["interest_income"] - panel["interest_expense"] - panel["nii"]).abs()
+    if (gap > 1e-4 * panel["nii"].abs().clip(lower=1.0)).any():
+        raise ValueError(f"NII != interest income - interest expense (max gap {gap.max():.3f})")
     panel = panel[panel["date"] >= start_panel].reset_index(drop=True)
     out_dir.mkdir(parents=True, exist_ok=True)
     panel.to_parquet(out_dir / "top4_bhc_panel.parquet", index=False)
     panel.to_csv(out_dir / "top4_bhc_panel.csv", index=False)
     macro.reset_index().to_csv(out_dir / "macro_quarterly.csv", index=False)
+    curve.reset_index().to_csv(out_dir / "treasury_curve_quarterly.csv", index=False)
     long = panel.melt(id_vars=["date", "bank", "rssd_hc"], var_name="variable", value_name="value")
     long.to_parquet(out_dir / "top4_bhc_panel_long.parquet", index=False)
     return panel

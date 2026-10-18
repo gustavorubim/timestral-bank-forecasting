@@ -1,0 +1,7 @@
+model,rel_mase
+arima,1.0
+arimax_curve_factors,0.9090411389626867
+timestral,0.905697447406455
+timestral_curve_known,0.6383587996842907
+timestral_curve_past,0.8313149294946833
+timestral_factors_known,0.655727332228735

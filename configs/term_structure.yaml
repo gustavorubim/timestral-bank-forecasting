@@ -1,0 +1,61 @@
+# Term-structure experiment: does knowing the realised Treasury curve over the forecast window
+# (a scenario / oracle setup, as in stress testing) help forecast bank interest income & expense?
+name: term_structure
+output_dir: reports/term_structure
+notes_file: docs/term_structure_findings.md
+data:
+  path: data/processed/top4_bhc_panel.parquet
+  date_col: date
+  id_col: bank
+  freq: QE
+  min_date: "2001-03-31"
+  targets: [interest_income, interest_expense, nii]   # NII = income - expense (cross-checked at build time)
+  covariates: [ust_3m, ust_6m, ust_1y, ust_2y, ust_3y, ust_5y, ust_7y, ust_10y, ust_20y, ust_30y,
+               curve_level, curve_slope, curve_curvature]
+  groups:
+    interest: [interest_income, interest_expense, nii]
+backtest:
+  horizon: 8
+  n_origins: 38        # quarterly origins 2015Q1 .. 2024Q2, each with 8 realised quarters
+  step: 1
+  min_train: 40
+  live_forecast: true
+  stress_windows:
+    hiking_2022: ["2021-06-30", "2022-12-31"]
+    covid: ["2019-06-30", "2020-06-30"]
+models:
+  - {name: arima, type: auto_arima, season_length: 4}
+  - {name: arimax_curve_factors, type: auto_arima, season_length: 4, covariates: known_oracle,
+     covariate_subset: [curve_level, curve_slope]}
+  - {name: timestral, type: timestral}
+  - {name: timestral_curve_past, type: timestral, covariates: past,
+     covariate_subset: [ust_3m, ust_6m, ust_1y, ust_2y, ust_3y, ust_5y, ust_7y, ust_10y, ust_20y, ust_30y]}
+  - {name: timestral_curve_known, type: timestral, covariates: known_oracle,
+     covariate_subset: [ust_3m, ust_6m, ust_1y, ust_2y, ust_3y, ust_5y, ust_7y, ust_10y, ust_20y, ust_30y]}
+  - {name: timestral_factors_known, type: timestral, covariates: known_oracle,
+     covariate_subset: [curve_level, curve_slope, curve_curvature]}
+evaluation:
+  baseline: arima
+  challenger: timestral_curve_known
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+identities:
+  - name: nii_bridge
+    total: nii
+    components: [interest_income, interest_expense]
+    signs: [1, -1]
+plots:
+  fan_series: [interest_income, interest_expense, nii]
+  fan_origins: ["2021-12-31"]
+  stress_series: [interest_income, interest_expense, nii]
+  stress_origin: "2021-12-31"
+  highlight_origins: ["2015-12-31", "2019-06-30", "2020-03-31", "2021-12-31", "2023-06-30"]
+  highlight_series: [interest_income, interest_expense]
+  highlight_models: [arima, timestral, timestral_curve_known]
+  spaghetti_series: [interest_expense, interest_income]
+  spaghetti_models: [arima, timestral, timestral_curve_known]
+  compare_pairs: [[timestral_curve_known, timestral], [timestral_factors_known, timestral],
+                  [timestral_curve_past, timestral], [arimax_curve_factors, arima]]
+  yield_curve:
+    columns: [ust_3m, ust_6m, ust_1y, ust_2y, ust_3y, ust_5y, ust_7y, ust_10y, ust_20y, ust_30y]
+    maturities: [0.25, 0.5, 1, 2, 3, 5, 7, 10, 20, 30]

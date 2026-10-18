@@ -14,6 +14,10 @@ import pandas as pd  # noqa: E402
 from .dataset import Panel  # noqa: E402
 
 PALETTE = {
+    "timestral_curve_known": "#9467bd",
+    "timestral_curve_past": "#ff7f0e",
+    "timestral_factors_known": "#2ca02c",
+    "arimax_curve_factors": "#17becf",
     "timestral": "#d62728",
     "timestral_cov": "#ff7f0e",
     "timestral_cov_oracle": "#9467bd",
@@ -31,6 +35,8 @@ def _c(m: str) -> str:
 
 def fan_grid(bt, panel: Panel, series, origin, models, path: Path, title: str, history: int = 32):
     ids = panel.ids
+    if not series:
+        return
     fig, axes = plt.subplots(len(series), len(ids), figsize=(4.2 * len(ids), 2.8 * len(series)), squeeze=False)
     origin = pd.Timestamp(origin)
     o_idx = int(np.searchsorted(panel.dates, origin))
@@ -222,6 +228,124 @@ def origin_timeline(err: pd.DataFrame, models: list[str], path: Path, stress: di
     ax.set_ylabel("median |e| / naive scale")
     ax.legend(fontsize=7, ncol=4)
     ax.grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(path, dpi=120)
+    plt.close(fig)
+
+
+def multi_origin_fans(bt, panel: Panel, target: str, origins, models, path: Path, before: int = 12):
+    """Rows = ids, columns = origins; median + 80% band per model, actuals in black."""
+    ids, j = panel.ids, panel.targets.index(target)
+    origins = [pd.Timestamp(o) for o in origins]
+    fig, axes = plt.subplots(len(ids), len(origins), figsize=(3.3 * len(origins), 2.5 * len(ids)), squeeze=False)
+    for c, o in enumerate(origins):
+        oi = int(np.searchsorted(panel.dates, o))
+        lo, hi = max(0, oi - before), min(len(panel.dates), oi + 9)
+        for r, i in enumerate(ids):
+            ax = axes[r, c]
+            ax.plot(panel.dates[lo:hi], panel.y[r, j, lo:hi], color="k", lw=1.4, label="actual")
+            for m in models:
+                d = bt[(bt.model == m) & (bt.id == i) & (bt.target == target) & (bt.origin == o)].sort_values("h")
+                if d.empty:
+                    continue
+                x = pd.DatetimeIndex([o]).append(pd.DatetimeIndex(d["date"]))
+                ax.plot(x, np.r_[d["y_origin"].iloc[0], d["q0.5"]], color=_c(m), lw=1.4, label=m)
+                ax.fill_between(d["date"], d["q0.1"], d["q0.9"], color=_c(m), alpha=0.15)
+            ax.axvline(o, color="grey", ls=":", lw=1)
+            ax.tick_params(labelsize=6)
+            if r == 0:
+                ax.set_title(f"origin {o.date()}", fontsize=9)
+            if c == 0:
+                ax.set_ylabel(f"{i}\n{target}", fontsize=8)
+    h, lab = axes[0, 0].get_legend_handles_labels()
+    fig.suptitle(f"{target}: one-shot 8q forecasts from rate-regime origins (80% bands)", y=1.035)
+    fig.legend(h, lab, loc="upper center", bbox_to_anchor=(0.5, 1.01), ncol=len(lab), fontsize=8, frameon=False)
+    fig.tight_layout()
+    fig.savefig(path, dpi=110, bbox_inches="tight")
+    plt.close(fig)
+
+
+def spaghetti(bt, panel: Panel, target: str, models, path: Path):
+    """Every origin's 8q median path over the actual series; rows = ids, cols = models."""
+    ids, j = panel.ids, panel.targets.index(target)
+    d0 = bt[(bt.target == target) & ~bt.live]
+    first = d0["origin"].min()
+    fi = max(0, int(np.searchsorted(panel.dates, first)) - 4)
+    fig, axes = plt.subplots(len(ids), len(models), figsize=(4.6 * len(models), 2.5 * len(ids)), squeeze=False)
+    cmap = plt.get_cmap("viridis")
+    origins = sorted(d0["origin"].unique())
+    for c, m in enumerate(models):
+        for r, i in enumerate(ids):
+            ax = axes[r, c]
+            ax.plot(panel.dates[fi:], panel.y[r, j, fi:], color="k", lw=2, zorder=5)
+            d = d0[(d0.model == m) & (d0.id == i)]
+            for k, (o, g) in enumerate(d.groupby("origin")):
+                g = g.sort_values("h")
+                x = pd.DatetimeIndex([o]).append(pd.DatetimeIndex(g["date"]))
+                ax.plot(
+                    x,
+                    np.r_[g["y_origin"].iloc[0], g["q0.5"]],
+                    color=cmap(k / max(1, len(origins) - 1)),
+                    lw=0.9,
+                    alpha=0.85,
+                )
+            ax.tick_params(labelsize=6)
+            if r == 0:
+                ax.set_title(m, fontsize=9)
+            if c == 0:
+                ax.set_ylabel(f"{i}\n{target}", fontsize=8)
+    fig.suptitle(
+        f"{target}: all {len(origins)} origins' 8-quarter median paths (colour = origin date) vs actual", y=1.01
+    )
+    fig.tight_layout()
+    fig.savefig(path, dpi=110, bbox_inches="tight")
+    plt.close(fig)
+
+
+def help_bars(by_target_bank: pd.DataFrame, by_h: pd.DataFrame, title: str, path: Path):
+    """Relative MASE of model vs reference: grouped bars per target x id, and by horizon per target."""
+    fig, axes = plt.subplots(1, 2, figsize=(13, 4.2))
+    pv = by_target_bank.pivot(index="target", columns="id", values="rel_mase")
+    pv.plot.bar(ax=axes[0], width=0.8)
+    axes[0].axhline(1, color="k", lw=1)
+    axes[0].set_title(f"{title}\nrelative MASE by line and bank (<1 = helps)", fontsize=9)
+    axes[0].tick_params(axis="x", rotation=0)
+    for t, g in by_h.groupby("target"):
+        axes[1].plot(g["h"], g["rel_mase"], marker="o", ms=3, label=t)
+    axes[1].axhline(1, color="k", lw=1)
+    axes[1].set_title("by horizon (geo-mean over banks)", fontsize=9)
+    axes[1].set_xlabel("horizon (quarters ahead)")
+    axes[1].legend(fontsize=8)
+    axes[1].grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(path, dpi=120)
+    plt.close(fig)
+
+
+def yield_curves(panel: Panel, cols, mats, origins, path: Path, ahead: int = 8):
+    """Curve at each highlighted origin (solid) and the realised curve `ahead` periods later (dashed)."""
+    idx = [panel.covariates.index(c) for c in cols]
+    x = panel.x[0][idx]  # covariates are common across ids
+    fig, axes = plt.subplots(1, 2, figsize=(13, 4.2))
+    for k, o in enumerate(origins):
+        o = pd.Timestamp(o)
+        oi = int(np.searchsorted(panel.dates, o))
+        col = f"C{k}"
+        axes[0].plot(mats, x[:, oi], marker="o", ms=3, color=col, label=f"{o.date()}")
+        if oi + ahead < x.shape[1]:
+            axes[0].plot(mats, x[:, oi + ahead], ls="--", color=col, lw=1)
+    axes[0].set_xscale("log")
+    axes[0].set_xticks(mats, [f"{m:g}y" for m in mats], fontsize=7)
+    axes[0].set_title(f"Treasury curve at origin (solid) and {ahead}q later (dashed)", fontsize=9)
+    axes[0].set_ylabel("%")
+    axes[0].legend(fontsize=7)
+    for c, name in [(0, cols[0]), (len(cols) // 2, cols[len(cols) // 2]), (len(cols) - 1, cols[-1])]:
+        axes[1].plot(panel.dates, x[c], label=name)
+    for o in origins:
+        axes[1].axvline(pd.Timestamp(o), color="grey", ls=":", lw=1)
+    axes[1].set_title("history; dotted lines = highlighted origins", fontsize=9)
+    axes[1].legend(fontsize=7)
+    axes[1].grid(alpha=0.3)
     fig.tight_layout()
     fig.savefig(path, dpi=120)
     plt.close(fig)

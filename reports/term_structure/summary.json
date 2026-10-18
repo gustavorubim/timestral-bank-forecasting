@@ -1,0 +1,1718 @@
+{
+ "overall": [
+  {
+   "model": "timestral_curve_known",
+   "MAE": 1514.3976307482135,
+   "RMSE": 2562.0572198780164,
+   "MAPE": 9.44270709583908,
+   "sMAPE": 18.83462832154809,
+   "MASE": 2.817120597750781,
+   "coverage80": 0.846765350877193,
+   "dir_acc": 0.7653508771929824,
+   "n": 3648
+  },
+  {
+   "model": "timestral_factors_known",
+   "MAE": 1549.1829349482352,
+   "RMSE": 2583.4240415241857,
+   "MAPE": 9.677285637573139,
+   "sMAPE": 19.099685478041103,
+   "MASE": 2.897290057246969,
+   "coverage80": 0.7963267543859649,
+   "dir_acc": 0.75,
+   "n": 3648
+  },
+  {
+   "model": "timestral_curve_past",
+   "MAE": 1976.5381232902794,
+   "RMSE": 3647.1775991751942,
+   "MAPE": 10.110782930459443,
+   "sMAPE": 27.321621610565813,
+   "MASE": 3.709241316414302,
+   "coverage80": 0.6973684210526315,
+   "dir_acc": 0.6990131578947368,
+   "n": 3648
+  },
+  {
+   "model": "arimax_curve_factors",
+   "MAE": 2129.781798427401,
+   "RMSE": 3551.1124623855853,
+   "MAPE": 13.928381794191553,
+   "sMAPE": 25.30695679162055,
+   "MASE": 3.9950306884393627,
+   "coverage80": 0.6957236842105263,
+   "dir_acc": 0.615953947368421,
+   "n": 3648
+  },
+  {
+   "model": "timestral",
+   "MAE": 2161.675577333283,
+   "RMSE": 3872.105458902607,
+   "MAPE": 11.086500081207914,
+   "sMAPE": 28.289100447848476,
+   "MASE": 4.048329217033966,
+   "coverage80": 0.6850328947368421,
+   "dir_acc": 0.6629182665935272,
+   "n": 3648
+  },
+  {
+   "model": "arima",
+   "MAE": 2399.4396273480666,
+   "RMSE": 4061.540155084752,
+   "MAPE": 14.674828661518603,
+   "sMAPE": 32.748103789186786,
+   "MASE": 4.463303607491498,
+   "coverage80": 0.6932565789473685,
+   "dir_acc": 0.5634057971014492,
+   "n": 3648
+  }
+ ],
+ "rel_mase": [
+  {
+   "model": "arima",
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_curve_factors",
+   "rel_mase": 0.9090411389626867
+  },
+  {
+   "model": "timestral",
+   "rel_mase": 0.905697447406455
+  },
+  {
+   "model": "timestral_curve_known",
+   "rel_mase": 0.6383587996842907
+  },
+  {
+   "model": "timestral_curve_past",
+   "rel_mase": 0.8313149294946833
+  },
+  {
+   "model": "timestral_factors_known",
+   "rel_mase": 0.655727332228735
+  }
+ ],
+ "mase_by_h": [
+  {
+   "h": 1,
+   "arima": 1.1296070509441252,
+   "arimax_curve_factors": 1.1427242005548068,
+   "timestral": 0.863297575114513,
+   "timestral_curve_past": 0.7580015903380033,
+   "timestral_curve_known": 0.6971444252857766,
+   "timestral_factors_known": 0.6755965232688919
+  },
+  {
+   "h": 2,
+   "arima": 2.068728339667861,
+   "arimax_curve_factors": 2.0137047373210866,
+   "timestral": 1.7449479811460278,
+   "timestral_curve_past": 1.5437239560725062,
+   "timestral_curve_known": 1.2810059885916827,
+   "timestral_factors_known": 1.2374917648189545
+  },
+  {
+   "h": 3,
+   "arima": 3.0389314810994863,
+   "arimax_curve_factors": 2.8738385275363147,
+   "timestral": 2.685077288127863,
+   "timestral_curve_past": 2.392240524362451,
+   "timestral_curve_known": 1.8753438103134006,
+   "timestral_factors_known": 1.8539891773776829
+  },
+  {
+   "h": 4,
+   "arima": 4.069593356945336,
+   "arimax_curve_factors": 3.739201752210959,
+   "timestral": 3.6454073477270317,
+   "timestral_curve_past": 3.2670287267666724,
+   "timestral_curve_known": 2.498065898799422,
+   "timestral_factors_known": 2.489857993170256
+  },
+  {
+   "h": 5,
+   "arima": 5.024163292883999,
+   "arimax_curve_factors": 4.509510501299158,
+   "timestral": 4.593159357567765,
+   "timestral_curve_past": 4.165175307001241,
+   "timestral_curve_known": 3.1775145272470273,
+   "timestral_factors_known": 3.2552342484373074
+  },
+  {
+   "h": 6,
+   "arima": 5.943547792040336,
+   "arimax_curve_factors": 5.243451547933734,
+   "timestral": 5.502664266675038,
+   "timestral_curve_past": 5.063182860588397,
+   "timestral_curve_known": 3.79617417011598,
+   "timestral_factors_known": 3.9458722439205323
+  },
+  {
+   "h": 7,
+   "arima": 6.812302485457147,
+   "arimax_curve_factors": 5.91212211596586,
+   "timestral": 6.297951557024737,
+   "timestral_curve_past": 5.853321083838165,
+   "timestral_curve_known": 4.352635925428742,
+   "timestral_factors_known": 4.568131101372073
+  },
+  {
+   "h": 8,
+   "arima": 7.619555060893694,
+   "arimax_curve_factors": 6.525692124692985,
+   "timestral": 7.054128362888751,
+   "timestral_curve_past": 6.63125648234698,
+   "timestral_curve_known": 4.859080036224215,
+   "timestral_factors_known": 5.152147405610054
+  }
+ ],
+ "rel_mase_by_h": [
+  {
+   "model": "arima",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 1,
+   "rel_mase": 1.008648776706483
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 2,
+   "rel_mase": 0.9724359991163427
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 3,
+   "rel_mase": 0.9506819470612846
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 4,
+   "rel_mase": 0.9252924739187774
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 5,
+   "rel_mase": 0.9076781294382176
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 6,
+   "rel_mase": 0.8975369904441571
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 7,
+   "rel_mase": 0.8911815523095776
+  },
+  {
+   "model": "arimax_curve_factors",
+   "h": 8,
+   "rel_mase": 0.8842529163206562
+  },
+  {
+   "model": "timestral",
+   "h": 1,
+   "rel_mase": 0.7353665320035309
+  },
+  {
+   "model": "timestral",
+   "h": 2,
+   "rel_mase": 0.8166660160833905
+  },
+  {
+   "model": "timestral",
+   "h": 3,
+   "rel_mase": 0.8663390803590241
+  },
+  {
+   "model": "timestral",
+   "h": 4,
+   "rel_mase": 0.8884208753924364
+  },
+  {
+   "model": "timestral",
+   "h": 5,
+   "rel_mase": 0.9131135876114377
+  },
+  {
+   "model": "timestral",
+   "h": 6,
+   "rel_mase": 0.9342370490389557
+  },
+  {
+   "model": "timestral",
+   "h": 7,
+   "rel_mase": 0.9379734948908762
+  },
+  {
+   "model": "timestral",
+   "h": 8,
+   "rel_mase": 0.9498444232271727
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 1,
+   "rel_mase": 0.5986789741252098
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 2,
+   "rel_mase": 0.6096820424644736
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 3,
+   "rel_mase": 0.6146107051039532
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 4,
+   "rel_mase": 0.6170070129887649
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 5,
+   "rel_mase": 0.6399478960143951
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 6,
+   "rel_mase": 0.6516288107406529
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 7,
+   "rel_mase": 0.6562845644417132
+  },
+  {
+   "model": "timestral_curve_known",
+   "h": 8,
+   "rel_mase": 0.6606009485704456
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 1,
+   "rel_mase": 0.6404029724643727
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 2,
+   "rel_mase": 0.7213481288250085
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 3,
+   "rel_mase": 0.7739094656960127
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 4,
+   "rel_mase": 0.7997467291345358
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 5,
+   "rel_mase": 0.8310601141888333
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 6,
+   "rel_mase": 0.8628760955925632
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 7,
+   "rel_mase": 0.8744659403546793
+  },
+  {
+   "model": "timestral_curve_past",
+   "h": 8,
+   "rel_mase": 0.8917240412023545
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 1,
+   "rel_mase": 0.5839280256973369
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 2,
+   "rel_mase": 0.5947100400831655
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 3,
+   "rel_mase": 0.6113354735612756
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 4,
+   "rel_mase": 0.6158606342324325
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 5,
+   "rel_mase": 0.6543680645911598
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 6,
+   "rel_mase": 0.6756373530491255
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 7,
+   "rel_mase": 0.6861299824166343
+  },
+  {
+   "model": "timestral_factors_known",
+   "h": 8,
+   "rel_mase": 0.6980503005399313
+  }
+ ],
+ "rel_mase_by_bank_h": [
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 0.923290659649985
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 0.8911282561427359
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 0.8648669549363158
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 0.8509207583211655
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 0.8202751417704184
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 0.7986942778026926
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 0.7843081892656035
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 0.7594189477676235
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 1.0297858830269975
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 0.9516383544928211
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 0.9300090566294399
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 0.8868159132151995
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 0.8593940318493806
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 0.8497312889105381
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 0.85365803500677
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 0.8599955309515301
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 1.1073386996976873
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 1.0631795720706694
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 1.0395285744227611
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 1.0162074476950231
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 1.0073142825326997
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 0.9964083772700651
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 0.9899919364929575
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 0.9874604253176178
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 0.9830916569761774
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 0.9918028134165984
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 0.9769404112233947
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 0.9558971119012868
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 0.9558959227239289
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 0.9596433804617434
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 0.9516174830269248
+  },
+  {
+   "model": "arimax_curve_factors",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 0.9480007497616307
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 0.6579822801682876
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 0.6979153340470184
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 0.7884167781450925
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 0.8409118723761688
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 0.8594558957603239
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 0.8907072263575572
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 0.8921977457498711
+  },
+  {
+   "model": "timestral",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 0.9083715531539438
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 0.6438849010874125
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 0.7955955514020295
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 0.8540362412445018
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 0.8874186043064247
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 0.9049972937740892
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 0.9187027800661902
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 0.9238086488411016
+  },
+  {
+   "model": "timestral",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 0.9453798270190367
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 0.8659587052439529
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 0.9396888920213564
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 0.9646877033146739
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 0.9755559968931734
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 0.9926021728922588
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 1.0010113880711948
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 0.9904022331424805
+  },
+  {
+   "model": "timestral",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 0.9818027504427077
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 0.7970688188683416
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 0.8525085730419465
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 0.867226863108509
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 0.855743881203303
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 0.9004365684190283
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 0.929992229361537
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 0.9482165014707471
+  },
+  {
+   "model": "timestral",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 0.9654189257508654
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 0.5455817887275537
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 0.5764157162966184
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 0.6103324224963103
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 0.627333039462296
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 0.6303536026135791
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 0.6322146472897082
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 0.6177916988576189
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 0.6210125734348519
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 0.5224980179916615
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 0.5465658153847205
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 0.546191305083286
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 0.5479299641397165
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 0.5700841490300085
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 0.5825155749355775
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 0.5965550158724785
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 0.6005115132647812
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 0.705778910797993
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 0.6882343301041949
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 0.6952286976144627
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 0.6848822689184819
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 0.709089582006959
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 0.7182084162534859
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 0.7179004548579716
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 0.7195452804971256
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 0.6385028400075735
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 0.6372340926748367
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 0.6156892449748469
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 0.615632114247304
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 0.6581943537610555
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 0.6816768188070845
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 0.7011516512311549
+  },
+  {
+   "model": "timestral_curve_known",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 0.7097034416364829
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 0.5873466584527341
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 0.6677446065039219
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 0.7501972255757916
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 0.7994613467315832
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 0.82942196166796
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 0.8638312995206405
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 0.8558264271420392
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 0.8743662803845442
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 0.5113379345555356
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 0.6200983732725739
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 0.6870519140823967
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 0.7223276691206459
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 0.7469209184324399
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 0.7861576680380508
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 0.8045877870212998
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 0.8150086653962565
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 0.7682100383778616
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 0.8515919496464143
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 0.8868883801415366
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 0.9009841843387324
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 0.9335780535573431
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 0.9425408930487698
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 0.9464833703461163
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 0.9584600387137717
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 0.7290055978304656
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 0.767851275703461
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 0.7847415749520001
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 0.7862506197529634
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 0.8247626215510508
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 0.8660739160489844
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 0.8972210997215769
+  },
+  {
+   "model": "timestral_curve_past",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 0.9257468959565565
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 1,
+   "rel_mase": 0.5584163667977979
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 2,
+   "rel_mase": 0.5639951223100458
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 3,
+   "rel_mase": 0.602003172976691
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 4,
+   "rel_mase": 0.6093459323972974
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 5,
+   "rel_mase": 0.6348365321403053
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 6,
+   "rel_mase": 0.6590030386197588
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 7,
+   "rel_mase": 0.648943895242772
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "BAC",
+   "h": 8,
+   "rel_mase": 0.6545318068237727
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 1,
+   "rel_mase": 0.5087077557156484
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 2,
+   "rel_mase": 0.5599821238813678
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 3,
+   "rel_mase": 0.5652284788204326
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 4,
+   "rel_mase": 0.5631040750801198
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 5,
+   "rel_mase": 0.5875217896389388
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 6,
+   "rel_mase": 0.5976674020582221
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 7,
+   "rel_mase": 0.6130673223196127
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "C",
+   "h": 8,
+   "rel_mase": 0.6248668782731305
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 1,
+   "rel_mase": 0.6526286301582771
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 2,
+   "rel_mase": 0.631192956665161
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 3,
+   "rel_mase": 0.6442464853962716
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 4,
+   "rel_mase": 0.6540430311904665
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 5,
+   "rel_mase": 0.7057138625481008
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 6,
+   "rel_mase": 0.726597420284742
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 7,
+   "rel_mase": 0.7418014247763318
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "JPM",
+   "h": 8,
+   "rel_mase": 0.7517229923539023
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 1,
+   "rel_mase": 0.6271113478218425
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 2,
+   "rel_mase": 0.627493781631117
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 3,
+   "rel_mase": 0.6371526802979518
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 4,
+   "rel_mase": 0.6410189527620653
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 5,
+   "rel_mase": 0.6965845653406947
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 6,
+   "rel_mase": 0.7281381220066279
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 7,
+   "rel_mase": 0.7509700337084436
+  },
+  {
+   "model": "timestral_factors_known",
+   "id": "WFC",
+   "h": 8,
+   "rel_mase": 0.7722728710337333
+  }
+ ],
+ "rel_mase_by_bank": [
+  {
+   "id": "BAC",
+   "arima": 1.0,
+   "arimax_curve_factors": 0.8117554640831661,
+   "timestral": 0.8467263106620532,
+   "timestral_curve_known": 0.6115166818538204,
+   "timestral_curve_past": 0.8114218574672035,
+   "timestral_factors_known": 0.6258570898437673
+  },
+  {
+   "id": "C",
+   "arima": 1.0,
+   "arimax_curve_factors": 0.8738024306401994,
+   "timestral": 0.8913803364005365,
+   "timestral_curve_known": 0.5734930089172253,
+   "timestral_curve_past": 0.7499469380916923,
+   "timestral_factors_known": 0.5890602474082373
+  },
+  {
+   "id": "JPM",
+   "arima": 1.0,
+   "arimax_curve_factors": 1.0054430041859959,
+   "timestral": 0.977957650241208,
+   "timestral_curve_known": 0.7079521067209653,
+   "timestral_curve_past": 0.9236978020389169,
+   "timestral_factors_known": 0.7079538725229101
+  },
+  {
+   "id": "WFC",
+   "arima": 1.0,
+   "arimax_curve_factors": 0.9574987716634009,
+   "timestral": 0.9116044198349271,
+   "timestral_curve_known": 0.6688351398790925,
+   "timestral_curve_past": 0.8496795607792046,
+   "timestral_factors_known": 0.7083587978318089
+  }
+ ],
+ "dm_summary": [
+  {
+   "h": 1,
+   "better": 0.5833333333333334,
+   "worse": 0.0
+  },
+  {
+   "h": 2,
+   "better": 0.16666666666666666,
+   "worse": 0.0
+  },
+  {
+   "h": 3,
+   "better": 0.08333333333333333,
+   "worse": 0.0
+  },
+  {
+   "h": 4,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 5,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 6,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 7,
+   "better": 0.08333333333333333,
+   "worse": 0.0
+  },
+  {
+   "h": 8,
+   "better": 0.0,
+   "worse": 0.0
+  }
+ ],
+ "series_win_rates": [
+  {
+   "id": "BAC",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "C",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.6666666666666666,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "JPM",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.6666666666666666,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "WFC",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  }
+ ],
+ "slices": [
+  {
+   "model": "arima",
+   "covid": 5.199338045768485,
+   "hiking_2022": 10.521942131265593,
+   "normal": 2.69058661296059
+  },
+  {
+   "model": "arimax_curve_factors",
+   "covid": 4.792712287900605,
+   "hiking_2022": 9.198368247392656,
+   "normal": 2.4407318072863147
+  },
+  {
+   "model": "timestral",
+   "covid": 4.010575968996098,
+   "hiking_2022": 10.771348863456836,
+   "normal": 2.2455457060812445
+  },
+  {
+   "model": "timestral_curve_known",
+   "covid": 2.8728710767255192,
+   "hiking_2022": 6.278743809865189,
+   "normal": 1.874423871609452
+  },
+  {
+   "model": "timestral_curve_past",
+   "covid": 3.3771807766411004,
+   "hiking_2022": 9.990408189899181,
+   "normal": 2.082015723509373
+  },
+  {
+   "model": "timestral_factors_known",
+   "covid": 3.2302776217675704,
+   "hiking_2022": 6.193373277060359,
+   "normal": 1.9458469664278637
+  }
+ ]
+}
