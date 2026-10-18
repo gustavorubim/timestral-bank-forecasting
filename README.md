@@ -156,6 +156,9 @@ Then run `uv run python -m bsforecast run --config configs/my_run.yaml`. Any new
   handles natively. ARIMA uses the observed segment.
 * BBB spread: ICE BofA OAS history on FRED is truncated, so Moody's Baa minus 10y (`BAA10Y`) is used as the long proxy.
 * Raw downloads are cached under `data/raw/` (git-ignored). The processed panel (~0.3 MB) is committed.
+* **SEC EDGAR (earnings domain) needs `SEC_USER_AGENT`.** SEC's fair-access policy requires a User-Agent with
+  your name and a contact email. Set it in your shell (never commit it), e.g.
+  `export SEC_USER_AGENT="Your Name you@example.com"`. The earnings loader raises a clear error if it is unset.
 
 ## License note
 
