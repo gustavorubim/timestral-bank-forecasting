@@ -239,7 +239,8 @@ class TimestralModel(Forecaster):
 
         mid = self.cfg.params.get("model_id", "mistralai/Timestral-209M")
         if mid not in self._cache:
-            torch.set_num_threads(int(self.cfg.params.get("threads", min(8, os.cpu_count() or 1))))
+            default = os.environ.get("BSF_THREADS", min(8, os.cpu_count() or 1))
+            torch.set_num_threads(int(self.cfg.params.get("threads", default)))
             self._cache[mid] = TimestralForecaster.from_pretrained(mid, device="cpu")
         return self._cache[mid]
 

@@ -20,3 +20,11 @@
   reports/<d>/HEADLINE.txt + stub experiments/<d>/FINDINGS.md, rebuilds reports, commits and pushes to main.
 - Remaining manual step: replace stub FINDINGS.md with narrative (numbers from HEADLINE.txt), rerun
   `python -m bsforecast report --config experiments/<d>/config.yaml`, commit, push.
+
+## 2026-10-18 17:35 ET
+- Rebased onto origin/main de41733 (history rewrite; SEC email now SEC_USER_AGENT env - not touched here).
+- 8-thread Timestral under load ~30 crawled (inflation timestral 1451 s; benchmark: 1 origin 58 s @8 threads vs 22 s @2).
+  Added BSF_THREADS env override (models.py) and inflation max_context 240.
+- Killed inflation/credit/electricity chains; relaunched as shards: experiments/lanes_a.sh 1|2 (logs reports/lane{1,2}.log,
+  per-shard logs reports/run_<d>_<shard>.log). Treasury (pid 89823) continues unsharded (5/7 models done at 17:13).
+- autofinish_a.sh restarted (own pid; waits for lanes too; `report` merges shards; then HEADLINE.txt, stub FINDINGS, commit, push).

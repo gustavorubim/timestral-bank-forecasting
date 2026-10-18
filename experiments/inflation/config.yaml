@@ -18,6 +18,7 @@ backtest:
   n_origins: 36        # every 3 months, ~2015-12 .. 2024-09
   step: 3
   min_train: 120
+  max_context: 240     # last 20 years of monthly history (keeps Timestral fast on the shared CPU box)
   live_forecast: true
   stress_windows:
     covid: ["2019-12-31", "2020-09-30"]
