@@ -1,6 +1,6 @@
 # Backtest report: inflation
 
-## Findings: CPI components (y/y %), 24-month one-shot, 37 origins every 3 months 2015-09..2024-09
+## Findings: CPI components (y/y %), 24-month one-shot, 36 origins every 3 months 2015-12..2024-09 (+ a live forecast)
 
 Relative MASE vs AutoARIMA (<1 = better; geometric mean over 9 components):
 

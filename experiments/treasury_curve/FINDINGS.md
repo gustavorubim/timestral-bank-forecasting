@@ -1,4 +1,4 @@
-## Findings: Treasury curve (3m..30y), 8-quarter one-shot, 41 quarterly origins 2014Q3..2024Q3
+## Findings: Treasury curve (3m..30y), 8-quarter one-shot, 40 quarterly origins 2014Q4..2024Q3 (+ a live forecast)
 
 Relative MASE vs random walk (<1 = better; geometric mean over the 10 maturities):
 
