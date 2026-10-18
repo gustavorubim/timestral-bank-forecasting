@@ -14,6 +14,9 @@ import pandas as pd  # noqa: E402
 from .dataset import Panel  # noqa: E402
 
 PALETTE = {
+    "timestral_macro_known": "#9467bd",
+    "timestral_macro_compact": "#2ca02c",
+    "arimax_macro_small": "#17becf",
     "timestral_curve_known": "#9467bd",
     "timestral_curve_past": "#ff7f0e",
     "timestral_factors_known": "#2ca02c",
@@ -346,6 +349,36 @@ def yield_curves(panel: Panel, cols, mats, origins, path: Path, ahead: int = 8):
     axes[1].set_title("history; dotted lines = highlighted origins", fontsize=9)
     axes[1].legend(fontsize=7)
     axes[1].grid(alpha=0.3)
+    fig.tight_layout()
+    fig.savefig(path, dpi=120)
+    plt.close(fig)
+
+
+def helps_by_line(hv: pd.DataFrame, gmap: dict, path: Path):
+    """Horizontal bars of relative MASE (variant vs no-covariate twin) per line; groups shaded."""
+    n, k = hv.shape
+    fig, ax = plt.subplots(figsize=(9, 0.32 * n * max(1, k / 2) + 1.5))
+    y = np.arange(n)
+    w = 0.8 / k
+    for j, col in enumerate(hv.columns):
+        v = np.log(hv[col].to_numpy(float))
+        ax.barh(y + (j - (k - 1) / 2) * w, v, height=w, label=col, color=f"C{j}")
+    ax.axvline(0, color="k", lw=1)
+    ticks = [-0.69, -0.36, -0.105, 0, 0.095, 0.26, 0.41]
+    ax.set_xticks(ticks, [f"{np.exp(t):.2f}" for t in ticks])
+    ax.set_yticks(y, hv.index, fontsize=8)
+    ax.invert_yaxis()
+    groups = [gmap.get(t, "") for t in hv.index]
+    for i in range(1, n):
+        if groups[i] != groups[i - 1]:
+            ax.axhline(i - 0.5, color="grey", lw=0.8, ls="--")
+    for g in dict.fromkeys(groups):
+        first = groups.index(g)
+        ax.text(ax.get_xlim()[1], first, f" {g}", va="center", fontsize=9, color="grey")
+    ax.set_xlabel("relative MASE (log scale; left of 0 = covariates help)")
+    ax.set_title("Does knowing the macro path help? (variant / no-covariate twin)")
+    ax.legend(fontsize=8, loc="lower right")
+    ax.grid(axis="x", alpha=0.3)
     fig.tight_layout()
     fig.savefig(path, dpi=120)
     plt.close(fig)

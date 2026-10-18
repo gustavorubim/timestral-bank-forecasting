@@ -74,6 +74,8 @@ class PlotConfig:
     compare_pairs: list[list[str]] = field(default_factory=list)
     # {"columns": [...covariate names...], "maturities": [...years...]} to draw the curve at highlighted origins.
     yield_curve: dict = field(default_factory=dict)
+    # Spaghetti grid for every target, written to figures/<group>/ with an index.md per group.
+    spaghetti_by_group: bool = False
 
 
 @dataclass

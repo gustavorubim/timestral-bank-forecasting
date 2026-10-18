@@ -118,3 +118,47 @@ def quarterly_curve(cache_dir: Path | None = None) -> pd.DataFrame:
     q.attrs["n_gap_filled"] = n_filled
     q.index.name = "date"
     return q
+
+
+def ccar_macro_panel(cache_dir: Path | None = None) -> pd.DataFrame:
+    """~22 quarterly macro variables loosely following the CCAR/DFAST scenario variable list.
+
+    Growth rates are q/q annualised (GDP, income) or y/y (prices, payrolls, IP); rates are quarterly
+    averages; VIX is the quarterly maximum (as in the CCAR scenarios). Equity: the Wilshire 5000 is no
+    longer on FRED and DJIA/S&P 500 only have 10 years there, so the NASDAQ Composite y/y return is used.
+    CRE prices: Fed Z.1 commercial real estate price index (FL075035503.Q), the series CCAR uses.
+    """
+
+    def q(fid: str, how: str = "mean") -> pd.Series:
+        return fetch_series(fid, cache_dir).resample("QE").agg(how)
+
+    def qoq_ann(s: pd.Series) -> pd.Series:
+        return 400 * np.log(s).diff()
+
+    def yoy(s: pd.Series) -> pd.Series:
+        return 100 * np.log(s).diff(4)
+
+    curve = quarterly_curve(cache_dir)
+    m = pd.DataFrame(index=curve.index)
+    m["gdp_growth"] = qoq_ann(q("GDPC1", "last"))
+    m["ngdp_growth"] = qoq_ann(q("GDP", "last"))
+    m["rdi_growth"] = qoq_ann(q("DSPIC96"))
+    m["unemployment"] = q("UNRATE")
+    m["cpi_inflation"] = qoq_ann(q("CPIAUCSL"))
+    for c in ["ust_3m", "ust_2y", "ust_5y", "ust_10y", "curve_level", "curve_slope"]:
+        m[c] = curve[c]
+    m["term_spread"] = curve["ust_10y"] - curve["ust_3m"]
+    m["baa_spread"] = q("BAA10Y")
+    m["mortgage_rate"] = q("MORTGAGE30US")
+    m["prime_rate"] = q("DPRIME")
+    m["fed_funds"] = q("FEDFUNDS")
+    m["equity_return"] = yoy(q("NASDAQCOM"))
+    m["vix"] = q("VIXCLS", "max")
+    m["hpi_growth"] = yoy(q("USSTHPI", "last"))
+    m["cre_price_growth"] = yoy(q("BOGZ1FL075035503Q", "last"))
+    m["payrolls_growth"] = yoy(q("PAYEMS"))
+    m["ip_growth"] = yoy(q("INDPRO"))
+    m["sentiment"] = q("UMCSENT")
+    m["nfci"] = q("NFCI")
+    m.index.name = "date"
+    return m

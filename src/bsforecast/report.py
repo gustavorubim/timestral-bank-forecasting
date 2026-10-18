@@ -327,7 +327,7 @@ def _extra_sections(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, m
     rel_t = M.relative_mase(err, base, by=["target"]).pivot(index="target", columns="model", values="rel_mase")
     lines += [f"## Relative MASE vs `{base}` by line", _md(rel_t.reset_index()), ""]
     rel_th = M.relative_mase(err, base, by=["target", "h"])
-    for t, g in rel_th.groupby("target"):
+    for t, g in rel_th.groupby("target") if rel_th["target"].nunique() <= 6 else []:
         lines += [
             f"### {t}: relative MASE by horizon",
             _md(g.pivot(index="h", columns="model", values="rel_mase").reset_index()),
@@ -371,6 +371,8 @@ def _extra_sections(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, m
             f"![](figures/help_{a}_vs_{b}.png)",
             "",
         ]
+    if pc.spaghetti_by_group:
+        lines += _group_pages(cfg, panel, bt, err, figs, base, models)
     if pc.yield_curve:
         P.yield_curves(
             panel,
@@ -381,3 +383,71 @@ def _extra_sections(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, m
         )
         lines += ["## Yield curve at highlighted origins", "![](figures/yield_curves.png)", ""]
     return lines
+
+
+def _group_pages(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, models: list[str]) -> list[str]:
+    """Spaghetti grid for every target + heatmaps + macro-helps bars, organised per target group."""
+    pc = cfg.plots
+    sp_models = pc.spaghetti_models or models[:3]
+    order = [t for g in cfg.data.groups.values() for t in g] or panel.targets
+    rel_t = M.relative_mase(err, base, by=["target"]).pivot(index="target", columns="model", values="rel_mase")
+    rel_t = rel_t.reindex(order)[[m for m in models if m in rel_t.columns]]
+    P.heatmap(
+        rel_t,
+        figs / "relmase_line_x_variant.png",
+        f"Relative MASE vs {base} by line and variant (<1 blue = better)",
+        center=1.0,
+        fmt="{:.2f}",
+        cmap="RdBu_r",
+        span=0.6,
+    )
+    out = ["## Line x variant: relative MASE vs baseline", "![](figures/relmase_line_x_variant.png)", ""]
+    for m in [x for x in models if x != base and "timestral" in x and x != "timestral"]:
+        th = M.relative_mase(err[err.model.isin([m, base])], base, by=["target", "h"])
+        pv = th[th.model == m].pivot(index="target", columns="h", values="rel_mase").reindex(order)
+        P.heatmap(
+            pv,
+            figs / f"relmase_line_x_horizon_{m}.png",
+            f"{m} / {base}: relative MASE by line and horizon",
+            center=1.0,
+            fmt="{:.2f}",
+            cmap="RdBu_r",
+            span=0.6,
+        )
+        out += [f"![](figures/relmase_line_x_horizon_{m}.png)"]
+    helps = {}
+    for a, b in pc.compare_pairs:
+        r = M.relative_mase(err[err.model.isin([a, b])], b, by=["target"])
+        helps[f"{a} vs {b}"] = r[r.model == a].set_index("target")["rel_mase"]
+    if helps:
+        hv = pd.DataFrame(helps).reindex(order)
+        gmap = {t: g for g, ts in cfg.data.groups.items() for t in ts}
+        P.helps_by_line(hv, gmap, figs / "macro_helps_by_line.png")
+        out += [
+            "",
+            "## Does macro help? (relative MASE of covariate variant vs its no-covariate twin; <1 = helps)",
+            "![](figures/macro_helps_by_line.png)",
+            "",
+            _md(hv.reset_index()),
+            "",
+        ]
+    out += ["## Spaghetti pages by group", ""]
+    for g, ts in cfg.data.groups.items():
+        gdir = figs / g
+        gdir.mkdir(parents=True, exist_ok=True)
+        idx = [
+            f"# {g}: all origins' 8-quarter median paths vs actual",
+            "",
+            f"Columns: {' | '.join(sp_models)}. Rows: banks. Colour = origin date; black = actual.",
+            "",
+            _md(rel_t.reindex(ts).reset_index()),
+            "",
+        ]
+        for t in ts:
+            if t not in panel.targets:
+                continue
+            P.spaghetti(bt, panel, t, sp_models, gdir / f"spaghetti_{t}.png")
+            idx += [f"## {t}", f"![](spaghetti_{t}.png)", ""]
+        (gdir / "index.md").write_text("\n".join(idx))
+        out.append(f"- [{g}](figures/{g}/index.md) ({len(ts)} lines)")
+    return out + [""]

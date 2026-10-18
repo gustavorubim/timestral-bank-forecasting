@@ -1,0 +1,246 @@
+# Macro-panel experiment: granular FDIC lines x CCAR-style known-future macro (scenario forecasts).
+# Rerun: uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config configs/macro_panel.yaml
+name: macro_panel
+output_dir: reports/macro_panel
+notes_file: docs/macro_panel_findings.md
+data:
+  path: data/processed/macro_panel.parquet
+  date_col: date
+  id_col: bank
+  freq: QE
+  min_date: '2001-03-31'
+  targets:
+  - interest_income
+  - interest_expense
+  - nii
+  - nonint_income
+  - nonint_expense
+  - provisions
+  - net_income
+  - cash_due
+  - ib_balances
+  - ffs_repo
+  - sec_afs
+  - sec_htm
+  - securities
+  - trading_assets
+  - loans_total
+  - loans_re
+  - loans_resi
+  - loans_cre
+  - loans_ci
+  - loans_consumer
+  - loans_card
+  - loans_other
+  - allowance
+  - other_assets
+  - total_assets
+  - deposits
+  - dep_dom
+  - dep_for
+  - dep_ib
+  - dep_nib
+  - ffp_repo
+  - trading_liab
+  - other_borrowed
+  - sub_debt
+  - other_liab
+  - total_liab
+  - equity
+  covariates:
+  - gdp_growth
+  - ngdp_growth
+  - rdi_growth
+  - unemployment
+  - cpi_inflation
+  - ust_3m
+  - ust_2y
+  - ust_5y
+  - ust_10y
+  - term_spread
+  - baa_spread
+  - mortgage_rate
+  - prime_rate
+  - fed_funds
+  - equity_return
+  - vix
+  - hpi_growth
+  - cre_price_growth
+  - payrolls_growth
+  - ip_growth
+  - sentiment
+  - nfci
+  - curve_level
+  - curve_slope
+  groups:
+    income:
+    - interest_income
+    - interest_expense
+    - nii
+    - nonint_income
+    - nonint_expense
+    - provisions
+    - net_income
+    assets:
+    - cash_due
+    - ib_balances
+    - ffs_repo
+    - sec_afs
+    - sec_htm
+    - securities
+    - trading_assets
+    - loans_total
+    - loans_re
+    - loans_resi
+    - loans_cre
+    - loans_ci
+    - loans_consumer
+    - loans_card
+    - loans_other
+    - allowance
+    - other_assets
+    - total_assets
+    liabilities:
+    - deposits
+    - dep_dom
+    - dep_for
+    - dep_ib
+    - dep_nib
+    - ffp_repo
+    - trading_liab
+    - other_borrowed
+    - sub_debt
+    - other_liab
+    - total_liab
+    - equity
+backtest:
+  horizon: 8
+  n_origins: 38
+  step: 1
+  min_train: 40
+  live_forecast: false
+  stress_windows:
+    covid:
+    - '2019-06-30'
+    - '2020-06-30'
+    hiking_2022:
+    - '2021-06-30'
+    - '2022-12-31'
+models:
+- name: arima
+  type: auto_arima
+  season_length: 4
+  n_jobs: 4
+- name: arimax_macro_small
+  type: auto_arima
+  season_length: 4
+  n_jobs: 4
+  covariates: known_oracle
+  covariate_subset:
+  - unemployment
+  - curve_level
+  - baa_spread
+- name: timestral
+  type: timestral
+  threads: 4
+- name: timestral_macro_known
+  type: timestral
+  threads: 4
+  covariates: known_oracle
+  covariate_subset:
+  - gdp_growth
+  - ngdp_growth
+  - rdi_growth
+  - unemployment
+  - cpi_inflation
+  - ust_3m
+  - ust_2y
+  - ust_5y
+  - ust_10y
+  - term_spread
+  - baa_spread
+  - mortgage_rate
+  - prime_rate
+  - fed_funds
+  - equity_return
+  - vix
+  - hpi_growth
+  - cre_price_growth
+  - payrolls_growth
+  - ip_growth
+  - sentiment
+  - nfci
+- name: timestral_macro_compact
+  type: timestral
+  threads: 4
+  covariates: known_oracle
+  covariate_subset:
+  - curve_level
+  - curve_slope
+  - unemployment
+  - gdp_growth
+  - baa_spread
+  - hpi_growth
+evaluation:
+  baseline: arima
+  challenger: timestral_macro_known
+  mase_season: 1
+  quantiles:
+  - 0.05
+  - 0.1
+  - 0.5
+  - 0.9
+  - 0.95
+identities:
+- name: assets_bridge
+  total: total_assets
+  components:
+  - cash_due
+  - ffs_repo
+  - securities
+  - trading_assets
+  - loans_total
+  - allowance
+  - other_assets
+  signs:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - -1
+  - 1
+- name: liabilities_bridge
+  total: total_liab
+  components:
+  - deposits
+  - ffp_repo
+  - trading_liab
+  - other_borrowed
+  - sub_debt
+  - other_liab
+- name: nii_bridge
+  total: nii
+  components:
+  - interest_income
+  - interest_expense
+  signs:
+  - 1
+  - -1
+plots:
+  fan_series: []
+  fan_origins: []
+  stress_series: []
+  spaghetti_models:
+  - arima
+  - timestral
+  - timestral_macro_known
+  - timestral_macro_compact
+  spaghetti_by_group: true
+  compare_pairs:
+  - - timestral_macro_known
+    - timestral
+  - - timestral_macro_compact
+    - timestral
+  - - arimax_macro_small
+    - arima

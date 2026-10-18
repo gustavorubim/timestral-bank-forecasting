@@ -59,8 +59,11 @@ def verify_holding_companies(rssd_ids: list[int]) -> pd.DataFrame:
     return pd.DataFrame([d["data"] for d in r.json()["data"]])
 
 
-def fetch_financials(rssd_id: int, start: str = "19950101", cache_dir: Path | None = None) -> pd.DataFrame:
+def fetch_financials(
+    rssd_id: int, start: str = "19950101", cache_dir: Path | None = None, fields: list[str] | None = None
+) -> pd.DataFrame:
     """All Call Report rows of banks held by ``rssd_id`` (at the report date)."""
+    fields = fields or FIELDS
     cache = cache_dir / f"fdic_financials_{rssd_id}_{start}.json" if cache_dir else None
     if cache and cache.exists():
         rows = json.loads(cache.read_text())
@@ -71,7 +74,7 @@ def fetch_financials(rssd_id: int, start: str = "19950101", cache_dir: Path | No
                 f"{API}/financials",
                 params={
                     "filters": f"RSSDHCR:{rssd_id} AND REPDTE:[{start} TO 99991231]",
-                    "fields": ",".join(FIELDS),
+                    "fields": ",".join(fields),
                     "limit": 10000,
                     "offset": offset,
                     "sort_by": "REPDTE",
