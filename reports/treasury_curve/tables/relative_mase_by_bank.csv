@@ -1,0 +1,8 @@
+model,id,rel_mase
+arima,UST,1.0313471434522172
+random_walk,UST,1.0
+timestral,UST,0.9465816077039949
+timestral_joint,UST,0.935846417697005
+timestral_joint_ff_known,UST,0.38588472141176317
+timestral_joint_macro_known,UST,0.7760680578509465
+timestral_joint_macro_past,UST,0.924871675604966

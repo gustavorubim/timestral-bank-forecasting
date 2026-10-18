@@ -1,0 +1,5 @@
+id,metric,win_rate
+UST,MAE,0.5
+UST,RMSE,0.5
+UST,MASE,0.5
+UST,sMAPE,0.5

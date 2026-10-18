@@ -1,0 +1,920 @@
+{
+ "overall": [
+  {
+   "model": "timestral_joint_ff_known",
+   "MAE": 0.3863556649315816,
+   "RMSE": 0.5448715938458311,
+   "MAPE": 14.6176922012476,
+   "sMAPE": 26.962807383791997,
+   "MASE": 1.2155954665120718,
+   "coverage80": 0.8603125,
+   "dir_acc": 0.7971875,
+   "n": 3200
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "MAE": 0.6955968600835932,
+   "RMSE": 1.0695192763657364,
+   "MAPE": 20.724274650167125,
+   "sMAPE": 37.20643080636886,
+   "MASE": 2.1946772594913075,
+   "coverage80": 0.8375,
+   "dir_acc": 0.7178125,
+   "n": 3200
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "MAE": 0.829516882131527,
+   "RMSE": 1.2245577305817015,
+   "MAPE": 24.998850076774183,
+   "sMAPE": 48.06415530715421,
+   "MASE": 2.617036754676473,
+   "coverage80": 0.7271875,
+   "dir_acc": 0.6901188242651657,
+   "n": 3200
+  },
+  {
+   "model": "timestral_joint",
+   "MAE": 0.8393473282215296,
+   "RMSE": 1.2373778053199591,
+   "MAPE": 25.173097733723598,
+   "sMAPE": 49.70365595247681,
+   "MASE": 2.645754807495303,
+   "coverage80": 0.714375,
+   "dir_acc": 0.6609375,
+   "n": 3200
+  },
+  {
+   "model": "timestral",
+   "MAE": 0.8516056734868068,
+   "RMSE": 1.23849114521036,
+   "MAPE": 25.87612412927746,
+   "sMAPE": 49.26273903676776,
+   "MASE": 2.682140795148275,
+   "coverage80": 0.71,
+   "dir_acc": 0.6478125,
+   "n": 3200
+  },
+  {
+   "model": "random_walk",
+   "MAE": 0.9213406825049099,
+   "RMSE": 1.3373389472418542,
+   "MAPE": 29.928022386678656,
+   "sMAPE": 54.150851578323646,
+   "MASE": 2.9179010529901515,
+   "coverage80": 0.721875,
+   "dir_acc": NaN,
+   "n": 3200
+  },
+  {
+   "model": "arima",
+   "MAE": 0.9355106963361292,
+   "RMSE": 1.34125580496068,
+   "MAPE": 31.44729326238106,
+   "sMAPE": 57.43383800540096,
+   "MASE": 2.950352794249199,
+   "coverage80": 0.814375,
+   "dir_acc": 0.546875,
+   "n": 3200
+  }
+ ],
+ "rel_mase": [
+  {
+   "model": "arima",
+   "rel_mase": 1.0313471434522172
+  },
+  {
+   "model": "random_walk",
+   "rel_mase": 1.0
+  },
+  {
+   "model": "timestral",
+   "rel_mase": 0.9465816077039949
+  },
+  {
+   "model": "timestral_joint",
+   "rel_mase": 0.935846417697005
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "rel_mase": 0.38588472141176317
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "rel_mase": 0.7760680578509465
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "rel_mase": 0.924871675604966
+  }
+ ],
+ "mase_by_h": [
+  {
+   "h": 1,
+   "random_walk": 0.9100234158998223,
+   "arima": 0.8252891980274061,
+   "timestral": 0.7804721634175228,
+   "timestral_joint": 0.7961755534663805,
+   "timestral_joint_macro_past": 0.7931311534514801,
+   "timestral_joint_ff_known": 0.64728237510066,
+   "timestral_joint_macro_known": 0.7456592930714728
+  },
+  {
+   "h": 2,
+   "random_walk": 1.566699925690544,
+   "arima": 1.448864346386088,
+   "timestral": 1.3481387918490335,
+   "timestral_joint": 1.3732680793467968,
+   "timestral_joint_macro_past": 1.3655716722418463,
+   "timestral_joint_ff_known": 0.9539538308044706,
+   "timestral_joint_macro_known": 1.222439737673316
+  },
+  {
+   "h": 3,
+   "random_walk": 2.1769279886474813,
+   "arima": 2.034581637848738,
+   "timestral": 1.9186561709756338,
+   "timestral_joint": 1.8927495044999074,
+   "timestral_joint_macro_past": 1.876801652171833,
+   "timestral_joint_ff_known": 1.1417823616128784,
+   "timestral_joint_macro_known": 1.6566898901140643
+  },
+  {
+   "h": 4,
+   "random_walk": 2.7556084420225258,
+   "arima": 2.6926427867431597,
+   "timestral": 2.485650974177158,
+   "timestral_joint": 2.457129070535586,
+   "timestral_joint_macro_past": 2.4338321301461514,
+   "timestral_joint_ff_known": 1.218114180523802,
+   "timestral_joint_macro_known": 2.0819223136199434
+  },
+  {
+   "h": 5,
+   "random_walk": 3.2763956977957465,
+   "arima": 3.2918627466869537,
+   "timestral": 2.999712909553531,
+   "timestral_joint": 2.9587629389753722,
+   "timestral_joint_macro_past": 2.93657502243783,
+   "timestral_joint_ff_known": 1.284538727235265,
+   "timestral_joint_macro_known": 2.462936155858976
+  },
+  {
+   "h": 6,
+   "random_walk": 3.7790935385348168,
+   "arima": 3.8741730660357674,
+   "timestral": 3.508022083195487,
+   "timestral_joint": 3.432559676257699,
+   "timestral_joint_macro_past": 3.3906025499102306,
+   "timestral_joint_ff_known": 1.3748963909894747,
+   "timestral_joint_macro_known": 2.8234593434421607
+  },
+  {
+   "h": 7,
+   "random_walk": 4.259600108586638,
+   "arima": 4.483755727092764,
+   "timestral": 4.02319814728796,
+   "timestral_joint": 3.9302823287770416,
+   "timestral_joint_macro_past": 3.889291054612068,
+   "timestral_joint_ff_known": 1.5024499455974603,
+   "timestral_joint_macro_known": 3.139736979633878
+  },
+  {
+   "h": 8,
+   "random_walk": 4.6188593067436345,
+   "arima": 4.951652845172718,
+   "timestral": 4.393275120729877,
+   "timestral_joint": 4.325111308103641,
+   "timestral_joint_macro_past": 4.250488802440344,
+   "timestral_joint_ff_known": 1.6017459202325641,
+   "timestral_joint_macro_known": 3.4245743625166507
+  }
+ ],
+ "rel_mase_by_h": [
+  {
+   "model": "arima",
+   "h": 1,
+   "rel_mase": 0.9033978402155423
+  },
+  {
+   "model": "arima",
+   "h": 2,
+   "rel_mase": 0.9344892106813967
+  },
+  {
+   "model": "arima",
+   "h": 3,
+   "rel_mase": 0.9503109560752704
+  },
+  {
+   "model": "arima",
+   "h": 4,
+   "rel_mase": 0.9986017298291933
+  },
+  {
+   "model": "arima",
+   "h": 5,
+   "rel_mase": 1.0275777238659534
+  },
+  {
+   "model": "arima",
+   "h": 6,
+   "rel_mase": 1.049463968308077
+  },
+  {
+   "model": "arima",
+   "h": 7,
+   "rel_mase": 1.0753491348261799
+  },
+  {
+   "model": "arima",
+   "h": 8,
+   "rel_mase": 1.0925620430093155
+  },
+  {
+   "model": "random_walk",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "timestral",
+   "h": 1,
+   "rel_mase": 0.8494189753941431
+  },
+  {
+   "model": "timestral",
+   "h": 2,
+   "rel_mase": 0.8685695116369363
+  },
+  {
+   "model": "timestral",
+   "h": 3,
+   "rel_mase": 0.8980722874732306
+  },
+  {
+   "model": "timestral",
+   "h": 4,
+   "rel_mase": 0.9276429747700258
+  },
+  {
+   "model": "timestral",
+   "h": 5,
+   "rel_mase": 0.9473090066392116
+  },
+  {
+   "model": "timestral",
+   "h": 6,
+   "rel_mase": 0.9624623618012471
+  },
+  {
+   "model": "timestral",
+   "h": 7,
+   "rel_mase": 0.977669781331474
+  },
+  {
+   "model": "timestral",
+   "h": 8,
+   "rel_mase": 0.9822065769090238
+  },
+  {
+   "model": "timestral_joint",
+   "h": 1,
+   "rel_mase": 0.8671397347307113
+  },
+  {
+   "model": "timestral_joint",
+   "h": 2,
+   "rel_mase": 0.8846806037872539
+  },
+  {
+   "model": "timestral_joint",
+   "h": 3,
+   "rel_mase": 0.8857250236706523
+  },
+  {
+   "model": "timestral_joint",
+   "h": 4,
+   "rel_mase": 0.9178007014317803
+  },
+  {
+   "model": "timestral_joint",
+   "h": 5,
+   "rel_mase": 0.9364530642973279
+  },
+  {
+   "model": "timestral_joint",
+   "h": 6,
+   "rel_mase": 0.9455943318471113
+  },
+  {
+   "model": "timestral_joint",
+   "h": 7,
+   "rel_mase": 0.9595882444673868
+  },
+  {
+   "model": "timestral_joint",
+   "h": 8,
+   "rel_mase": 0.9718626958051769
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 1,
+   "rel_mase": 0.6655476684965604
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 2,
+   "rel_mase": 0.5874696294371801
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 3,
+   "rel_mase": 0.5018671091892748
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 4,
+   "rel_mase": 0.4190269569027872
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 5,
+   "rel_mase": 0.36319239754219196
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 6,
+   "rel_mase": 0.3280149508587692
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 7,
+   "rel_mase": 0.31169821052563695
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "h": 8,
+   "rel_mase": 0.303240034031473
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 1,
+   "rel_mase": 0.8044761773615179
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 2,
+   "rel_mase": 0.7845827019033337
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 3,
+   "rel_mase": 0.7718975051116911
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 4,
+   "rel_mase": 0.7756104684184302
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 5,
+   "rel_mase": 0.7784655506938307
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 6,
+   "rel_mase": 0.7796169854916117
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 7,
+   "rel_mase": 0.7695342196895648
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "h": 8,
+   "rel_mase": 0.7740748304733898
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 1,
+   "rel_mase": 0.8613177717810911
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 2,
+   "rel_mase": 0.8794288108684624
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 3,
+   "rel_mase": 0.878586056887881
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 4,
+   "rel_mase": 0.9085368420343081
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 5,
+   "rel_mase": 0.9281471619708298
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 6,
+   "rel_mase": 0.9326821479191875
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 7,
+   "rel_mase": 0.9478553970835907
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "h": 8,
+   "rel_mase": 0.9538549049303015
+  }
+ ],
+ "rel_mase_by_bank_h": [
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.9033978402155423
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.9344892106813967
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.9503109560752704
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.9986017298291933
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 1.0275777238659534
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 1.049463968308077
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 1.0753491348261799
+  },
+  {
+   "model": "arima",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 1.0925620430093155
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "random_walk",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.8494189753941431
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.8685695116369363
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.8980722874732306
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.9276429747700258
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 0.9473090066392116
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 0.9624623618012471
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 0.977669781331474
+  },
+  {
+   "model": "timestral",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 0.9822065769090238
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.8671397347307113
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.8846806037872539
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.8857250236706523
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.9178007014317803
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 0.9364530642973279
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 0.9455943318471113
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 0.9595882444673868
+  },
+  {
+   "model": "timestral_joint",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 0.9718626958051769
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.6655476684965604
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.5874696294371801
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.5018671091892748
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.4190269569027872
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 0.36319239754219196
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 0.3280149508587692
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 0.31169821052563695
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 0.303240034031473
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.8044761773615179
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.7845827019033337
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.7718975051116911
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.7756104684184302
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 0.7784655506938307
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 0.7796169854916117
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 0.7695342196895648
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 0.7740748304733898
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 1,
+   "rel_mase": 0.8613177717810911
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 2,
+   "rel_mase": 0.8794288108684624
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 3,
+   "rel_mase": 0.878586056887881
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 4,
+   "rel_mase": 0.9085368420343081
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 5,
+   "rel_mase": 0.9281471619708298
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 6,
+   "rel_mase": 0.9326821479191875
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 7,
+   "rel_mase": 0.9478553970835907
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "id": "UST",
+   "h": 8,
+   "rel_mase": 0.9538549049303015
+  }
+ ],
+ "rel_mase_by_bank": [
+  {
+   "id": "UST",
+   "arima": 1.0313471434522172,
+   "random_walk": 1.0,
+   "timestral": 0.9465816077039949,
+   "timestral_joint": 0.935846417697005,
+   "timestral_joint_ff_known": 0.38588472141176317,
+   "timestral_joint_macro_known": 0.7760680578509465,
+   "timestral_joint_macro_past": 0.924871675604966
+  }
+ ],
+ "dm_summary": [
+  {
+   "h": 1,
+   "better": 0.3,
+   "worse": 0.0
+  },
+  {
+   "h": 2,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 3,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 4,
+   "better": 0.2,
+   "worse": 0.0
+  },
+  {
+   "h": 5,
+   "better": 0.4,
+   "worse": 0.0
+  },
+  {
+   "h": 6,
+   "better": 0.4,
+   "worse": 0.0
+  },
+  {
+   "h": 7,
+   "better": 0.4,
+   "worse": 0.0
+  },
+  {
+   "h": 8,
+   "better": 0.4,
+   "worse": 0.0
+  }
+ ],
+ "series_win_rates": [
+  {
+   "id": "UST",
+   "MAE": 0.5,
+   "MASE": 0.5,
+   "RMSE": 0.5,
+   "sMAPE": 0.5
+  }
+ ],
+ "slices": [
+  {
+   "model": "arima",
+   "covid": 2.660570561817008,
+   "hiking_2022": 5.47639381676292,
+   "normal": 2.483782220737414
+  },
+  {
+   "model": "random_walk",
+   "covid": 2.5524278631431003,
+   "hiking_2022": 5.966635670362046,
+   "normal": 2.3568838881620455
+  },
+  {
+   "model": "timestral",
+   "covid": 1.9152143535928983,
+   "hiking_2022": 5.374010428506746,
+   "normal": 2.2460237273506314
+  },
+  {
+   "model": "timestral_joint",
+   "covid": 1.839308493220387,
+   "hiking_2022": 5.678164799924329,
+   "normal": 2.1467989842461535
+  },
+  {
+   "model": "timestral_joint_ff_known",
+   "covid": 0.8628639640043749,
+   "hiking_2022": 1.8989268427596318,
+   "normal": 1.1259600582635862
+  },
+  {
+   "model": "timestral_joint_macro_known",
+   "covid": 1.3215582102847545,
+   "hiking_2022": 5.83039300747926,
+   "normal": 1.5839499831212578
+  },
+  {
+   "model": "timestral_joint_macro_past",
+   "covid": 1.9035449185978615,
+   "hiking_2022": 5.658325927304697,
+   "normal": 2.10391116496131
+  }
+ ]
+}
