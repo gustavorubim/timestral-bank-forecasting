@@ -68,6 +68,14 @@ Given the realised curve, Timestral cuts interest-expense MASE about 40% vs no c
 grows with horizon. The exception is the 2023Q2 rate peak, where lagged deposit repricing defeats a level-only mapping.
 See [`docs/term_structure_findings.md`](docs/term_structure_findings.md).
 
+## Experiment 3: granular lines x CCAR-style macro panel
+
+`uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config configs/macro_panel.yaml`
+produces [`reports/macro_panel/REPORT.md`](reports/macro_panel/REPORT.md), with per-group spaghetti pages under
+`reports/macro_panel/figures/{income,assets,liabilities}/`. A known-future macro path helps interest income and
+expense, provisions, the allowance and noninterest-bearing deposits. It hurts loan, debt and noninterest lines.
+See [`docs/macro_panel_findings.md`](docs/macro_panel_findings.md).
+
 ## Design
 
 ```

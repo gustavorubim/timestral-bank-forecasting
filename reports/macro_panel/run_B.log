@@ -1,0 +1,6 @@
+2026-10-18 15:02:54,467 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 913.89it/s]
+2026-10-18 15:03:45,676 INFO model timestral: 38 origins in 52.7s
+2026-10-18 15:47:06,211 INFO model timestral_macro_known: 38 origins in 2600.5s
+2026-10-18 15:57:07,108 INFO model timestral_macro_compact: 38 origins in 600.9s
+shard written: reports/macro_panel/backtest_B.parquet

@@ -1,0 +1,7 @@
+             timestral  rel MASE vs baseline = 0.965
+                 arima  rel MASE vs baseline = 1.000
+ timestral_macro_known  rel MASE vs baseline = 1.039
+timestral_macro_compact  rel MASE vs baseline = 1.047
+    arimax_macro_small  rel MASE vs baseline = 1.176
+report: reports/macro_panel/REPORT.md
+REPORT_DONE Sun Oct 18 15:58:34 EDT 2026

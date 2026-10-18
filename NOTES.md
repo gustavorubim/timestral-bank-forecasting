@@ -18,3 +18,4 @@
 - 15:10 ET macro_panel experiment: data built (37 lines, 22+2 macro), shards A (arima/arimax) and B (timestral) launched
 - 15:15 ET shards running (arima done 388s; timestral_macro_known in progress). If cut off: wait for reports/macro_panel/backtest_{A,B}.parquet then 'uv run python -m bsforecast report --config configs/macro_panel.yaml'
 - 15:30 ET auto-finisher /tmp/mp_finish.sh waits for both shards then builds report (reports/macro_panel/report.log ends with REPORT_DONE). Remaining: write docs/macro_panel_findings.md, re-run report, ruff/pytest, commit+push.
+- 16:05 ET macro_panel done; findings written; committed
