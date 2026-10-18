@@ -28,3 +28,11 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
 - Queue (experiments/run_queue_b.sh, nohup) will run fhfa -> zillow -> census -> m5 -> live_tampa automatically.
 - Next session: check experiments/queue_b.log for QUEUE_DONE / FAILED; read reports/<domain>/summary.json + tables;
   write findings*.md; `uv run python -m bsforecast report --config <cfg>` for each; ruff+pytest; commit reports; pull --rebase; push.
+
+## 2026-10-18 17:35 ET (session 2)
+- Email removed from code/notes; UA from SEC_USER_AGENT env (main de41733 after history rewrite).
+- Replaced sequential queue with experiments/run_parallel_b.sh (fhfa, zillow, census in parallel from 17:09; m5 after earnings).
+  /tmp/headlines_b.sh writes reports/<domain>/headline.txt (experiments/headline.py) after QUEUE_DONE.
+- Box load ~30 (domains-a runs + ours). Progress at 17:32: earnings on timestral_macro_past (since 17:04);
+  fhfa baselines done, on timestral; zillow + census still in seasonal AutoARIMA (season 12, h=24).
+- NOTE: box appears frozen while the agent is idle (AwaitShell without shell_id); keep a Shell `sleep` running to make progress.
