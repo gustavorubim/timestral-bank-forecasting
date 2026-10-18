@@ -1,0 +1,7 @@
+model,rel_mase
+ets,1.0
+seasonal_naive,1.3232689325484357
+timestral,0.9152209781976601
+timestral_calendar_known,0.9377213506791287
+timestral_macro_known,0.8030509576771712
+timestral_macro_past,0.9205079833674167

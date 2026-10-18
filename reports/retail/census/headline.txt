@@ -1,0 +1,47 @@
+baseline=ets  H=24
+h                             1      6     12     24  overall  coverage80   MASE
+model                                                                           
+timestral_macro_known     0.716  0.810  0.802  0.812    0.803       0.757  1.604
+timestral                 0.858  0.911  0.930  0.936    0.915       0.741  1.745
+timestral_macro_past      0.789  0.905  0.941  0.946    0.921       0.750  1.747
+timestral_calendar_known  0.800  0.908  0.952  0.967    0.938       0.763  1.784
+ets                       1.000  1.000  1.000  1.000    1.000       0.639  1.928
+seasonal_naive            2.011  1.321  1.057  1.124    1.323       0.536  2.593
+
+DM share better/worse at 5% (h in [1, 6, 12, 24] )
+                         better                  worse                 
+h                            1     6     12   24    1     6     12   24
+model                                                                  
+seasonal_naive             0.00  0.00  0.00  0.0   0.5  0.00  0.07  0.0
+timestral                  0.14  0.21  0.21  0.0   0.0  0.07  0.00  0.0
+timestral_calendar_known   0.29  0.14  0.36  0.0   0.0  0.00  0.00  0.0
+timestral_macro_known      0.21  0.00  0.00  0.0   0.0  0.00  0.00  0.0
+timestral_macro_past       0.36  0.14  0.21  0.0   0.0  0.00  0.00  0.0
+
+rel MASE by id:
+model                   ets  seasonal_naive  timestral  timestral_calendar_known  timestral_macro_known  timestral_macro_past
+id                                                                                                                           
+building_materials      1.0            1.40       1.07                      1.10                   1.12                  1.14
+clothing                1.0            1.10       0.79                      0.84                   0.77                  0.78
+electronics             1.0            1.05       0.86                      0.92                   0.90                  0.87
+food_beverage_stores    1.0            1.74       0.94                      0.92                   0.87                  0.84
+food_services           1.0            1.46       0.92                      0.88                   0.63                  0.79
+furniture               1.0            1.15       0.99                      1.05                   0.99                  1.01
+gasoline                1.0            1.19       0.89                      1.02                   0.23                  1.03
+general_merch           1.0            1.32       1.05                      1.02                   0.89                  0.96
+health_personal         1.0            1.76       0.91                      0.86                   0.83                  0.90
+misc_stores             1.0            1.14       0.94                      0.99                   0.93                  1.01
+motor_vehicles          1.0            1.24       0.90                      0.95                   1.11                  1.02
+nonstore                1.0            1.63       0.74                      0.73                   0.73                  0.71
+sporting_hobby          1.0            1.00       0.86                      0.90                   0.94                  0.91
+total_ex_food_services  1.0            1.67       1.02                      1.04                   0.92                  1.01
+
+by slice MASE:
+slice                     covid  inflation_2022  normal
+model                                                  
+ets                       3.911           1.620   1.499
+seasonal_naive            4.399           2.610   2.095
+timestral                 3.549           1.496   1.344
+timestral_calendar_known  3.721           1.491   1.363
+timestral_macro_known     3.675           1.184   1.192
+timestral_macro_past      3.674           1.394   1.351

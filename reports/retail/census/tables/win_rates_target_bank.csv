@@ -1,0 +1,15 @@
+id,target,win_rate
+building_materials,sales,0.4791666666666667
+clothing,sales,0.6620370370370371
+electronics,sales,0.5428240740740741
+food_beverage_stores,sales,0.6400462962962963
+food_services,sales,0.6331018518518519
+furniture,sales,0.5219907407407407
+gasoline,sales,0.5972222222222222
+general_merch,sales,0.4675925925925926
+health_personal,sales,0.6099537037037037
+misc_stores,sales,0.5694444444444444
+motor_vehicles,sales,0.5752314814814815
+nonstore,sales,0.7349537037037037
+sporting_hobby,sales,0.5891203703703703
+total_ex_food_services,sales,0.5428240740740741
