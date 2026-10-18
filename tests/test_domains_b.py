@@ -67,3 +67,15 @@ def test_auto_ets_registered_and_forecasts():
 
 def test_plotconfig_spaghetti_ids_default_empty():
     assert PlotConfig().spaghetti_ids == []
+
+
+def test_sec_user_agent_requires_env(monkeypatch):
+    import pytest
+
+    from bsforecast.data.earnings import sec_user_agent
+
+    monkeypatch.delenv("SEC_USER_AGENT", raising=False)
+    with pytest.raises(RuntimeError, match="contact email"):
+        sec_user_agent()
+    monkeypatch.setenv("SEC_USER_AGENT", "Test research test@example.com")
+    assert sec_user_agent() == "Test research test@example.com"

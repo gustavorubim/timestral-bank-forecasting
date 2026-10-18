@@ -1,5 +1,5 @@
 # Company earnings: SEC XBRL quarterly fundamentals for 23 large S&P 500 non-financials.
-# Rebuild data: uv run python -m bsforecast fetch-domain earnings
+# Rebuild data: SEC_USER_AGENT="Your Name research you@example.com" uv run python -m bsforecast fetch-domain earnings
 # Run:          uv run python -m bsforecast run --config experiments/earnings/config.yaml
 name: earnings
 output_dir: reports/earnings

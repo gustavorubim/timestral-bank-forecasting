@@ -3,7 +3,7 @@
 Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XBRL), housing (FHFA + Zillow), retail (FRED MRTS + M5).
 
 ## 2026-10-18 16:45 ET
-- SEC data.sec.gov 403s with a noreply email in User-Agent; works with "gustavorubim research REDACTED_EMAIL" (his GitHub email).
+- SEC data.sec.gov 403s with a noreply email in User-Agent; works with a real personal contact email. The UA now comes from env var SEC_USER_AGENT (never commit it).
 - M5 mirror: HF datasets kashif/M5 (calendar, sales_train_evaluation, sell_prices). Downloading to data/raw/m5.
 - Zillow ZHVI/ZORI metro CSVs and FHFA hpi_at_metro.csv reachable.
 

@@ -9,6 +9,7 @@ this is approximate because the share count moves within the year).
 from __future__ import annotations
 
 import json
+import os
 import time
 from pathlib import Path
 
@@ -16,8 +17,20 @@ import numpy as np
 import pandas as pd
 import requests
 
-# SEC asks for a descriptive User-Agent with a real contact address.
-UA = "gustavorubim research REDACTED_EMAIL"
+UA_ENV = "SEC_USER_AGENT"
+
+
+def sec_user_agent() -> str:
+    """SEC fair-access policy requires a User-Agent naming you and a real contact email."""
+    ua = os.environ.get(UA_ENV, "").strip()
+    if not ua:
+        raise RuntimeError(
+            f"{UA_ENV} is not set. SEC EDGAR (data.sec.gov) requires a User-Agent with your name and a "
+            f'contact email, e.g. export {UA_ENV}="Your Name research you@example.com". '
+            "Requests without one (or with a no-reply address) are rejected with HTTP 403."
+        )
+    return ua
+
 
 COMPANIES = {  # ticker -> sector (non-financials: operating income is well defined)
     "AAPL": "tech", "MSFT": "tech", "NVDA": "tech", "INTC": "tech", "CSCO": "tech", "ORCL": "tech",
@@ -47,7 +60,7 @@ TAGS = {
 def _get(url: str, cache: Path) -> dict:
     if cache.exists():
         return json.loads(cache.read_text())
-    r = requests.get(url, headers={"User-Agent": UA, "Accept-Encoding": "gzip, deflate"}, timeout=60)
+    r = requests.get(url, headers={"User-Agent": sec_user_agent(), "Accept-Encoding": "gzip, deflate"}, timeout=60)
     r.raise_for_status()
     time.sleep(0.2)  # well under the 10 req/s fair-access limit
     cache.parent.mkdir(parents=True, exist_ok=True)
