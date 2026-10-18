@@ -1,0 +1,49 @@
+# Retail (monthly): Census retail sales by kind of business (FRED, NSA, $bn), 14 categories, 24-month one-shot.
+# Rebuild data: uv run python -m bsforecast fetch-domain retail
+name: retail_census
+output_dir: reports/retail/census
+notes_file: experiments/retail/findings_census.md
+data:
+  path: data/processed/retail_census_panel.parquet
+  date_col: date
+  id_col: id
+  freq: ME
+  targets: [sales]
+  covariates: [month_sin, month_cos, n_weekend_days, n_days, cpi_inflation, unemployment, rdi_growth, gas_price]
+  groups:
+    retail_sales: [sales]
+backtest:
+  horizon: 24
+  n_origins: 36
+  step: 3
+  min_train: 60
+  live_forecast: false
+  stress_windows:
+    covid: ['2019-03-31', '2020-06-30']
+    inflation_2022: ['2021-03-31', '2022-12-31']
+models:
+- {name: seasonal_naive, type: seasonal_naive, season_length: 12}
+- {name: arima, type: auto_arima, season_length: 12, n_jobs: 3}
+- {name: ets, type: auto_ets, season_length: 12, n_jobs: 3}
+- {name: timestral, type: timestral, threads: 4}
+- name: timestral_calendar_known
+  type: timestral
+  threads: 4
+  covariates: known_oracle
+  covariate_subset: [month_sin, month_cos, n_weekend_days, n_days]
+- {name: timestral_macro_past, type: timestral, threads: 4, covariates: past}
+- {name: timestral_macro_known, type: timestral, threads: 4, covariates: known_oracle}
+evaluation:
+  baseline: arima
+  challenger: timestral
+  mase_season: 12
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  spaghetti_models: [seasonal_naive, arima, timestral, timestral_macro_known]
+  spaghetti_by_group: true
+  spaghetti_ids: [total_ex_food_services, motor_vehicles, gasoline, nonstore, general_merch, food_services, clothing, electronics]
+  compare_pairs:
+  - [timestral_calendar_known, timestral]
+  - [timestral_macro_known, timestral]
+  - [timestral_macro_past, timestral]
+  - [timestral, arima]

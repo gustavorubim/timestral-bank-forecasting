@@ -1,0 +1,44 @@
+# Company earnings: SEC XBRL quarterly fundamentals for 23 large S&P 500 non-financials.
+# Rebuild data: uv run python -m bsforecast fetch-domain earnings
+# Run:          uv run python -m bsforecast run --config experiments/earnings/config.yaml
+name: earnings
+output_dir: reports/earnings
+notes_file: experiments/earnings/findings.md
+data:
+  path: data/processed/earnings_panel.parquet
+  date_col: date
+  id_col: company
+  freq: QE
+  targets: [revenue, op_margin, net_income, eps]
+  covariates: [gdp_growth, ngdp_growth, cpi_inflation, ust_10y, fed_funds, unemployment]
+  groups:
+    fundamentals: [revenue, op_margin, net_income, eps]
+backtest:
+  horizon: 8
+  n_origins: 30
+  step: 1
+  min_train: 24
+  live_forecast: false
+  stress_windows:
+    covid: ['2019-06-30', '2020-06-30']
+    inflation_2022: ['2021-06-30', '2022-12-31']
+models:
+- {name: seasonal_naive, type: seasonal_naive, season_length: 4}
+- {name: arima, type: auto_arima, season_length: 4, n_jobs: 3}
+- {name: ets, type: auto_ets, season_length: 4, n_jobs: 3}
+- {name: timestral, type: timestral, threads: 4, clip_nonnegative: false}
+- {name: timestral_macro_past, type: timestral, threads: 4, clip_nonnegative: false, covariates: past}
+- {name: timestral_macro_known, type: timestral, threads: 4, clip_nonnegative: false, covariates: known_oracle}
+evaluation:
+  baseline: arima
+  challenger: timestral
+  mase_season: 4
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  spaghetti_models: [arima, ets, timestral, timestral_macro_known]
+  spaghetti_by_group: true
+  spaghetti_ids: [AAPL, MSFT, NVDA, AMZN, WMT, HD, KO, UNH, CAT, VZ, DUK, META]
+  compare_pairs:
+  - [timestral_macro_known, timestral]
+  - [timestral_macro_past, timestral]
+  - [timestral, arima]

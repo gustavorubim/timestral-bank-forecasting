@@ -1,0 +1,43 @@
+# Housing (quarterly): FHFA all-transactions metro HPI for 22 metros incl. Tampa, 8-quarter one-shot.
+# Rebuild data: uv run python -m bsforecast fetch-domain housing
+name: housing_fhfa
+output_dir: reports/housing/fhfa
+notes_file: experiments/housing/findings_fhfa.md
+data:
+  path: data/processed/housing_fhfa_panel.parquet
+  date_col: date
+  id_col: id
+  freq: QE
+  targets: [hpi]
+  covariates: [mortgage_rate, unemployment, rdi_growth]
+  groups:
+    house_prices: [hpi]
+backtest:
+  horizon: 8
+  n_origins: 36
+  step: 1
+  min_train: 40
+  live_forecast: true
+  stress_windows:
+    covid_boom: ['2019-09-30', '2021-03-31']
+    rate_shock_2022: ['2021-06-30', '2022-12-31']
+models:
+- {name: seasonal_naive, type: seasonal_naive, season_length: 4}
+- {name: arima, type: auto_arima, season_length: 4, n_jobs: 3}
+- {name: ets, type: auto_ets, season_length: 4, n_jobs: 3}
+- {name: timestral, type: timestral, threads: 4}
+- {name: timestral_macro_past, type: timestral, threads: 4, covariates: past}
+- {name: timestral_macro_known, type: timestral, threads: 4, covariates: known_oracle}
+evaluation:
+  baseline: arima
+  challenger: timestral
+  mase_season: 1
+  quantiles: [0.05, 0.1, 0.5, 0.9, 0.95]
+plots:
+  spaghetti_models: [arima, ets, timestral, timestral_macro_known]
+  spaghetti_by_group: true
+  spaghetti_ids: [Tampa, Orlando, Miami, Austin, Phoenix, Denver, NewYork, Chicago, SanFrancisco, Seattle]
+  compare_pairs:
+  - [timestral_macro_known, timestral]
+  - [timestral_macro_past, timestral]
+  - [timestral, arima]

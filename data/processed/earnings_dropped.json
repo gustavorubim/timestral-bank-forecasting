@@ -1,0 +1,50 @@
+{
+ "NKE": {
+  "revenue": 1.0,
+  "op_margin": 0.0,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "JNJ": {
+  "revenue": 1.0,
+  "op_margin": 0.28,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "PFE": {
+  "revenue": 1.0,
+  "op_margin": 0.0,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "MRK": {
+  "revenue": 1.0,
+  "op_margin": 0.0,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "HON": {
+  "revenue": 1.0,
+  "op_margin": 0.3,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "LIN": {
+  "revenue": 1.0,
+  "op_margin": 1.0,
+  "net_income": 1.0,
+  "eps": 1.0
+ },
+ "GOOGL": {
+  "revenue": 1.0,
+  "op_margin": 1.0,
+  "net_income": 1.0,
+  "eps": 0.94
+ },
+ "DIS": {
+  "revenue": 1.0,
+  "op_margin": 1.0,
+  "net_income": 1.0,
+  "eps": 1.0
+ }
+}

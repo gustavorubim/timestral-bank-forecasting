@@ -82,6 +82,8 @@ class PlotConfig:
     spaghetti_targets_grid: bool = False
     # Per-id heatmaps (id x variant, id x horizon) for panels where ids are the series of interest.
     id_heatmaps: bool = False
+    # Optional subset of ids (rows) for the spaghetti grids; default = all ids.
+    spaghetti_ids: list[str] = field(default_factory=list)
 
 
 @dataclass

@@ -454,7 +454,7 @@ def _group_pages(cfg: Config, panel: Panel, bt, err, figs: Path, base: str, mode
         for t in ts:
             if t not in panel.targets:
                 continue
-            P.spaghetti(bt, panel, t, sp_models, gdir / f"spaghetti_{t}.png")
+            P.spaghetti(bt, panel, t, sp_models, gdir / f"spaghetti_{t}.png", ids=pc.spaghetti_ids or None)
             idx += [f"## {t}", f"![](spaghetti_{t}.png)", ""]
         (gdir / "index.md").write_text("\n".join(idx))
         out.append(f"- [{g}](figures/{g}/index.md) ({len(ts)} lines)")

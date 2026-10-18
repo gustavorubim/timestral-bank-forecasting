@@ -28,6 +28,10 @@ def main(argv: list[str] | None = None) -> None:
     g = sub.add_parser("fetch-macro-panel", help="granular top-4 BHC lines + CCAR-style macro panel")
     g.add_argument("--raw-dir", default="data/raw")
     g.add_argument("--out-dir", default="data/processed")
+    d = sub.add_parser("fetch-domain", help="build a non-bank domain panel: earnings | housing | retail")
+    d.add_argument("domain", choices=["earnings", "housing", "retail"])
+    d.add_argument("--raw-dir", default="data/raw")
+    d.add_argument("--out-dir", default="data/processed")
     for name in ("run", "report"):
         p = sub.add_parser(name)
         p.add_argument("--config", required=True)
@@ -48,6 +52,10 @@ def main(argv: list[str] | None = None) -> None:
 
         panel = build_macro_panel(Path(args.raw_dir), Path(args.out_dir))
         print(panel.groupby("bank")["date"].agg(["min", "max", "count"]))
+        return
+
+    if args.cmd == "fetch-domain":
+        _fetch_domain(args.domain, Path(args.raw_dir), Path(args.out_dir))
         return
 
     cfg = load_config(args.config)
@@ -83,6 +91,24 @@ def main(argv: list[str] | None = None) -> None:
     for r in sorted(s["rel_mase"], key=lambda r: r["rel_mase"]):
         print(f"{r['model']:>22s}  rel MASE vs baseline = {r['rel_mase']:.3f}")
     print(f"report: {cfg.out / 'REPORT.md'}")
+
+
+def _fetch_domain(domain: str, raw: Path, out: Path) -> None:
+    if domain == "earnings":
+        from .data.earnings import build_earnings
+
+        p = build_earnings(raw, out)
+        print(p.groupby("company")["date"].agg(["min", "max", "count"]))
+    elif domain == "housing":
+        from .data.housing import build_housing
+
+        for k, p in build_housing(raw, out).items():
+            print(k, p["id"].nunique(), p["date"].min(), p["date"].max())
+    else:
+        from .data.retail import build_m5, build_retail_census
+
+        for p in (build_retail_census(raw, out), build_m5(raw, out)):
+            print(p["id"].nunique(), p["date"].min(), p["date"].max())
 
 
 if __name__ == "__main__":

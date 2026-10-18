@@ -96,9 +96,13 @@ def Naive_():
 class AutoARIMAModel(Forecaster):
     """statsforecast AutoARIMA; with ``covariates: known_oracle`` it is an ARIMAX."""
 
+    def _sf_model(self, m: int):
+        from statsforecast.models import AutoARIMA
+
+        return AutoARIMA(season_length=m, alias="m")
+
     def predict(self, batch):
         from statsforecast import StatsForecast
-        from statsforecast.models import AutoARIMA
 
         b, v, t = batch.y.shape
         qs = self.quantiles
@@ -135,7 +139,7 @@ class AutoARIMAModel(Forecaster):
         df = pd.concat(rows, ignore_index=True)
         m = int(self.cfg.params.get("season_length", 4))
         sf = StatsForecast(
-            models=[AutoARIMA(season_length=m, alias="m")],
+            models=[self._sf_model(m)],
             freq=batch.freq,
             n_jobs=int(self.cfg.params.get("n_jobs", min(8, os.cpu_count() or 1))),
             # A failed ARIMAX fit (e.g. singular xreg) falls back to a plain AutoARIMA-free naive.

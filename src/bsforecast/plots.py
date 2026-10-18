@@ -268,9 +268,10 @@ def multi_origin_fans(bt, panel: Panel, target: str, origins, models, path: Path
     plt.close(fig)
 
 
-def spaghetti(bt, panel: Panel, target: str, models, path: Path):
-    """Every origin's 8q median path over the actual series; rows = ids, cols = models."""
-    ids, j = panel.ids, panel.targets.index(target)
+def spaghetti(bt, panel: Panel, target: str, models, path: Path, ids: list[str] | None = None):
+    """Every origin's one-shot median path over the actual series; rows = ids, cols = models."""
+    ids = [i for i in (ids or panel.ids) if i in panel.ids]
+    j = panel.targets.index(target)
     d0 = bt[(bt.target == target) & ~bt.live]
     first = d0["origin"].min()
     fi = max(0, int(np.searchsorted(panel.dates, first)) - 4)
@@ -280,7 +281,7 @@ def spaghetti(bt, panel: Panel, target: str, models, path: Path):
     for c, m in enumerate(models):
         for r, i in enumerate(ids):
             ax = axes[r, c]
-            ax.plot(panel.dates[fi:], panel.y[r, j, fi:], color="k", lw=2, zorder=5)
+            ax.plot(panel.dates[fi:], panel.y[panel.ids.index(i), j, fi:], color="k", lw=2, zorder=5)
             d = d0[(d0.model == m) & (d0.id == i)]
             for k, (o, g) in enumerate(d.groupby("origin")):
                 g = g.sort_values("h")
