@@ -50,3 +50,10 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
 - Gus state 18:02: earnings in arima (slow); zillow/census done timestral; m5 in timestral.
 - Remaining after runs: experiments/housing/live_tampa.py; experiments/headline.py per report -> findings*.md
   (note ARIMA dropped for zillow/census/m5; known-future = scenario test); `bsforecast report`; ruff; pytest; commit; push.
+
+## 2026-10-18 18:50 ET (session 4)
+- DONE + pushed: earnings, housing_fhfa (box), housing_zillow (Gus run, report on box), live_tampa.png.
+- PENDING on Gus only (box duplicates killed): retail census (on timestral_macro_known), M5 (on timestral_calendar_known,
+  then timestral_all_known). When done: CopyToBox C:\Users\gusta\master\tbf-gus\reports\retail\{census,m5}\backtest.parquet
+  -> reports/retail/{census,m5}/, `bsforecast report --config experiments/retail/{census,m5}.yaml`, headline.py,
+  write findings_{census,m5}.md (ETS / seasonal-naive baselines, ARIMA dropped), report again, ruff, pytest, push.
