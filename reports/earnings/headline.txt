@@ -1,0 +1,64 @@
+baseline=arima  H=8
+h                          1      2      4      8  overall  coverage80   MASE
+model                                                                        
+timestral              0.867  0.889  0.895  0.885    0.886       0.738  1.684
+timestral_macro_past   0.878  0.897  0.908  0.902    0.899       0.777  1.697
+timestral_macro_known  0.901  0.947  0.968  0.998    0.969       0.822  1.859
+ets                    0.979  0.979  0.988  0.971    0.972       0.714  1.788
+arima                  1.000  1.000  1.000  1.000    1.000       0.688  1.834
+seasonal_naive         1.370  1.177  1.028  1.011    1.096       0.694  2.051
+
+DM share better/worse at 5% (h in [1, 2, 4, 8] )
+                      better                   worse                  
+h                          1     2     4     8     1     2     4     8
+model                                                                 
+ets                     0.02  0.03  0.03  0.07  0.02  0.02  0.02  0.04
+seasonal_naive          0.00  0.01  0.04  0.07  0.25  0.09  0.08  0.11
+timestral               0.13  0.09  0.13  0.13  0.00  0.01  0.01  0.05
+timestral_macro_known   0.07  0.04  0.15  0.12  0.00  0.00  0.03  0.04
+timestral_macro_past    0.09  0.05  0.14  0.22  0.00  0.01  0.00  0.04
+
+rel MASE by id:
+model  arima   ets  seasonal_naive  timestral  timestral_macro_known  timestral_macro_past
+id                                                                                        
+AAPL     1.0  0.95            1.04       0.99                   1.07                  1.04
+ABT      1.0  1.06            1.17       0.99                   0.95                  0.96
+AMZN     1.0  1.01            1.28       0.99                   1.13                  0.92
+CAT      1.0  0.82            0.93       0.77                   0.67                  0.76
+CSCO     1.0  0.93            1.04       0.79                   0.89                  0.82
+DUK      1.0  0.93            1.04       0.85                   0.91                  0.92
+HD       1.0  1.09            1.05       0.97                   1.07                  0.91
+INTC     1.0  0.96            1.03       0.99                   1.13                  0.97
+KO       1.0  0.96            0.92       0.83                   0.86                  0.83
+LMT      1.0  1.03            1.13       0.94                   1.07                  0.93
+MCD      1.0  0.83            0.92       0.78                   0.88                  0.87
+META     1.0  0.94            1.26       0.95                   1.16                  0.96
+MSFT     1.0  1.00            1.07       0.87                   1.08                  0.84
+NEE      1.0  0.88            0.99       0.77                   0.86                  0.84
+NVDA     1.0  1.00            1.15       1.01                   1.10                  1.03
+ORCL     1.0  1.03            1.25       0.93                   0.98                  0.95
+PEP      1.0  0.97            1.18       0.92                   0.95                  0.93
+PG       1.0  1.00            1.01       0.71                   0.84                  0.76
+T        1.0  0.97            1.29       0.93                   0.95                  0.93
+UNH      1.0  1.04            1.64       1.05                   1.29                  1.09
+UNP      1.0  1.08            0.98       0.92                   0.95                  0.91
+VZ       1.0  1.02            0.94       0.67                   0.75                  0.68
+WMT      1.0  0.94            1.15       0.90                   0.98                  0.94
+
+rel MASE by target:
+model       arima   ets  seasonal_naive  timestral  timestral_macro_known  timestral_macro_past
+target                                                                                         
+eps           1.0  0.98            1.05       0.85                   0.95                  0.88
+net_income    1.0  0.97            1.05       0.84                   0.93                  0.87
+op_margin     1.0  0.96            1.01       0.87                   0.96                  0.88
+revenue       1.0  0.98            1.28       0.98                   1.04                  0.97
+
+by slice MASE:
+slice                  covid  inflation_2022  normal
+model                                               
+arima                  1.910           1.898   1.788
+ets                    1.900           1.851   1.732
+seasonal_naive         2.009           2.025   2.073
+timestral              1.772           1.726   1.644
+timestral_macro_known  2.211           1.824   1.775
+timestral_macro_past   1.851           1.729   1.641

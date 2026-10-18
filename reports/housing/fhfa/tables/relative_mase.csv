@@ -1,0 +1,7 @@
+model,rel_mase
+arima,1.0
+ets,0.8448977709437485
+seasonal_naive,1.8677880415584702
+timestral,0.832752477465637
+timestral_macro_known,0.8247366401592918
+timestral_macro_past,0.8435137470541187

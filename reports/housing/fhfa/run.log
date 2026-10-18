@@ -1,0 +1,19 @@
+2026-10-18 17:09:19,998 INFO model seasonal_naive: 37 origins in 0.2s
+2026-10-18 17:16:04,428 INFO model arima: 37 origins in 404.4s
+2026-10-18 17:17:07,186 INFO model ets: 37 origins in 62.8s
+2026-10-18 17:17:09,883 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 133.96it/s]
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/timestral/forecaster.py:234: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  x = torch.as_tensor(context, dtype=torch.float32, device=self.device)
+2026-10-18 17:38:19,770 INFO model timestral: 37 origins in 1272.6s
+2026-10-18 18:31:16,469 INFO model timestral_macro_past: 37 origins in 3176.7s
+2026-10-18 18:36:06,005 INFO model timestral_macro_known: 37 origins in 289.5s
+/workspace/tbf-domains-b/src/bsforecast/plots.py:113: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+ timestral_macro_known  rel MASE vs baseline = 0.825
+             timestral  rel MASE vs baseline = 0.833
+  timestral_macro_past  rel MASE vs baseline = 0.844
+                   ets  rel MASE vs baseline = 0.845
+                 arima  rel MASE vs baseline = 1.000
+        seasonal_naive  rel MASE vs baseline = 1.868
+report: reports/housing/fhfa/REPORT.md

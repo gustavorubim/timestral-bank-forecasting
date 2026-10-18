@@ -1,0 +1,7208 @@
+{
+ "overall": [
+  {
+   "model": "timestral_macro_known",
+   "MAE": 16.655060220101866,
+   "RMSE": 28.800950803400845,
+   "MAPE": 2.2166701809639497,
+   "sMAPE": 4.471084815704893,
+   "MASE": 5.081976379765654,
+   "coverage80": 0.8039772727272727,
+   "dir_acc": 0.9223484848484849,
+   "n": 6336
+  },
+  {
+   "model": "timestral",
+   "MAE": 16.781603226517184,
+   "RMSE": 29.143249580481505,
+   "MAPE": 2.2513274338133664,
+   "sMAPE": 4.497125766776948,
+   "MASE": 5.150274568505368,
+   "coverage80": 0.7858270202020202,
+   "dir_acc": 0.9277146464646465,
+   "n": 6336
+  },
+  {
+   "model": "timestral_macro_past",
+   "MAE": 16.92762816525469,
+   "RMSE": 29.37042354603553,
+   "MAPE": 2.2420515711844438,
+   "sMAPE": 4.541823600993804,
+   "MASE": 5.1758427604684565,
+   "coverage80": 0.7795138888888888,
+   "dir_acc": 0.924388318863457,
+   "n": 6336
+  },
+  {
+   "model": "ets",
+   "MAE": 17.313656186286394,
+   "RMSE": 28.286086350482847,
+   "MAPE": 2.7976653553896353,
+   "sMAPE": 4.810313984714055,
+   "MASE": 5.248752584594655,
+   "coverage80": 0.6273674242424242,
+   "dir_acc": 0.9524936868686869,
+   "n": 6336
+  },
+  {
+   "model": "arima",
+   "MAE": 21.854100293721807,
+   "RMSE": 42.71571673653479,
+   "MAPE": 2.61977940092487,
+   "sMAPE": 5.539029191769123,
+   "MASE": 6.417967000298235,
+   "coverage80": 0.5839646464646465,
+   "dir_acc": 0.9213891081294396,
+   "n": 6336
+  },
+  {
+   "model": "seasonal_naive",
+   "MAE": 35.78744318181818,
+   "RMSE": 46.758177001218435,
+   "MAPE": 8.45479210044798,
+   "sMAPE": 10.969624030759414,
+   "MASE": 11.485049748661455,
+   "coverage80": 0.37910353535353536,
+   "dir_acc": 0.08901515151515152,
+   "n": 6336
+  }
+ ],
+ "rel_mase": [
+  {
+   "model": "arima",
+   "rel_mase": 1.0
+  },
+  {
+   "model": "ets",
+   "rel_mase": 0.8448977709437485
+  },
+  {
+   "model": "seasonal_naive",
+   "rel_mase": 1.8677880415584702
+  },
+  {
+   "model": "timestral",
+   "rel_mase": 0.832752477465637
+  },
+  {
+   "model": "timestral_macro_known",
+   "rel_mase": 0.8247366401592918
+  },
+  {
+   "model": "timestral_macro_past",
+   "rel_mase": 0.8435137470541187
+  }
+ ],
+ "mase_by_h": [
+  {
+   "h": 1,
+   "seasonal_naive": 7.527093071624104,
+   "arima": 1.2181958888528361,
+   "ets": 1.4127405476819483,
+   "timestral": 1.2324452053634123,
+   "timestral_macro_past": 1.2532973440114903,
+   "timestral_macro_known": 1.2500474080275517
+  },
+  {
+   "h": 2,
+   "seasonal_naive": 7.651805031482123,
+   "arima": 2.412181251480568,
+   "ets": 2.57534810682049,
+   "timestral": 2.295993154281354,
+   "timestral_macro_past": 2.3306562701419984,
+   "timestral_macro_known": 2.253488601594329
+  },
+  {
+   "h": 3,
+   "seasonal_naive": 7.7477645358193366,
+   "arima": 3.594270936028454,
+   "ets": 3.5296443936313318,
+   "timestral": 3.2303614949599684,
+   "timestral_macro_past": 3.2718275007418414,
+   "timestral_macro_known": 3.0718331345939154
+  },
+  {
+   "h": 4,
+   "seasonal_naive": 7.810372091071651,
+   "arima": 5.086361358971121,
+   "ets": 4.542854271715883,
+   "timestral": 4.305650767359368,
+   "timestral_macro_past": 4.356065458454558,
+   "timestral_macro_known": 4.162794012622574
+  },
+  {
+   "h": 5,
+   "seasonal_naive": 15.143403765526788,
+   "arima": 7.064911949948145,
+   "ets": 5.806939108672978,
+   "timestral": 5.6935170958229175,
+   "timestral_macro_past": 5.735821637109685,
+   "timestral_macro_known": 5.629565208498645
+  },
+  {
+   "h": 6,
+   "seasonal_naive": 15.272392194819862,
+   "arima": 8.979309743371829,
+   "ets": 6.964643432557265,
+   "timestral": 7.010581012924046,
+   "timestral_macro_past": 7.026820673545953,
+   "timestral_macro_known": 7.012013522974645
+  },
+  {
+   "h": 7,
+   "seasonal_naive": 15.360915382662474,
+   "arima": 10.654578996961336,
+   "ets": 8.031950194255346,
+   "timestral": 8.146676644019566,
+   "timestral_macro_past": 8.143513905648062,
+   "timestral_macro_known": 8.082828386832626
+  },
+  {
+   "h": 8,
+   "seasonal_naive": 15.366651916285294,
+   "arima": 12.333925876771593,
+   "ets": 9.125900621422002,
+   "timestral": 9.28697117331231,
+   "timestral_macro_past": 9.288739294094068,
+   "timestral_macro_known": 9.193240762980942
+  }
+ ],
+ "rel_mase_by_h": [
+  {
+   "model": "arima",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "ets",
+   "h": 1,
+   "rel_mase": 1.1647867755092138
+  },
+  {
+   "model": "ets",
+   "h": 2,
+   "rel_mase": 1.0821422342726685
+  },
+  {
+   "model": "ets",
+   "h": 3,
+   "rel_mase": 1.0012045882056295
+  },
+  {
+   "model": "ets",
+   "h": 4,
+   "rel_mase": 0.9125394665949792
+  },
+  {
+   "model": "ets",
+   "h": 5,
+   "rel_mase": 0.847286988340407
+  },
+  {
+   "model": "ets",
+   "h": 6,
+   "rel_mase": 0.8029711931312788
+  },
+  {
+   "model": "ets",
+   "h": 7,
+   "rel_mase": 0.7830019268919611
+  },
+  {
+   "model": "ets",
+   "h": 8,
+   "rel_mase": 0.7723065697957266
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 1,
+   "rel_mase": 6.1961126088457705
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 2,
+   "rel_mase": 3.2125859146226916
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 3,
+   "rel_mase": 2.215780897120587
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 4,
+   "rel_mase": 1.590522032235325
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 5,
+   "rel_mase": 2.2396186248657184
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 6,
+   "rel_mase": 1.7817982052824028
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 7,
+   "rel_mase": 1.517014172096182
+  },
+  {
+   "model": "seasonal_naive",
+   "h": 8,
+   "rel_mase": 1.3181534156922767
+  },
+  {
+   "model": "timestral",
+   "h": 1,
+   "rel_mase": 1.0144672927122929
+  },
+  {
+   "model": "timestral",
+   "h": 2,
+   "rel_mase": 0.963982916769139
+  },
+  {
+   "model": "timestral",
+   "h": 3,
+   "rel_mase": 0.9203981581044193
+  },
+  {
+   "model": "timestral",
+   "h": 4,
+   "rel_mase": 0.8710214459794364
+  },
+  {
+   "model": "timestral",
+   "h": 5,
+   "rel_mase": 0.8355743256293322
+  },
+  {
+   "model": "timestral",
+   "h": 6,
+   "rel_mase": 0.8131489920488362
+  },
+  {
+   "model": "timestral",
+   "h": 7,
+   "rel_mase": 0.7987412394836526
+  },
+  {
+   "model": "timestral",
+   "h": 8,
+   "rel_mase": 0.7907512998561774
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 1,
+   "rel_mase": 1.0245628125307775
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 2,
+   "rel_mase": 0.9479506691826228
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 3,
+   "rel_mase": 0.8778341532144572
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 4,
+   "rel_mase": 0.8420688623977384
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 5,
+   "rel_mase": 0.827619417101682
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 6,
+   "rel_mase": 0.8163760568280599
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 7,
+   "rel_mase": 0.7970512729765337
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 8,
+   "rel_mase": 0.7867967041559953
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 1,
+   "rel_mase": 1.0315219078739386
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 2,
+   "rel_mase": 0.9816098881188028
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 3,
+   "rel_mase": 0.9359987426628804
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 4,
+   "rel_mase": 0.8871243207560445
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 5,
+   "rel_mase": 0.8482019020083053
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 6,
+   "rel_mase": 0.8210084795326246
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 7,
+   "rel_mase": 0.8062870573493536
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 8,
+   "rel_mase": 0.7997719551931631
+  }
+ ],
+ "rel_mase_by_bank_h": [
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 1.2419626443301057
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 0.9627406709818536
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 0.7639573415981704
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 0.6944970475293518
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 0.6638666145929302
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 0.6280897012439497
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 0.6210917987147284
+  },
+  {
+   "model": "ets",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 0.6309974975212927
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 1.0758160408631778
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 0.8887206599535384
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 0.8316526100371981
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 0.7797430668138101
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 0.7060510988581971
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 0.6554562402739749
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 0.6397048179040941
+  },
+  {
+   "model": "ets",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 0.6210991038184398
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 0.7164499349413215
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 0.7786639178691839
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 0.7671966449407581
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 0.6625720899365807
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 0.6271037409593133
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 0.5931247454809432
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 0.5780625526487978
+  },
+  {
+   "model": "ets",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 0.5766187690387093
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 1.5075790218632927
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 1.1876959423951903
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 1.0348962089719138
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 0.8891704813265091
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 0.8026840351636185
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 0.7797919606987687
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 0.7697977896643159
+  },
+  {
+   "model": "ets",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 0.7544976253338235
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 1.1084980669476963
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 1.1056294767868935
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 1.0662416393223924
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 0.993073503592082
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 0.9799862980455524
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 0.9949163467681096
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 0.9830513197818218
+  },
+  {
+   "model": "ets",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 0.9881608198211737
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 1.206982791499499
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 1.1624135318173157
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 1.118977881892365
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 1.022035089467432
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 0.9093648307413054
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 0.8228015581067569
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 0.7870568949490544
+  },
+  {
+   "model": "ets",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 0.7582267395481334
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 1.0106512553526599
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 0.7842204417606262
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 0.7556917555878401
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 0.6931978949457104
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 0.6169303947017243
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 0.5761078400848046
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 0.5479099388590892
+  },
+  {
+   "model": "ets",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 0.5431681623526313
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 1.1896982642574812
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 1.26132736103455
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 1.0654342204524345
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 0.9188486930290078
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 0.8837897702442863
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 0.8731433696664853
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 0.8584785909860708
+  },
+  {
+   "model": "ets",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 0.8756485195084108
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 1.1908269621474912
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 1.1630979102468326
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 1.015973610233021
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 0.9313507934302475
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 0.8588830042268246
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 0.8247189403179028
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 0.7927242284262459
+  },
+  {
+   "model": "ets",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 0.7558576539405699
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 1.1665156404847024
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 1.0734413506144178
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 1.0627000519968919
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 1.0091490442176767
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 0.9226250530392072
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 0.8875555437839592
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 0.8811080316467946
+  },
+  {
+   "model": "ets",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 0.864477835612616
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 1.2372803102213843
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 1.0801154380123403
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 0.9833286669643315
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 0.9385593749557565
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 0.8710313956391917
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 0.8112373034799414
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 0.8060909809956827
+  },
+  {
+   "model": "ets",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 0.8168414198738726
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 1.1667415734025786
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 1.2113296264780224
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 1.2583678164694272
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 1.1803128055552075
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 1.1479791697806436
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 1.08827168446985
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 1.0695833880647097
+  },
+  {
+   "model": "ets",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 1.056202431324718
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 1.325151499875737
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 1.1523580942185425
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 1.1912202527256355
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 1.1063934887324027
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 0.9848814896699014
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 0.9131491682734951
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 0.927692614865718
+  },
+  {
+   "model": "ets",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 0.9492522654266864
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 1.0243852914159808
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 1.1097968103202445
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 0.9216443188702806
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 0.7611607179009694
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 0.6844899840249624
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 0.6422708492358603
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 0.606923641078101
+  },
+  {
+   "model": "ets",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 0.5832702979050752
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 0.8501002476202699
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 0.9155488956605046
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 0.9881466593395466
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 0.9289168530314567
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 0.8547905777743089
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 0.8225339158713404
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 0.8282113840540226
+  },
+  {
+   "model": "ets",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 0.8422031043842191
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 1.2396863843846289
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 1.2425778871862814
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 1.1782495332427352
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 1.0852610183538292
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 1.087259570859129
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 0.9998960301637175
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 0.9880325083637899
+  },
+  {
+   "model": "ets",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 0.9931005967268822
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 1.249977197530125
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 1.090763253805366
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 1.0469504002061392
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 1.0177631114576826
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 0.9517320095298597
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 0.9306823969363253
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 0.8976872448540232
+  },
+  {
+   "model": "ets",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 0.9016866238030276
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 1.5193352571765713
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 1.3764724737395913
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 1.1430779396346484
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 0.9477538551805981
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 0.8736755547570719
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 0.8059588190939929
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 0.7735135764234808
+  },
+  {
+   "model": "ets",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 0.7668194365462156
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 1.0784389269132113
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 1.0173073969096684
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 0.9128809124288682
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 0.8598988544140554
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 0.836724341168136
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 0.8273657727222846
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 0.7806444637549164
+  },
+  {
+   "model": "ets",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 0.7253572231475953
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 1.2803042021686823
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 1.0322919632135363
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 0.8119719659752492
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 0.7393601228944124
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 0.6663518082742411
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 0.6045278696265403
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 0.5626861036728613
+  },
+  {
+   "model": "ets",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 0.5158033600905424
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 1.4351463524033694
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 1.3969948689243255
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 1.3940116735360935
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 1.2786539052588342
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 1.1565026082285983
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 1.081857968398606
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 1.0391071485273462
+  },
+  {
+   "model": "ets",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 1.010484225513141
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 1.1438823878380953
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 1.0783970407447045
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 1.0034649501260808
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 0.9339523877227838
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 0.8553797655411415
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 0.8070198467781162
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 0.8130195921871088
+  },
+  {
+   "model": "ets",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 0.8197723029243842
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 8.707587417788321
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 3.919322290631033
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 2.3734959106759335
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 1.6503803844946165
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 2.384635554889475
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 1.8876645470389608
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 1.5699012641111003
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 1.3399985366564735
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 5.054351512007664
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 2.2224874391036202
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 1.4306450461945825
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 1.0090575996153148
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 1.2687913398824822
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 0.9957534702618308
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 0.8420735112321944
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 0.7291455912022637
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 5.103734442772024
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 3.1446342215319074
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 2.48405259999067
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 1.7837855250611532
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 2.5743263982814066
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 2.0610160220448837
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 1.7915353874026336
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 1.5818050249702837
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 9.20854066020336
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 4.0222365868104415
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 2.6024596122406787
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 1.7699127940192592
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 2.474070032624224
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 1.993330354801696
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 1.6620180576799242
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 1.407903099866654
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 5.920703099920458
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 3.1123472005703947
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 2.364291776939923
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 1.9064715659005451
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 2.8675177441692554
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 2.390129632614385
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 2.106830240284128
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 1.9046688243000947
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 6.924162999806529
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 3.4198582080894275
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 2.327686110273967
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 1.6325237694787103
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 2.26519533382571
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 1.716630588696929
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 1.4156723403621905
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 1.1856387560187613
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 5.203680193551702
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 2.408746387495755
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 1.7788062081366873
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 1.245013086213249
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 1.690705812057227
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 1.3122791722791283
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 1.1013820938565402
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 0.9249297925210641
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 6.055985268041766
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 3.7132512256780954
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 2.9999476310118802
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 2.3158779033860504
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 3.1433374646261787
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 2.5342615882928894
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 2.30006519237601
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 2.102378279855193
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 6.745561935725554
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 4.0731006389953475
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 2.766946653708443
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 1.9617086710309841
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 2.6668654099813174
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 2.119167045098819
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 1.7986392052123168
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 1.5162967500746503
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 5.455262821842263
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 2.7018886147722667
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 1.8134655509614794
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 1.2992261136753263
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 1.790904002331986
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 1.4911493124231883
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 1.3138659996561324
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 1.1702651085864761
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 7.106896974345493
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 3.4148668170784497
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 2.1289406824230652
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 1.5508093777447216
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 2.2713891086055686
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 1.790049449300512
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 1.5258055242302684
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 1.3334561650725538
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 7.756943068868381
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 4.309072977933608
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 2.9060027876620107
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 2.0340711743023214
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 3.022524114210049
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 2.359361905906247
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 1.9825838996907397
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 1.6787186745128055
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 6.393164680462119
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 3.070536134515503
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 2.4583243231422034
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 1.8316826225664824
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 2.6095948496093553
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 2.0110655709570167
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 1.7599744802740824
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 1.5847445507719038
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 6.982675134228206
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 3.8852456069014347
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 2.3194796751785325
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 1.475826296704669
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 2.0332857379427773
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 1.6090055289140093
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 1.328923479608795
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 1.1276675459963543
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 5.8038492779193485
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 3.497806668260954
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 2.8117728708870717
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 2.0776804154972526
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 2.9599898435431107
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 2.4559452909045834
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 2.23850546615478
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 2.024859706262515
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 6.277476130512571
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 3.6370474331365474
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 2.416100627227609
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 1.634435685715236
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 2.52456559542469
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 1.9217691519055884
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 1.588992147521168
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 1.3607770242102066
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 7.149383076344528
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 3.6804046162445543
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 3.138578219743032
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 2.361203824268232
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 3.192303311329208
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 2.610008300038534
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 2.229997371950703
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 1.9759686836938155
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 7.036219359827944
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 3.1896343335848405
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 1.9480580130733713
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 1.295323460231009
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 1.7890425947748652
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 1.3804969986884665
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 1.1581335494261684
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 0.9997447797934187
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 2.859056031438347
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 1.6035929002639395
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 1.1011451032955941
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 0.8690854603899553
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 1.3004914800709881
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 1.1302558748679117
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 0.9629846817193652
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 0.8643064415055568
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 5.1794513980630175
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 2.6205972934182524
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 1.5068554443255728
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 1.1289379999970564
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 1.5060316811711385
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 1.1859491490857004
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 0.993572469654304
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 0.8415662936172965
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 7.514342633673523
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 3.737484645901202
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 2.4577101316321017
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 1.6895268824764675
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 2.375453262322792
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 1.8164591629030336
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 1.4819614097848481
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 1.2447966878942491
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 5.411252316117828
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 2.977398578807692
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 2.06719099984236
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 1.538204124830099
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 2.2002643666169948
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 1.7529869261109867
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 1.4804275378845924
+  },
+  {
+   "model": "seasonal_naive",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 1.3035996385301734
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 1.164937613418945
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 1.0583368728672238
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 0.9006796696089525
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 0.8068148729965794
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 0.7616568577209716
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 0.7427084574487166
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 0.7323794317003409
+  },
+  {
+   "model": "timestral",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 0.725452750281112
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 0.9989711567086904
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 0.7862001238021793
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 0.6917549656936325
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 0.63195060856454
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 0.6171897425620246
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 0.5797436411400827
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 0.5708948162220597
+  },
+  {
+   "model": "timestral",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 0.5615020894358403
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 0.8222385059186033
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 0.9127232065089654
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 0.8776956305767096
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 0.7634791067505836
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 0.7465116134616281
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 0.7322305552173219
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 0.7318968332636997
+  },
+  {
+   "model": "timestral",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 0.7261697922756791
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 1.146732067617504
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 1.030182856670101
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 0.9625120027730288
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 0.8796890044536936
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 0.8194625207935663
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 0.8045789900340301
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 0.7916379198978396
+  },
+  {
+   "model": "timestral",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 0.7825240865074599
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 1.0991059531659513
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 1.0052923368529765
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 0.9970137492202691
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 0.9329658369188248
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 0.9209840666718376
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 0.9202098638267712
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 0.9077744448512383
+  },
+  {
+   "model": "timestral",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 0.9347125461009924
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 1.100547679610837
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 1.0692003079988885
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 1.0818989321336505
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 1.0023454102085256
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 0.8979649579372476
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 0.8395060901467474
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 0.8125627468203105
+  },
+  {
+   "model": "timestral",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 0.7906654562572545
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 0.9738195494226076
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 0.7846591921500309
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 0.7283713701228833
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 0.7255134424905405
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 0.6728615134661675
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 0.6596815688206603
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 0.6445433876680919
+  },
+  {
+   "model": "timestral",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 0.6260245478061492
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 1.0072924396594498
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 1.1173319730905726
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 1.0023031488512661
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 1.0424743764844773
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 0.9853745809495047
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 0.9486772510631575
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 0.9566576113916216
+  },
+  {
+   "model": "timestral",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 0.9772976671670367
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 1.1563265314679052
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 1.1522344730611371
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 1.096816152699829
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 1.0239920294883718
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 0.9369137203858715
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 0.9045426787142934
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 0.8888762992113532
+  },
+  {
+   "model": "timestral",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 0.8616734404059984
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 1.0301421193578726
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 0.9486538194598683
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 0.9560832916583694
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 0.9344348841418232
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 0.878520795799913
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 0.8687692645466286
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 0.862083266969731
+  },
+  {
+   "model": "timestral",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 0.8490053178541027
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 0.9641936067446577
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 0.9820465877458465
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 1.0037236727542163
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 0.9816977272232508
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 0.9523300009846195
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 0.9196233844017834
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 0.9070425175610081
+  },
+  {
+   "model": "timestral",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 0.8984071062323169
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 0.8637778523852525
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 0.8404332508190082
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 0.8779571880737842
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 0.8471781473240563
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 0.8344669282557908
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 0.8260048427159026
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 0.7974781099355271
+  },
+  {
+   "model": "timestral",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 0.8113415197796257
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 1.2588570286589218
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 0.9684361509307686
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 0.90901312999627
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 0.8795816157965634
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 0.8739369416601991
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 0.8478836472080885
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 0.8510928868213511
+  },
+  {
+   "model": "timestral",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 0.8496192014714875
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 0.8601395390848856
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 0.9563683603790412
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 0.8902725129263493
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 0.7787912598992397
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 0.7329020368150335
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 0.7165375479333611
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 0.6967244786044618
+  },
+  {
+   "model": "timestral",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 0.6796487192274703
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 0.901014046612488
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 1.0179524104951352
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 1.0325971198374606
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 0.9215801269884706
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 0.9062920707015144
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 0.9065049175886168
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 0.9246091796260332
+  },
+  {
+   "model": "timestral",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 0.9290869480401933
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 0.9023828138408075
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 0.8543149647936016
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 0.9277406825236149
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 0.8496535315509561
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 0.8347280246936809
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 0.7767305394949555
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 0.7500975957731928
+  },
+  {
+   "model": "timestral",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 0.7433809615030486
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 1.2659547396898034
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 1.1541766953666157
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 1.1430967537726833
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 1.1082595026765958
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 1.0499055703136455
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 1.06866360915646
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 1.0629813845701674
+  },
+  {
+   "model": "timestral",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 1.0676061121711398
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 1.0432716541672338
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 0.9544579099818487
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 0.8583191747191117
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 0.7604609860697504
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 0.7366294959328975
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 0.6707422492240873
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 0.6384670014680496
+  },
+  {
+   "model": "timestral",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 0.6103692560235091
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 0.8922883766942387
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 0.8686150456630964
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 0.8777426063778667
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 0.9294330898843438
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 0.9465395492413758
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 0.9488104728410487
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 0.930480004095296
+  },
+  {
+   "model": "timestral",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 0.9415605920699878
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 1.0162667946703867
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 0.9356641548796817
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 0.7499173963346653
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 0.7911357482548436
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 0.7526135130121284
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 0.7452411917317514
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 0.7177679840851844
+  },
+  {
+   "model": "timestral",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 0.68838103828048
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 0.8732802125463861
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 0.839266579202289
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 0.843749017971822
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 0.7952366905575863
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 0.7457708802252717
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 0.7158077805482502
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 0.6957651199151604
+  },
+  {
+   "model": "timestral",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 0.6773378875849082
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 1.1533082440968387
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 1.108404462809973
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 0.9964611342781281
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 0.9408123880705525
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 0.935807805084749
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 0.929602017285019
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 0.8998150890142693
+  },
+  {
+   "model": "timestral",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 0.8972217641130503
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 1.0749777817785904
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 0.9548219642015463
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 0.8557565938319951
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 0.7980008339267177
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 0.7950373430566595
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 0.7891437938599822
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 0.7612368419489407
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 0.7637249994947717
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 0.9512120395123069
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 0.7273380046561254
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 0.621408900725873
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 0.5924029047445333
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 0.5853028542865946
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 0.5595448735185863
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 0.552327930818537
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 0.5417253706429117
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 0.8392253981152227
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 0.9244495176260272
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 0.8390110940349917
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 0.7595924594830187
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 0.7549675389309859
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 0.7780486682390692
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 0.7769300637420347
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 0.7651885127157133
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 1.203582861790631
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 0.9783920924597734
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 0.8812793149838017
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 0.8169274840111356
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 0.7736276259701781
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 0.7523357067537806
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 0.7300308957359528
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 0.7216744550828286
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 1.0216124039530623
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 0.9958618565486017
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 0.961783752870082
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 0.9251103261554835
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 0.9461507766678702
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 0.9705834600511191
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 0.996212091917163
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 1.038608949134741
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 1.1455134890629
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 1.0545536546353556
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 1.0183940322972471
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 0.9713114915447564
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 0.9013901493047066
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 0.8601861358181014
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 0.8236069379773469
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 0.8100405978301473
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 0.9805176499510734
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 0.8060262288722937
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 0.6955292194402355
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 0.7166570231559415
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 0.6669352898793622
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 0.6483558873623549
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 0.6188295776324191
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 0.6037738714785694
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 1.0167996875865173
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 1.0754292159239849
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 0.9630163310605757
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 0.9454778211027618
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 0.9371696591465877
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 0.9323317590294327
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 0.9431295355878628
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 0.9443159405091155
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 1.1731428938965078
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 1.0647829550364165
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 1.0605587371886571
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 0.985494990742843
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 0.9040712818579459
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 0.88559477807645
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 0.8829922506073413
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 0.8536978394452123
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 1.2460176405435897
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 1.1281168498413934
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 1.0747574260114108
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 1.0409331550078833
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 1.015844321649654
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 1.0098480614666228
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 0.9877449403499379
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 0.9523105417415298
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 0.9332853450104089
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 0.9767984333051853
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 0.957405567681679
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 0.9592825923971454
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 0.9570485799999906
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 0.9302634342713427
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 0.9011385545715868
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 0.8700315980983462
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 0.8952865116178443
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 0.8405185288075391
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 0.857099334594601
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 0.8453778337742339
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 0.8477375149311949
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 0.852037319961046
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 0.8386964520846594
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 0.864571945852396
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 1.1359278433884552
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 0.9432778110191871
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 0.8691708810407952
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 0.835081492213461
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 0.8670548918956693
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 0.8706234877174335
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 0.8625496415335793
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 0.8748861364569436
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 0.955393410229709
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 0.9208951825567216
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 0.7932028990002559
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 0.7229766261480045
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 0.7075090432715058
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 0.6961172198475519
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 0.6690944113480006
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 0.6460161017679886
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 0.8620825385008779
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 0.9344774707965391
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 0.9465604095642175
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 0.9121425839268128
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 0.9297515440815941
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 0.9549185466135659
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 0.9774439512074694
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 0.9917540464761745
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 0.877362955394173
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 0.821895189042116
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 0.830688638084902
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 0.7843325541624043
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 0.8057509499966518
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 0.7733504424072793
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 0.7479981952515762
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 0.7378945118979108
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 1.2515772188705476
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 1.1387705246456412
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 1.0646370844467834
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 1.0122878005412939
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 0.9558683888262903
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 0.9835413929978124
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 0.9643730293649804
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 0.9405360586011962
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 1.0132568639521098
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 0.9423465213501449
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 0.8164703405444723
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 0.7159728870222873
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 0.6998241841056283
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 0.6405019089693575
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 0.6118126554300655
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 0.596725976886778
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 1.0130831746310502
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 0.8753955960385806
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 0.8920856195485333
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 0.943718690800937
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 0.9667188589219574
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 0.9616636065529144
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 0.8818867462918617
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 0.8985881582547217
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 1.0169458075342468
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 0.9434753194331141
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 0.7290568800149296
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 0.776072522896545
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 0.7472113391881438
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 0.731651309582812
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 0.6845063114533128
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 0.6475558717348373
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 0.9600330338802476
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 0.8675115317586136
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 0.8047094269919134
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 0.769239566808358
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 0.731928662792478
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 0.7168925505463015
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 0.7000558155156964
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 0.675794234795225
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 1.1254373168312828
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 1.066530062631754
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 0.9561492832238843
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 0.8694610273937184
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 0.8873608997280829
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 0.8763172957748492
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 0.8590037861829174
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 0.8363428997210697
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 1,
+   "rel_mase": 1.0716297374722326
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 2,
+   "rel_mase": 1.0336612848605258
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 3,
+   "rel_mase": 0.8992136287983412
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 4,
+   "rel_mase": 0.8118345927581765
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 5,
+   "rel_mase": 0.7631466382493741
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 6,
+   "rel_mase": 0.7553661447910791
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 7,
+   "rel_mase": 0.7436152243160552
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Atlanta",
+   "h": 8,
+   "rel_mase": 0.7351826818370115
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 1,
+   "rel_mase": 1.0118257158128616
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 2,
+   "rel_mase": 0.7976403769234032
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 3,
+   "rel_mase": 0.685101797983517
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 4,
+   "rel_mase": 0.6082241896153038
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 5,
+   "rel_mase": 0.5926641759933023
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 6,
+   "rel_mase": 0.5585887440868074
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 7,
+   "rel_mase": 0.5384623377393417
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Austin",
+   "h": 8,
+   "rel_mase": 0.5218143315580492
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 1,
+   "rel_mase": 0.8448700826796032
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 2,
+   "rel_mase": 0.9527657470582962
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 3,
+   "rel_mase": 0.9043663418061066
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 4,
+   "rel_mase": 0.8212010425288458
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 5,
+   "rel_mase": 0.8088052791517483
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 6,
+   "rel_mase": 0.784209810905486
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 7,
+   "rel_mase": 0.7787403094116307
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Boston",
+   "h": 8,
+   "rel_mase": 0.7811474617424133
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 1,
+   "rel_mase": 1.1663805814649086
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 2,
+   "rel_mase": 0.9631977916511496
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 3,
+   "rel_mase": 0.9202624496885923
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 4,
+   "rel_mase": 0.8524211443564765
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 5,
+   "rel_mase": 0.7898113223975933
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 6,
+   "rel_mase": 0.7804980772836725
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 7,
+   "rel_mase": 0.7659771951671689
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Charlotte",
+   "h": 8,
+   "rel_mase": 0.7520804998212005
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 1,
+   "rel_mase": 1.109192124615178
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 2,
+   "rel_mase": 1.0712655867391958
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 3,
+   "rel_mase": 1.0639285407319545
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 4,
+   "rel_mase": 1.0390952533361617
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 5,
+   "rel_mase": 1.018506081388091
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 6,
+   "rel_mase": 1.017440700493059
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 7,
+   "rel_mase": 1.043657337560246
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Chicago",
+   "h": 8,
+   "rel_mase": 1.0796185252962944
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 1,
+   "rel_mase": 1.1747318563093474
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 2,
+   "rel_mase": 1.1131014650675461
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 3,
+   "rel_mase": 1.1121837828492234
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 4,
+   "rel_mase": 1.0232132274590364
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 5,
+   "rel_mase": 0.9139384036916711
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 6,
+   "rel_mase": 0.8478365823083336
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 7,
+   "rel_mase": 0.8098280798722984
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Dallas",
+   "h": 8,
+   "rel_mase": 0.783174507990452
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 1,
+   "rel_mase": 0.9837818540491714
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 2,
+   "rel_mase": 0.7987980107559499
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 3,
+   "rel_mase": 0.7313924037604687
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 4,
+   "rel_mase": 0.7219322342129936
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 5,
+   "rel_mase": 0.6752061637205132
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 6,
+   "rel_mase": 0.6323602048433942
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 7,
+   "rel_mase": 0.6119961776672206
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Denver",
+   "h": 8,
+   "rel_mase": 0.6006145954414165
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 1,
+   "rel_mase": 1.0420179795849203
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 2,
+   "rel_mase": 1.1597949520264628
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 3,
+   "rel_mase": 1.0341364670457
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 4,
+   "rel_mase": 1.0626066349895114
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 5,
+   "rel_mase": 1.0048620150614944
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 6,
+   "rel_mase": 0.96798876225774
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 7,
+   "rel_mase": 1.0018402904744073
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Detroit",
+   "h": 8,
+   "rel_mase": 1.0308842485819494
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 1,
+   "rel_mase": 1.10842706791486
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 2,
+   "rel_mase": 1.1475112416091908
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 3,
+   "rel_mase": 1.1146209677455352
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 4,
+   "rel_mase": 1.0236549525620138
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 5,
+   "rel_mase": 0.9240123081970729
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 6,
+   "rel_mase": 0.8924882633363873
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 7,
+   "rel_mase": 0.8808732920438707
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Houston",
+   "h": 8,
+   "rel_mase": 0.8584033812234448
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 1,
+   "rel_mase": 1.0419890362290427
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 2,
+   "rel_mase": 0.9504386867634134
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 3,
+   "rel_mase": 0.9638200783151479
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 4,
+   "rel_mase": 0.9399335553014677
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 5,
+   "rel_mase": 0.8877364677042798
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 6,
+   "rel_mase": 0.8792401012260277
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 7,
+   "rel_mase": 0.8824320610894391
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LasVegas",
+   "h": 8,
+   "rel_mase": 0.8753874464224645
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 1,
+   "rel_mase": 0.9847187714936871
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 2,
+   "rel_mase": 0.9687493663184495
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 3,
+   "rel_mase": 1.011248704108236
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 4,
+   "rel_mase": 0.9860738096606446
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 5,
+   "rel_mase": 0.9627109111565526
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 6,
+   "rel_mase": 0.9122262107229616
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 7,
+   "rel_mase": 0.8912779447414718
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "LosAngeles",
+   "h": 8,
+   "rel_mase": 0.8868875787435151
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 1,
+   "rel_mase": 0.9000168217820649
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 2,
+   "rel_mase": 0.8723122617463182
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 3,
+   "rel_mase": 0.936217078213524
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 4,
+   "rel_mase": 0.9163963088556554
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 5,
+   "rel_mase": 0.9011572898858378
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 6,
+   "rel_mase": 0.891701832409511
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 7,
+   "rel_mase": 0.8706979468704324
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Miami",
+   "h": 8,
+   "rel_mase": 0.8781304298622705
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 1,
+   "rel_mase": 1.220470153010368
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 2,
+   "rel_mase": 1.0318117043071948
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 3,
+   "rel_mase": 0.9345888823264636
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 4,
+   "rel_mase": 0.8821299484946536
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 5,
+   "rel_mase": 0.8844219281873872
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 6,
+   "rel_mase": 0.8442393283197943
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 7,
+   "rel_mase": 0.8446958109148421
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Minneapolis",
+   "h": 8,
+   "rel_mase": 0.8586236727865084
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 1,
+   "rel_mase": 0.9133490222213707
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 2,
+   "rel_mase": 0.93417387844433
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 3,
+   "rel_mase": 0.8752290861721785
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 4,
+   "rel_mase": 0.7654172932753839
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 5,
+   "rel_mase": 0.7141095507158822
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 6,
+   "rel_mase": 0.69138254539475
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 7,
+   "rel_mase": 0.6693566758637511
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Nashville",
+   "h": 8,
+   "rel_mase": 0.649462204320209
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 1,
+   "rel_mase": 0.9124941155036278
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 2,
+   "rel_mase": 1.0289498599070492
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 3,
+   "rel_mase": 1.0470715398690675
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 4,
+   "rel_mase": 0.995895835230705
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 5,
+   "rel_mase": 0.9793289657067892
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 6,
+   "rel_mase": 0.9721383723998136
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 7,
+   "rel_mase": 0.9908912242632172
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "NewYork",
+   "h": 8,
+   "rel_mase": 1.0093010222751029
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 1,
+   "rel_mase": 0.9440291127319109
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 2,
+   "rel_mase": 0.9056542533352967
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 3,
+   "rel_mase": 0.9527394168427474
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 4,
+   "rel_mase": 0.88001399793851
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 5,
+   "rel_mase": 0.8741529546589883
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 6,
+   "rel_mase": 0.8113200367964521
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 7,
+   "rel_mase": 0.7873410964960382
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Orlando",
+   "h": 8,
+   "rel_mase": 0.7815299946494221
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 1,
+   "rel_mase": 1.249002116167605
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 2,
+   "rel_mase": 1.1092622512729937
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 3,
+   "rel_mase": 1.1055762217483716
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 4,
+   "rel_mase": 1.0575173983653157
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 5,
+   "rel_mase": 1.0010792831058393
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 6,
+   "rel_mase": 1.0220433790073127
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 7,
+   "rel_mase": 1.0041250223328797
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Philadelphia",
+   "h": 8,
+   "rel_mase": 1.007595952950469
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 1,
+   "rel_mase": 1.0571450212639035
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 2,
+   "rel_mase": 0.9920930452403561
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 3,
+   "rel_mase": 0.879883484908581
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 4,
+   "rel_mase": 0.7628290513453944
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 5,
+   "rel_mase": 0.726214920113679
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 6,
+   "rel_mase": 0.6583320463421559
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 7,
+   "rel_mase": 0.6111738169168687
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Phoenix",
+   "h": 8,
+   "rel_mase": 0.594572820416071
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 1,
+   "rel_mase": 0.9151245361835509
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 2,
+   "rel_mase": 0.8852270774323444
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 3,
+   "rel_mase": 0.8976506313626886
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 4,
+   "rel_mase": 0.9487536172335043
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 5,
+   "rel_mase": 0.9560785024058597
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 6,
+   "rel_mase": 0.9530383225338003
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 7,
+   "rel_mase": 0.936641533408056
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "SanFrancisco",
+   "h": 8,
+   "rel_mase": 0.954898903169855
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 1,
+   "rel_mase": 1.0454943859126447
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 2,
+   "rel_mase": 0.9664239105439852
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 3,
+   "rel_mase": 0.7677356357576234
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 4,
+   "rel_mase": 0.7989455866158229
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 5,
+   "rel_mase": 0.7565448803260201
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 6,
+   "rel_mase": 0.7474547346961294
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 7,
+   "rel_mase": 0.7116500133073618
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Seattle",
+   "h": 8,
+   "rel_mase": 0.6745698015627695
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 1,
+   "rel_mase": 0.9408037782685175
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 2,
+   "rel_mase": 0.8966491440240124
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 3,
+   "rel_mase": 0.8966962678492161
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 4,
+   "rel_mase": 0.8489041291980286
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 5,
+   "rel_mase": 0.7722898263189883
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 6,
+   "rel_mase": 0.7361803400993419
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 7,
+   "rel_mase": 0.7297608849056408
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Tampa",
+   "h": 8,
+   "rel_mase": 0.7163661417305482
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 1,
+   "rel_mase": 1.1871746140712214
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 2,
+   "rel_mase": 1.1379899843015115
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 3,
+   "rel_mase": 1.019378870374457
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 4,
+   "rel_mase": 0.9526018094205937
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 5,
+   "rel_mase": 0.937421799420728
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 6,
+   "rel_mase": 0.9230132596652368
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 7,
+   "rel_mase": 0.8915954675292657
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "Washington",
+   "h": 8,
+   "rel_mase": 0.8732915078847803
+  }
+ ],
+ "rel_mase_by_bank": [
+  {
+   "id": "Atlanta",
+   "arima": 1.0,
+   "ets": 0.6734093622539473,
+   "seasonal_naive": 1.9715849526635978,
+   "timestral": 0.7770138554374363,
+   "timestral_macro_known": 0.7953437099858166,
+   "timestral_macro_past": 0.7818829127986215
+  },
+  {
+   "id": "Austin",
+   "arima": 1.0,
+   "ets": 0.6922367162846824,
+   "seasonal_naive": 1.0934150422695197,
+   "timestral": 0.607685887476737,
+   "timestral_macro_known": 0.5789237695463819,
+   "timestral_macro_past": 0.5818665732867501
+  },
+  {
+   "id": "Boston",
+   "arima": 1.0,
+   "ets": 0.6245108553104177,
+   "seasonal_naive": 2.1290034563815428,
+   "timestral": 0.7590774747032032,
+   "timestral_macro_known": 0.7842868606823483,
+   "timestral_macro_past": 0.809262370427508
+  },
+  {
+   "id": "Charlotte",
+   "arima": 1.0,
+   "ets": 0.8318586868029988,
+   "seasonal_naive": 2.0715519388575414,
+   "timestral": 0.8315504737143565,
+   "timestral_macro_known": 0.7750370207037216,
+   "timestral_macro_past": 0.802241568477994
+  },
+  {
+   "id": "Chicago",
+   "arima": 1.0,
+   "ets": 1.00492358334738,
+   "seasonal_naive": 2.389782185521045,
+   "timestral": 0.9394122098422393,
+   "timestral_macro_known": 0.9850018155469341,
+   "timestral_macro_past": 1.0487420059510038
+  },
+  {
+   "id": "Dallas",
+   "arima": 1.0,
+   "ets": 0.8718729952822599,
+   "seasonal_naive": 1.8119076531119596,
+   "timestral": 0.876206025171379,
+   "timestral_macro_known": 0.8807973078495049,
+   "timestral_macro_past": 0.8848204226456443
+  },
+  {
+   "id": "Denver",
+   "arima": 1.0,
+   "ets": 0.6118249502430154,
+   "seasonal_naive": 1.3989185855317892,
+   "timestral": 0.6747653279439103,
+   "timestral_macro_known": 0.6594271150633247,
+   "timestral_macro_past": 0.6581940076302818
+  },
+  {
+   "id": "Detroit",
+   "arima": 1.0,
+   "ets": 0.9245455666941581,
+   "seasonal_naive": 2.6821493102241902,
+   "timestral": 0.9866535855047578,
+   "timestral_macro_known": 0.9526077553140732,
+   "timestral_macro_past": 1.0215632556047192
+  },
+  {
+   "id": "Houston",
+   "arima": 1.0,
+   "ets": 0.8532647265459588,
+   "seasonal_naive": 2.21582205904831,
+   "timestral": 0.9369030070390092,
+   "timestral_macro_known": 0.9163735430846986,
+   "timestral_macro_past": 0.9302284995651872
+  },
+  {
+   "id": "LasVegas",
+   "arima": 1.0,
+   "ets": 0.9283338818194907,
+   "seasonal_naive": 1.5876690564544402,
+   "timestral": 0.8858709606964137,
+   "timestral_macro_known": 1.0132409348237452,
+   "timestral_macro_past": 0.9005580176165634
+  },
+  {
+   "id": "LosAngeles",
+   "arima": 1.0,
+   "ets": 0.8675494650719504,
+   "seasonal_naive": 1.8877262971770283,
+   "timestral": 0.9331337939852812,
+   "timestral_macro_known": 0.9210908606149409,
+   "timestral_macro_past": 0.9281675919785186
+  },
+  {
+   "id": "Miami",
+   "arima": 1.0,
+   "ets": 1.1133019600528313,
+   "seasonal_naive": 2.433581759954284,
+   "timestral": 0.8249999380022878,
+   "timestral_macro_known": 0.8520152000150221,
+   "timestral_macro_past": 0.8901790872332053
+  },
+  {
+   "id": "Minneapolis",
+   "arima": 1.0,
+   "ets": 0.998153939156223,
+   "seasonal_naive": 2.1396950992465684,
+   "timestral": 0.8781444033194834,
+   "timestral_macro_known": 0.87727206547115,
+   "timestral_macro_past": 0.8843633893313894
+  },
+  {
+   "id": "Nashville",
+   "arima": 1.0,
+   "ets": 0.6781678461327773,
+   "seasonal_naive": 1.7003080941748836,
+   "timestral": 0.7331276545397055,
+   "timestral_macro_known": 0.7006689453925794,
+   "timestral_macro_past": 0.7104802040312072
+  },
+  {
+   "id": "NewYork",
+   "arima": 1.0,
+   "ets": 0.8621027928921468,
+   "seasonal_naive": 2.547367933061991,
+   "timestral": 0.9321707705173999,
+   "timestral_macro_known": 0.9546455240990903,
+   "timestral_macro_past": 0.9943537546520874
+  },
+  {
+   "id": "Orlando",
+   "arima": 1.0,
+   "ets": 1.0457505588847145,
+   "seasonal_naive": 1.9918357667405369,
+   "timestral": 0.7954816694402196,
+   "timestral_macro_known": 0.7737341573180343,
+   "timestral_macro_past": 0.8319755979108171
+  },
+  {
+   "id": "Philadelphia",
+   "arima": 1.0,
+   "ets": 0.95502814919158,
+   "seasonal_naive": 2.6694541092646857,
+   "timestral": 1.0843787461896093,
+   "timestral_macro_known": 0.9909442289361585,
+   "timestral_macro_past": 1.033011065816365
+  },
+  {
+   "id": "Phoenix",
+   "arima": 1.0,
+   "ets": 0.8706305169001387,
+   "seasonal_naive": 1.497563684792982,
+   "timestral": 0.6973177519811696,
+   "timestral_macro_known": 0.6695841275794989,
+   "timestral_macro_past": 0.687354189413762
+  },
+  {
+   "id": "SanFrancisco",
+   "arima": 1.0,
+   "ets": 0.8364329768954432,
+   "seasonal_naive": 1.1431091830171172,
+   "timestral": 0.9266781213363248,
+   "timestral_macro_known": 0.923135500465677,
+   "timestral_macro_past": 0.9387034815931119
+  },
+  {
+   "id": "Seattle",
+   "arima": 1.0,
+   "ets": 0.6446303702628551,
+   "seasonal_naive": 1.2739241116486526,
+   "timestral": 0.7457719801395941,
+   "timestral_macro_known": 0.7232725562869257,
+   "timestral_macro_past": 0.7461672585132518
+  },
+  {
+   "id": "Tampa",
+   "arima": 1.0,
+   "ets": 1.123984384636159,
+   "seasonal_naive": 1.9030639813337222,
+   "timestral": 0.7300069088649052,
+   "timestral_macro_known": 0.7268886088479622,
+   "timestral_macro_past": 0.7666851345262997
+  },
+  {
+   "id": "Washington",
+   "arima": 1.0,
+   "ets": 0.8686747179298746,
+   "seasonal_naive": 1.8245993751624157,
+   "timestral": 0.9385992850234433,
+   "timestral_macro_known": 0.8872846925323115,
+   "timestral_macro_past": 0.9358762176563374
+  }
+ ],
+ "dm_summary": [
+  {
+   "h": 1,
+   "better": 0.0,
+   "worse": 0.045454545454545456
+  },
+  {
+   "h": 2,
+   "better": 0.0,
+   "worse": 0.09090909090909091
+  },
+  {
+   "h": 3,
+   "better": 0.0,
+   "worse": 0.045454545454545456
+  },
+  {
+   "h": 4,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 5,
+   "better": 0.045454545454545456,
+   "worse": 0.0
+  },
+  {
+   "h": 6,
+   "better": 0.09090909090909091,
+   "worse": 0.0
+  },
+  {
+   "h": 7,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 8,
+   "better": 0.045454545454545456,
+   "worse": 0.0
+  }
+ ],
+ "series_win_rates": [
+  {
+   "id": "Atlanta",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Austin",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Boston",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Charlotte",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Chicago",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Dallas",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Denver",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Detroit",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 0.0
+  },
+  {
+   "id": "Houston",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "LasVegas",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "LosAngeles",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Miami",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Minneapolis",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Nashville",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "NewYork",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Orlando",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Philadelphia",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 1.0,
+   "sMAPE": 0.0
+  },
+  {
+   "id": "Phoenix",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "SanFrancisco",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Seattle",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Tampa",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 0.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "Washington",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 1.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  }
+ ],
+ "slices": [
+  {
+   "model": "arima",
+   "covid_boom": 10.686473667147945,
+   "normal": 3.1963447917685857,
+   "rate_shock_2022": 12.27455870311314
+  },
+  {
+   "model": "ets",
+   "covid_boom": 11.276727243869175,
+   "normal": 2.8183477038496476,
+   "rate_shock_2022": 6.85919326480445
+  },
+  {
+   "model": "seasonal_naive",
+   "covid_boom": 18.085213907725393,
+   "normal": 8.099772052842297,
+   "rate_shock_2022": 15.524329776457721
+  },
+  {
+   "model": "timestral",
+   "covid_boom": 11.198610724681187,
+   "normal": 2.455125502884795,
+   "rate_shock_2022": 7.5724069042799185
+  },
+  {
+   "model": "timestral_macro_known",
+   "covid_boom": 10.862759758385922,
+   "normal": 2.437670466103152,
+   "rate_shock_2022": 7.611868729798964
+  },
+  {
+   "model": "timestral_macro_past",
+   "covid_boom": 11.302911117051602,
+   "normal": 2.4426615244970433,
+   "rate_shock_2022": 7.638772574081182
+  }
+ ]
+}

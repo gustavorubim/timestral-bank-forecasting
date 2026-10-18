@@ -1,0 +1,25 @@
+2026-10-18 16:44:10,334 INFO model seasonal_naive: 30 origins in 0.1s
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/statsforecast/arima.py:1504: UserWarning: Having 3 or more differencing operations is not recommended. Please consider reducing the total number of differences.
+  warnings.warn(
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/statsforecast/arima.py:1504: UserWarning: Having 3 or more differencing operations is not recommended. Please consider reducing the total number of differences.
+  warnings.warn(
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/statsforecast/arima.py:1504: UserWarning: Having 3 or more differencing operations is not recommended. Please consider reducing the total number of differences.
+  warnings.warn(
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/statsforecast/arima.py:1504: UserWarning: Having 3 or more differencing operations is not recommended. Please consider reducing the total number of differences.
+  warnings.warn(
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/statsforecast/arima.py:1504: UserWarning: Having 3 or more differencing operations is not recommended. Please consider reducing the total number of differences.
+  warnings.warn(
+2026-10-18 16:51:21,435 INFO model arima: 30 origins in 431.1s
+2026-10-18 16:52:01,751 INFO model ets: 30 origins in 40.3s
+2026-10-18 16:52:03,824 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 328.97it/s]
+2026-10-18 17:04:45,627 INFO model timestral: 30 origins in 763.9s
+2026-10-18 18:35:18,268 INFO model timestral_macro_past: 30 origins in 5432.6s
+2026-10-18 18:39:10,070 INFO model timestral_macro_known: 30 origins in 231.8s
+             timestral  rel MASE vs baseline = 0.886
+  timestral_macro_past  rel MASE vs baseline = 0.899
+ timestral_macro_known  rel MASE vs baseline = 0.969
+                   ets  rel MASE vs baseline = 0.972
+                 arima  rel MASE vs baseline = 1.000
+        seasonal_naive  rel MASE vs baseline = 1.096
+report: reports/earnings/REPORT.md

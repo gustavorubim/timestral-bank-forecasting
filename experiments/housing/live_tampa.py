@@ -28,7 +28,11 @@ def main(metro: str = "Tampa") -> Path:
     fig, axes = plt.subplots(1, 3, figsize=(17, 4.4))
     rows = []
     for ax, (src, tgt, fname, title, hist) in zip(axes, PANELS, strict=True):
-        bt = pd.read_parquet(ROOT / "reports/housing" / src / "backtest.parquet")
+        bt_path = ROOT / "reports/housing" / src / "backtest.parquet"
+        if not bt_path.exists():  # that experiment has not finished yet
+            ax.set_title(f"{metro}: {title} (pending)", fontsize=10)
+            continue
+        bt = pd.read_parquet(bt_path)
         live = bt[bt.live & (bt.id == metro) & (bt.target == tgt)]
         hst = pd.read_parquet(ROOT / "data/processed" / fname)
         hst = hst[hst.id == metro].dropna(subset=[tgt]).tail(hist)
