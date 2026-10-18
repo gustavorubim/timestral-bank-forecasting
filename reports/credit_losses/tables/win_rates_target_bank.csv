@@ -1,0 +1,15 @@
+id,target,win_rate
+all_loans,chargeoff,0.6631944444444444
+all_loans,delinquency,0.6284722222222222
+business,chargeoff,0.7291666666666666
+business,delinquency,0.4305555555555556
+consumer,chargeoff,0.40625
+consumer,delinquency,0.46875
+cre_ex_farm,chargeoff,0.5590277777777778
+cre_ex_farm,delinquency,0.6145833333333334
+credit_card,chargeoff,0.6944444444444444
+credit_card,delinquency,0.4375
+other_consumer,chargeoff,0.4826388888888889
+other_consumer,delinquency,0.4479166666666667
+resi_mortgage,chargeoff,0.4895833333333333
+resi_mortgage,delinquency,0.6215277777777778

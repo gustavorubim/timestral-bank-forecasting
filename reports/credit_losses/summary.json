@@ -1,0 +1,3457 @@
+{
+ "overall": [
+  {
+   "model": "timestral_macro_past",
+   "MAE": 0.21999397328093884,
+   "RMSE": 0.38679159000441826,
+   "MAPE": 11.027760939164587,
+   "sMAPE": 30.811227680383354,
+   "MASE": 1.4344395795900216,
+   "coverage80": 0.8541666666666666,
+   "dir_acc": 0.6691523738503604,
+   "n": 4032
+  },
+  {
+   "model": "timestral_joint",
+   "MAE": 0.2191678518716187,
+   "RMSE": 0.3722845949757564,
+   "MAPE": 11.890282350427963,
+   "sMAPE": 31.364065098809192,
+   "MASE": 1.43866281430714,
+   "coverage80": 0.8199404761904762,
+   "dir_acc": 0.6384194831013916,
+   "n": 4032
+  },
+  {
+   "model": "timestral",
+   "MAE": 0.2297483335086514,
+   "RMSE": 0.38861063806999574,
+   "MAPE": 12.226670128958565,
+   "sMAPE": 31.797785846168136,
+   "MASE": 1.4815617201723006,
+   "coverage80": 0.8082837301587301,
+   "dir_acc": 0.6332007952286283,
+   "n": 4032
+  },
+  {
+   "model": "naive",
+   "MAE": 0.24543402777777779,
+   "RMSE": 0.4165280424161711,
+   "MAPE": 14.344262295081972,
+   "sMAPE": 32.77363550508227,
+   "MASE": 1.547984496751817,
+   "coverage80": 0.9030257936507936,
+   "dir_acc": NaN,
+   "n": 4032
+  },
+  {
+   "model": "arima",
+   "MAE": 0.2738851551689268,
+   "RMSE": 0.45522527080678765,
+   "MAPE": 15.76895200006474,
+   "sMAPE": 35.35803825411287,
+   "MASE": 1.7089653840082055,
+   "coverage80": 0.9352678571428571,
+   "dir_acc": 0.6117710583153347,
+   "n": 4032
+  },
+  {
+   "model": "timestral_unemp_known",
+   "MAE": 0.3009000985303687,
+   "RMSE": 0.5826303256518516,
+   "MAPE": 13.655849966672386,
+   "sMAPE": 34.64420715533958,
+   "MASE": 1.979416824256376,
+   "coverage80": 0.828125,
+   "dir_acc": 0.6579012651947408,
+   "n": 4032
+  },
+  {
+   "model": "timestral_macro_known",
+   "MAE": 0.3075619840960476,
+   "RMSE": 0.6435458773394718,
+   "MAPE": 13.090604475174828,
+   "sMAPE": 33.90671370963623,
+   "MASE": 1.9984983639197005,
+   "coverage80": 0.8660714285714286,
+   "dir_acc": 0.6948647978169189,
+   "n": 4032
+  },
+  {
+   "model": "arimax_macro_known",
+   "MAE": 0.3763639149578017,
+   "RMSE": 0.8034048212922001,
+   "MAPE": 16.42493531728613,
+   "sMAPE": 42.770524651685854,
+   "MASE": 2.423989740651884,
+   "coverage80": 0.8663194444444444,
+   "dir_acc": 0.5850694444444444,
+   "n": 4032
+  }
+ ],
+ "rel_mase": [
+  {
+   "model": "arima",
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_macro_known",
+   "rel_mase": 1.4862768339679802
+  },
+  {
+   "model": "naive",
+   "rel_mase": 0.8548281966795245
+  },
+  {
+   "model": "timestral",
+   "rel_mase": 0.8528272417636591
+  },
+  {
+   "model": "timestral_joint",
+   "rel_mase": 0.809879702551803
+  },
+  {
+   "model": "timestral_macro_known",
+   "rel_mase": 1.190055592214447
+  },
+  {
+   "model": "timestral_macro_past",
+   "rel_mase": 0.8202526243307295
+  },
+  {
+   "model": "timestral_unemp_known",
+   "rel_mase": 1.13879616488649
+  }
+ ],
+ "mase_by_h": [
+  {
+   "h": 1,
+   "naive": 0.5102867229324926,
+   "arima": 0.46590947908215014,
+   "timestral": 0.4362562052266068,
+   "timestral_joint": 0.41405258421575214,
+   "timestral_macro_past": 0.43240122814916976,
+   "timestral_macro_known": 0.5424289590458274,
+   "timestral_unemp_known": 0.5211251949227267,
+   "arimax_macro_known": 0.922605635394357
+  },
+  {
+   "h": 2,
+   "naive": 0.8568877306977076,
+   "arima": 0.7953708128537508,
+   "timestral": 0.7305753203824065,
+   "timestral_joint": 0.696216471592798,
+   "timestral_macro_past": 0.7290681613832783,
+   "timestral_macro_known": 1.142337273642775,
+   "timestral_unemp_known": 0.9375913045355199,
+   "arimax_macro_known": 1.4576270137026461
+  },
+  {
+   "h": 3,
+   "naive": 1.1979321325354533,
+   "arima": 1.1280680750419319,
+   "timestral": 1.0313892288122317,
+   "timestral_joint": 0.9893258675325974,
+   "timestral_macro_past": 1.0205507940933232,
+   "timestral_macro_known": 1.6013928741499115,
+   "timestral_unemp_known": 1.4217246701066562,
+   "arimax_macro_known": 1.904940772423123
+  },
+  {
+   "h": 4,
+   "naive": 1.5124827221992883,
+   "arima": 1.5349031963593953,
+   "timestral": 1.3718663371268338,
+   "timestral_joint": 1.317715757257172,
+   "timestral_macro_past": 1.3467717579410776,
+   "timestral_macro_known": 2.0098454986795358,
+   "timestral_unemp_known": 1.9196974477821998,
+   "arimax_macro_known": 2.3563832485261687
+  },
+  {
+   "h": 5,
+   "naive": 1.7754766813333196,
+   "arima": 1.906902301178603,
+   "timestral": 1.668572592741341,
+   "timestral_joint": 1.6157247912472938,
+   "timestral_macro_past": 1.6304024851559507,
+   "timestral_macro_known": 2.2871238774014033,
+   "timestral_unemp_known": 2.2580376324943843,
+   "arimax_macro_known": 2.7396542105470942
+  },
+  {
+   "h": 6,
+   "naive": 1.9943652928443534,
+   "arima": 2.2820294532180747,
+   "timestral": 1.9580226906796805,
+   "timestral_joint": 1.9045085509292494,
+   "timestral_macro_past": 1.893583065213107,
+   "timestral_macro_known": 2.5148520254341635,
+   "timestral_unemp_known": 2.5791300358241585,
+   "arimax_macro_known": 3.0724735305574566
+  },
+  {
+   "h": 7,
+   "naive": 2.180258569470189,
+   "arima": 2.6288530922118496,
+   "timestral": 2.2163992649466033,
+   "timestral_joint": 2.168107308857879,
+   "timestral_macro_past": 2.116735302784197,
+   "timestral_macro_known": 2.796056453791179,
+   "timestral_unemp_known": 2.9579119048569944,
+   "arimax_macro_known": 3.3609499436593735
+  },
+  {
+   "h": 8,
+   "naive": 2.356186122001732,
+   "arima": 2.9296866621198885,
+   "timestral": 2.439412121462701,
+   "timestral_joint": 2.4036511828243787,
+   "timestral_macro_past": 2.3060038420000692,
+   "timestral_macro_known": 3.0939499492128077,
+   "timestral_unemp_known": 3.2401164035283694,
+   "arimax_macro_known": 3.577283570404855
+  }
+ ],
+ "rel_mase_by_h": [
+  {
+   "model": "arima",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 1,
+   "rel_mase": 2.0736412217069473
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 2,
+   "rel_mase": 1.926946262180176
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 3,
+   "rel_mase": 1.7440986717417533
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 4,
+   "rel_mase": 1.5990234075898824
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 5,
+   "rel_mase": 1.497340018518726
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 6,
+   "rel_mase": 1.4223594883359276
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 7,
+   "rel_mase": 1.357638423184457
+  },
+  {
+   "model": "arimax_macro_known",
+   "h": 8,
+   "rel_mase": 1.3005161863105175
+  },
+  {
+   "model": "naive",
+   "h": 1,
+   "rel_mase": 1.0837029490538483
+  },
+  {
+   "model": "naive",
+   "h": 2,
+   "rel_mase": 1.050976639512943
+  },
+  {
+   "model": "naive",
+   "h": 3,
+   "rel_mase": 1.0058450299829145
+  },
+  {
+   "model": "naive",
+   "h": 4,
+   "rel_mase": 0.9351478352554438
+  },
+  {
+   "model": "naive",
+   "h": 5,
+   "rel_mase": 0.8771032267892327
+  },
+  {
+   "model": "naive",
+   "h": 6,
+   "rel_mase": 0.825653214997319
+  },
+  {
+   "model": "naive",
+   "h": 7,
+   "rel_mase": 0.7836601059086318
+  },
+  {
+   "model": "naive",
+   "h": 8,
+   "rel_mase": 0.7555011591922524
+  },
+  {
+   "model": "timestral",
+   "h": 1,
+   "rel_mase": 0.9200413855229922
+  },
+  {
+   "model": "timestral",
+   "h": 2,
+   "rel_mase": 0.9049644013183714
+  },
+  {
+   "model": "timestral",
+   "h": 3,
+   "rel_mase": 0.8876443505629633
+  },
+  {
+   "model": "timestral",
+   "h": 4,
+   "rel_mase": 0.8736855374566179
+  },
+  {
+   "model": "timestral",
+   "h": 5,
+   "rel_mase": 0.8571408847963887
+  },
+  {
+   "model": "timestral",
+   "h": 6,
+   "rel_mase": 0.847303440471439
+  },
+  {
+   "model": "timestral",
+   "h": 7,
+   "rel_mase": 0.8389074275789382
+  },
+  {
+   "model": "timestral",
+   "h": 8,
+   "rel_mase": 0.8304328957382345
+  },
+  {
+   "model": "timestral_joint",
+   "h": 1,
+   "rel_mase": 0.871489920494393
+  },
+  {
+   "model": "timestral_joint",
+   "h": 2,
+   "rel_mase": 0.8578004045400999
+  },
+  {
+   "model": "timestral_joint",
+   "h": 3,
+   "rel_mase": 0.8438872865357644
+  },
+  {
+   "model": "timestral_joint",
+   "h": 4,
+   "rel_mase": 0.8253985398722484
+  },
+  {
+   "model": "timestral_joint",
+   "h": 5,
+   "rel_mase": 0.8125428025352575
+  },
+  {
+   "model": "timestral_joint",
+   "h": 6,
+   "rel_mase": 0.8045175247377584
+  },
+  {
+   "model": "timestral_joint",
+   "h": 7,
+   "rel_mase": 0.7982341907242844
+  },
+  {
+   "model": "timestral_joint",
+   "h": 8,
+   "rel_mase": 0.7929879840717864
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 1,
+   "rel_mase": 1.171509995681151
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 2,
+   "rel_mase": 1.501242849257071
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 3,
+   "rel_mase": 1.46240385147723
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 4,
+   "rel_mase": 1.348719732895425
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 5,
+   "rel_mase": 1.2088355197895866
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 6,
+   "rel_mase": 1.1040234503346786
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 7,
+   "rel_mase": 1.07082964250593
+  },
+  {
+   "model": "timestral_macro_known",
+   "h": 8,
+   "rel_mase": 1.0755043410328702
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 1,
+   "rel_mase": 0.8960961815188188
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 2,
+   "rel_mase": 0.8870406066062146
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 3,
+   "rel_mase": 0.862365407052775
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 4,
+   "rel_mase": 0.8471261894094142
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 5,
+   "rel_mase": 0.8322749458468887
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 6,
+   "rel_mase": 0.816027311899657
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 7,
+   "rel_mase": 0.8015653649611563
+  },
+  {
+   "model": "timestral_macro_past",
+   "h": 8,
+   "rel_mase": 0.7913758957475351
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 1,
+   "rel_mase": 1.1217366681559031
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 2,
+   "rel_mase": 1.1614275672050445
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 3,
+   "rel_mase": 1.2297148303276422
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 4,
+   "rel_mase": 1.242148756252292
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 5,
+   "rel_mase": 1.1436607272818406
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 6,
+   "rel_mase": 1.1021769742645342
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 7,
+   "rel_mase": 1.1214820686242046
+  },
+  {
+   "model": "timestral_unemp_known",
+   "h": 8,
+   "rel_mase": 1.1108997081944607
+  }
+ ],
+ "rel_mase_by_bank_h": [
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arima",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 1.0
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 2.093390891987956
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 1.6236888304818629
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 1.3221370146605518
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 1.1462896328750454
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 1.0272327416614062
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.9279262063339693
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.8630179917100672
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.8180634737621821
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 1.9604437981450635
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 1.7712799115321585
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 1.6149297234632607
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 1.444761990969703
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 1.3811111629260355
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 1.2947907297551458
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 1.196471172645948
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 1.138224269074865
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 1.7920791881075708
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 1.6089070285606275
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.6246546307315486
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.5520295195948028
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.4947905752897157
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.442932613386943
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.3983360093795845
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.357179487662475
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 2.9212030279342245
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 2.54248648189628
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 2.1540215544294123
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 1.8203071948966332
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 1.590345504671542
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 1.451355793204303
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 1.3429082620516808
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 1.2618610336465574
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 1.9804251436378615
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 1.8354203704027765
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 1.6464677021074547
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 1.5078358721850857
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 1.4281328258176673
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 1.3803870551794613
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 1.3612335368979915
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 1.3362339561482452
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 1.4446139360380186
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.5004991454175085
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.5386742972268883
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.468237174019897
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.4271000936814813
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.3568702373621284
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 1.3395509680026865
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 1.3048877436381072
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 2.682263415644211
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 3.044642618451382
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 2.593320869129377
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 2.5804659151205542
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 2.4549952790429486
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 2.49915655957764
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 2.404456837006105
+  },
+  {
+   "model": "arimax_macro_known",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 2.2630336777588584
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 1.1557031616921405
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 0.9946639132174553
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 0.825645215399081
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 0.7042921414509752
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 0.5970058244068988
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.5196256793777025
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.4653181500101805
+  },
+  {
+   "model": "naive",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.42391924858131635
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 0.9600396906696548
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 0.8879551213476303
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 0.8397618098584043
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 0.7472460280943825
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 0.7056771882298277
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 0.6652665006288571
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 0.6222722554024893
+  },
+  {
+   "model": "naive",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 0.5955002361928098
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 1.2453596556393267
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 1.2085549434399157
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.3085814318064823
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.2481171963706037
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.2270666533338563
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.1939699771201697
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.1678586214318694
+  },
+  {
+   "model": "naive",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.1733321718657381
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 1.0157785826254244
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 0.8817861044005919
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 0.8424623982518004
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 0.7135896666942464
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.6381817919124407
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.5873961097209942
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.5258383432130522
+  },
+  {
+   "model": "naive",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.4905460692575544
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 1.0590719468067056
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 1.0265165241726526
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 0.998555193434105
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 0.9425167514488246
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 0.8976874271558274
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 0.8604449650861687
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 0.8463902158664633
+  },
+  {
+   "model": "naive",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 0.8411530339328983
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 0.9788497661555005
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.0284808901954166
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.0789645876297507
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.0482785664127627
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.044820346433016
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.0002679382626343
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 0.9830067097303967
+  },
+  {
+   "model": "naive",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 0.9821728705368514
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 1.2064267187485973
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 1.4252539088189156
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 1.2648452272177952
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 1.3504414172532995
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 1.2905979993968923
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 1.253526603337264
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 1.2268574382549042
+  },
+  {
+   "model": "naive",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 1.1703537253429677
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 0.8311778578729024
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 0.7456914250587078
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 0.6591904981522891
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 0.6140586318469257
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 0.5692230759404268
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.5312655960699743
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.48824481914896944
+  },
+  {
+   "model": "timestral",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.46340668116908157
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 0.9928488556215707
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 0.9408189499940751
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 0.9318051882246329
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 0.8764600045630115
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 0.8702300896659105
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 0.8749027341339266
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 0.8601951568763245
+  },
+  {
+   "model": "timestral",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 0.864160669047537
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 0.9680468765290697
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 0.9540938799874915
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.0271940124020773
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.0429756640701537
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.0489437904566736
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.047997556114127
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.0555133299890131
+  },
+  {
+   "model": "timestral",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.0570709403479357
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 0.9561129460758233
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 0.8978158197943263
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 0.8909025468275692
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 0.8554502010196792
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.8355395134576603
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.8630433052706202
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.8650962776555158
+  },
+  {
+   "model": "timestral",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.8958143268246808
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 0.808869491641168
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 0.820645631161025
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 0.839527215288241
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 0.8544736017975885
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 0.8551442032463045
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 0.860490376724974
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 0.8755539488402508
+  },
+  {
+   "model": "timestral",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 0.8798378530388982
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 0.996373561595755
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.0291195871942778
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.039232118134183
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.011351423636787
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.0133714294284952
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 0.9927976958799454
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 0.9809699182367174
+  },
+  {
+   "model": "timestral",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 0.9816969539604569
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 0.906500819695033
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 0.9793893892344058
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 0.8853334455578928
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 0.9364280956463424
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 0.903486489253775
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 0.872974758308005
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 0.8877626593754084
+  },
+  {
+   "model": "timestral",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 0.8315201928314628
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 0.8410310184106814
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 0.743025400281251
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 0.6477579140110784
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 0.588682481239166
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 0.5353864016512055
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.478162313816591
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.4394531559858647
+  },
+  {
+   "model": "timestral_joint",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.41620069273105575
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 0.9895899047864738
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 0.9376831944541492
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 0.9021532910369192
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 0.8692504790469768
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 0.86061876223768
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 0.8771921530354525
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 0.846737445862925
+  },
+  {
+   "model": "timestral_joint",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 0.862436104162061
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 0.9015380782608402
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 0.9060439353093592
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.0036097571839915
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.0320529579426223
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.056687915447861
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.071768379236362
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.0998814928293994
+  },
+  {
+   "model": "timestral_joint",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.1199536385875684
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 0.9021016096500527
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 0.8077460738494212
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 0.8021953898129611
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 0.7380683298690273
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.7040166997421671
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.7203636917744637
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.7022481686058488
+  },
+  {
+   "model": "timestral_joint",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.6999520120063742
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 0.6575677607216646
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 0.706503959439749
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 0.7215019158634399
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 0.730905802276158
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 0.7394881358137653
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 0.75396674293306
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 0.7731347316426388
+  },
+  {
+   "model": "timestral_joint",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 0.7930735321009437
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 0.9610781257622697
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.014373138334251
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.0671810574003893
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.0570248427927609
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.1036600331290456
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.1030444171783096
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 1.1179890771463752
+  },
+  {
+   "model": "timestral_joint",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 1.1318487663383903
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 0.8925459261462162
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 0.9352064221741437
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 0.8413513777958288
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 0.866711713916629
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 0.8358904425898058
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 0.809991633895871
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 0.8312308897680359
+  },
+  {
+   "model": "timestral_joint",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 0.7806679489396491
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 1.3141863259976847
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 2.0426136081720196
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 1.8086830450791909
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 1.4120286755072153
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 1.1495382339528672
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.9367317952407404
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.8301638189210333
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.7846483191193218
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 1.142088097890846
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 1.502259823258733
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 1.5261320875228843
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 1.428223265777439
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 1.3798930051479477
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 1.2904059611088112
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 1.25421948807673
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 1.2668444152964666
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 1.0904055011065565
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 1.0455331963474488
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.1698291713471196
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.2204182153857097
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.2029537985889738
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.1944943868182865
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.1910760134133014
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.2097544831616616
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 1.072825273272055
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 1.3117314015633035
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 1.2540509731337286
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 1.0843660632578003
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.7887368024860555
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.6470622821709712
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.6662460837402855
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.683226491322664
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 1.0790024055690774
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 1.165913948593181
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 1.1905358219084443
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 1.2027722702106964
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 1.1911799618582894
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 1.1428455744764694
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 1.1669867936162446
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 1.1711864023923049
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 1.162400441597601
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.3211000004705373
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.3571894108263642
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.2961556445523221
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.2405132840785058
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.195669038014207
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 1.1571800390192004
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 1.129914442343011
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 1.3752138282885407
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 2.651187579386517
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 2.1862312499667684
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 1.9511344667520842
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 1.6960623076061385
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 1.565949429535572
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 1.4469859834687364
+  },
+  {
+   "model": "timestral_macro_known",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 1.530922919278356
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 0.8078873869246185
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 0.7430119965893216
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 0.6318909559772047
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 0.5741804914168329
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 0.5315948696869711
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.485473577206775
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.4444141332023122
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.4317950385624423
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 0.9640432222680859
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 0.9530670362198336
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 0.9407941484086539
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 0.8966328784784926
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 0.8967088835105356
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 0.8955996393869962
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 0.8703259237356941
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 0.8671753652749071
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 0.9684590416882101
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 0.9841876615020455
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.0356730449500646
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.0370096852722037
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.0323229484413659
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.0318236430009853
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.0250004843466012
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.012995884309582
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 0.8592119730155502
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 0.7506498808577905
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 0.7495545035406843
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 0.7301455393632607
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.7061155092179091
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.7065270167116882
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.701397776245773
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.701681343632931
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 0.7950337154479133
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 0.8322252082060396
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 0.834324933601073
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 0.8418501682456132
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 0.84313657607528
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 0.841775327670401
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 0.8455654516169722
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 0.8500674046333088
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 1.0451564587063527
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.0248898614504283
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.035106470834534
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 0.9883028811608339
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 0.9865029220319211
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 0.945702244787193
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 0.9132194483523942
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 0.889072074154357
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 0.8615621669485599
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 0.9683934303324616
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 0.8899311409177566
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 0.9652872126250907
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 0.9570791536236253
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 0.9549233071141797
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 0.990129465378838
+  },
+  {
+   "model": "timestral_macro_past",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 0.966400627964015
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 1,
+   "rel_mase": 1.348430253528599
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 2,
+   "rel_mase": 1.266636531912232
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 3,
+   "rel_mase": 1.252359218404909
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 4,
+   "rel_mase": 1.1197951861222093
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 5,
+   "rel_mase": 0.9615521737838361
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 6,
+   "rel_mase": 0.8353735863846066
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 7,
+   "rel_mase": 0.7882874972556402
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "all_loans",
+   "h": 8,
+   "rel_mase": 0.779059335545698
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 1,
+   "rel_mase": 1.1249637321029815
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 2,
+   "rel_mase": 1.2465370204016806
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 3,
+   "rel_mase": 1.2604889504633316
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 4,
+   "rel_mase": 1.216768540070075
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 5,
+   "rel_mase": 1.1600536147554794
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 6,
+   "rel_mase": 1.0817125840500565
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 7,
+   "rel_mase": 1.0754925347701054
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "business",
+   "h": 8,
+   "rel_mase": 1.068064826672716
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 1,
+   "rel_mase": 1.1390594171727044
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 2,
+   "rel_mase": 1.154200671090453
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 3,
+   "rel_mase": 1.325856979204762
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 4,
+   "rel_mase": 1.334492628852581
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 5,
+   "rel_mase": 1.3775638675488509
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 6,
+   "rel_mase": 1.3793839247269004
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 7,
+   "rel_mase": 1.3913707129461053
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "consumer",
+   "h": 8,
+   "rel_mase": 1.3723178293040519
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 1,
+   "rel_mase": 1.2338874265351438
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 2,
+   "rel_mase": 0.9672149495493869
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 3,
+   "rel_mase": 0.897605784039165
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 4,
+   "rel_mase": 0.9948324363217599
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 5,
+   "rel_mase": 0.7120295779369624
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 6,
+   "rel_mase": 0.6919915464819971
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 7,
+   "rel_mase": 0.7380188473392115
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "cre_ex_farm",
+   "h": 8,
+   "rel_mase": 0.7164941039396139
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 1,
+   "rel_mase": 0.9657831910992954
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 2,
+   "rel_mase": 1.118428001927115
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 3,
+   "rel_mase": 1.2013324397386134
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 4,
+   "rel_mase": 1.2585593056508761
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 5,
+   "rel_mase": 1.2561026309548284
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 6,
+   "rel_mase": 1.2443251775263267
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 7,
+   "rel_mase": 1.2823948316750997
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "credit_card",
+   "h": 8,
+   "rel_mase": 1.2814362367865804
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 1,
+   "rel_mase": 1.1361328732532885
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 2,
+   "rel_mase": 1.2738289504926825
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 3,
+   "rel_mase": 1.3728427084376218
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 4,
+   "rel_mase": 1.3223982373882588
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 5,
+   "rel_mase": 1.2824324214335538
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 6,
+   "rel_mase": 1.2195673255974493
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 7,
+   "rel_mase": 1.217486594644415
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "other_consumer",
+   "h": 8,
+   "rel_mase": 1.20250212179398
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 1,
+   "rel_mase": 0.9552976757315373
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 2,
+   "rel_mase": 1.1351787429702067
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 3,
+   "rel_mase": 1.3724502391870415
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 4,
+   "rel_mase": 1.5155373026700063
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 5,
+   "rel_mase": 1.4519783731067961
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 6,
+   "rel_mase": 1.5095277367276156
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 7,
+   "rel_mase": 1.641564841960144
+  },
+  {
+   "model": "timestral_unemp_known",
+   "id": "resi_mortgage",
+   "h": 8,
+   "rel_mase": 1.6561727724400461
+  }
+ ],
+ "rel_mase_by_bank": [
+  {
+   "id": "all_loans",
+   "arima": 1.0,
+   "arimax_macro_known": 0.9963618087036107,
+   "naive": 0.5626531719740253,
+   "timestral": 0.5403726648997255,
+   "timestral_joint": 0.5008333928568686,
+   "timestral_macro_known": 1.063976286371446,
+   "timestral_macro_past": 0.5035483273143688,
+   "timestral_unemp_known": 0.9102707187327244
+  },
+  {
+   "id": "business",
+   "arima": 1.0,
+   "arimax_macro_known": 1.3577116396277684,
+   "naive": 0.6993930563133522,
+   "timestral": 0.8831344123067714,
+   "timestral_joint": 0.8728949822877707,
+   "timestral_macro_known": 1.3335295107418228,
+   "timestral_macro_past": 0.8927933616618409,
+   "timestral_unemp_known": 1.1299640510499898
+  },
+  {
+   "id": "consumer",
+   "arima": 1.0,
+   "arimax_macro_known": 1.4772478307421673,
+   "naive": 1.2073005578666054,
+   "timestral": 1.0395311307066355,
+   "timestral_joint": 1.057398801203152,
+   "timestral_macro_known": 1.1851571547217958,
+   "timestral_macro_past": 1.021530099787309,
+   "timestral_unemp_known": 1.3462274540166275
+  },
+  {
+   "id": "cre_ex_farm",
+   "arima": 1.0,
+   "arimax_macro_known": 1.596394054186464,
+   "naive": 0.6198077248493503,
+   "timestral": 0.8723580117880588,
+   "timestral_joint": 0.7281428086483949,
+   "timestral_macro_known": 0.8160104540506651,
+   "timestral_macro_past": 0.7162424493664077,
+   "timestral_unemp_known": 0.7870275770240412
+  },
+  {
+   "id": "credit_card",
+   "arima": 1.0,
+   "arimax_macro_known": 1.4557854277886368,
+   "naive": 0.8956002179321233,
+   "timestral": 0.8605527560951917,
+   "timestral_joint": 0.7528161910724974,
+   "timestral_macro_known": 1.1743871693321926,
+   "timestral_macro_past": 0.8418386760648926,
+   "timestral_unemp_known": 1.243725572204988
+  },
+  {
+   "id": "other_consumer",
+   "arima": 1.0,
+   "arimax_macro_known": 1.3951001987835718,
+   "naive": 1.0123016246539758,
+   "timestral": 0.9993920567969931,
+   "timestral_joint": 1.0896753831926242,
+   "timestral_macro_known": 1.2143321175600044,
+   "timestral_macro_past": 0.9560386880684388,
+   "timestral_unemp_known": 1.249033918961461
+  },
+  {
+   "id": "resi_mortgage",
+   "arima": 1.0,
+   "arimax_macro_known": 2.4727323815140783,
+   "naive": 1.24937633319371,
+   "timestral": 0.8815797892192545,
+   "timestral_joint": 0.8276502659215283,
+   "timestral_macro_known": 1.727490715987409,
+   "timestral_macro_past": 0.9436821137370033,
+   "timestral_unemp_known": 1.4671671088355602
+  }
+ ],
+ "dm_summary": [
+  {
+   "h": 1,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 2,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 3,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 4,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 5,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 6,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 7,
+   "better": 0.0,
+   "worse": 0.0
+  },
+  {
+   "h": 8,
+   "better": 0.0,
+   "worse": 0.0
+  }
+ ],
+ "series_win_rates": [
+  {
+   "id": "all_loans",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "business",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 1.0,
+   "sMAPE": 0.5
+  },
+  {
+   "id": "consumer",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 0.5,
+   "sMAPE": 0.0
+  },
+  {
+   "id": "cre_ex_farm",
+   "MAE": 1.0,
+   "MASE": 1.0,
+   "RMSE": 0.0,
+   "dir_acc": 1.0,
+   "sMAPE": 1.0
+  },
+  {
+   "id": "credit_card",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 0.5,
+   "sMAPE": 0.5
+  },
+  {
+   "id": "other_consumer",
+   "MAE": 0.0,
+   "MASE": 0.0,
+   "RMSE": 0.0,
+   "dir_acc": 0.5,
+   "sMAPE": 0.5
+  },
+  {
+   "id": "resi_mortgage",
+   "MAE": 0.5,
+   "MASE": 0.5,
+   "RMSE": 0.5,
+   "dir_acc": 1.0,
+   "sMAPE": 0.5
+  }
+ ],
+ "slices": [
+  {
+   "model": "arima",
+   "covid": 3.0005841599348577,
+   "normal": 1.3825318030288511,
+   "normalisation_22_23": 1.9055813931326693
+  },
+  {
+   "model": "arimax_macro_known",
+   "covid": 6.342176977884052,
+   "normal": 1.751111454943143,
+   "normalisation_22_23": 1.9322958364874487
+  },
+  {
+   "model": "naive",
+   "covid": 2.2361957992853356,
+   "normal": 1.1187478754083608,
+   "normalisation_22_23": 2.528073410976867
+  },
+  {
+   "model": "timestral",
+   "covid": 2.763083383118984,
+   "normal": 1.179246758202091,
+   "normalisation_22_23": 1.6026975448225318
+  },
+  {
+   "model": "timestral_joint",
+   "covid": 2.8244503333810917,
+   "normal": 1.1387087698289555,
+   "normalisation_22_23": 1.4772284531795215
+  },
+  {
+   "model": "timestral_macro_known",
+   "covid": 5.797365849855586,
+   "normal": 1.4622428549556346,
+   "normalisation_22_23": 1.1236119046994368
+  },
+  {
+   "model": "timestral_macro_past",
+   "covid": 3.132080051500025,
+   "normal": 1.0969146687254154,
+   "normalisation_22_23": 1.379067508332954
+  },
+  {
+   "model": "timestral_unemp_known",
+   "covid": 4.82709612046839,
+   "normal": 1.581809921080637,
+   "normalisation_22_23": 1.308583852136044
+  }
+ ]
+}

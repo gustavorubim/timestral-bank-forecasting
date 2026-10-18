@@ -1,0 +1,52 @@
+baseline=arima  H=8
+h                          1      2      4      8  overall  coverage80   MASE
+model                                                                        
+timestral_joint        0.871  0.858  0.825  0.793    0.810       0.820  1.439
+timestral_macro_past   0.896  0.887  0.847  0.791    0.820       0.854  1.434
+timestral              0.920  0.905  0.874  0.830    0.853       0.808  1.482
+naive                  1.084  1.051  0.935  0.756    0.855       0.903  1.548
+arima                  1.000  1.000  1.000  1.000    1.000       0.935  1.709
+timestral_unemp_known  1.122  1.161  1.242  1.111    1.139       0.828  1.979
+timestral_macro_known  1.172  1.501  1.349  1.076    1.190       0.866  1.998
+arimax_macro_known     2.074  1.927  1.599  1.301    1.486       0.866  2.424
+
+DM share better/worse at 5% (h in [1, 2, 4, 8] )
+                      better                   worse                
+h                          1     2     4     8     1    2    4     8
+model                                                               
+arimax_macro_known      0.00  0.00  0.00  0.07  0.00  0.0  0.0  0.00
+naive                   0.00  0.00  0.07  0.07  0.14  0.0  0.0  0.00
+timestral               0.07  0.07  0.21  0.14  0.00  0.0  0.0  0.00
+timestral_joint         0.21  0.14  0.29  0.21  0.00  0.0  0.0  0.00
+timestral_macro_known   0.00  0.00  0.00  0.00  0.00  0.0  0.0  0.00
+timestral_macro_past    0.14  0.21  0.29  0.29  0.00  0.0  0.0  0.00
+timestral_unemp_known   0.00  0.00  0.00  0.00  0.00  0.0  0.0  0.07
+
+rel MASE by id:
+model           arima  arimax_macro_known  naive  timestral  timestral_joint  timestral_macro_known  timestral_macro_past  timestral_unemp_known
+id                                                                                                                                              
+all_loans         1.0                1.00   0.56       0.54             0.50                   1.06                  0.50                   0.91
+business          1.0                1.36   0.70       0.88             0.87                   1.33                  0.89                   1.13
+consumer          1.0                1.48   1.21       1.04             1.06                   1.19                  1.02                   1.35
+cre_ex_farm       1.0                1.60   0.62       0.87             0.73                   0.82                  0.72                   0.79
+credit_card       1.0                1.46   0.90       0.86             0.75                   1.17                  0.84                   1.24
+other_consumer    1.0                1.40   1.01       1.00             1.09                   1.21                  0.96                   1.25
+resi_mortgage     1.0                2.47   1.25       0.88             0.83                   1.73                  0.94                   1.47
+
+rel MASE by target:
+model        arima  arimax_macro_known  naive  timestral  timestral_joint  timestral_macro_known  timestral_macro_past  timestral_unemp_known
+target                                                                                                                                       
+chargeoff      1.0                1.89   0.80       0.85             0.81                   1.32                  0.80                   1.19
+delinquency    1.0                1.17   0.91       0.86             0.81                   1.07                  0.84                   1.09
+
+by slice MASE:
+slice                  covid  normal  normalisation_22_23
+model                                                    
+arima                  3.001   1.383                1.906
+arimax_macro_known     6.342   1.751                1.932
+naive                  2.236   1.119                2.528
+timestral              2.763   1.179                1.603
+timestral_joint        2.824   1.139                1.477
+timestral_macro_known  5.797   1.462                1.124
+timestral_macro_past   3.132   1.097                1.379
+timestral_unemp_known  4.827   1.582                1.309

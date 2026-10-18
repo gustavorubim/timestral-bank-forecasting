@@ -1,0 +1,9 @@
+model,rel_mase
+arima,1.0
+arimax_macro_known,1.4862768339679802
+naive,0.8548281966795245
+timestral,0.8528272417636591
+timestral_joint,0.809879702551803
+timestral_macro_known,1.190055592214447
+timestral_macro_past,0.8202526243307295
+timestral_unemp_known,1.13879616488649
