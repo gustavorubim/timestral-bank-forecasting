@@ -54,7 +54,7 @@ EXPERIMENTS = [
         "Timestral ~9% better than ETS; known macro 0.80, driven by gasoline (future pump price).",
         "AutoARIMA dropped."),
     Exp("retail_m5", "Retail: M5 Walmart store x dept", "Retail", "experiments/retail/m5.yaml",
-        "See findings.", "AutoARIMA dropped."),
+        "Timestral ~30% better than seasonal naive, 16% better than ETS; known calendar/SNAP adds ~3%.", "AutoARIMA dropped."),
 ]  # fmt: skip
 
 CSS = """

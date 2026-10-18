@@ -1,0 +1,100 @@
+baseline=seasonal_naive  H=28
+h                             1      7     14     28  overall  coverage80   MASE
+model                                                                           
+timestral_calendar_known  0.617  0.703  0.682  0.781    0.675       0.797  0.780
+timestral_all_known       0.614  0.707  0.681  0.778    0.677       0.794  0.783
+timestral                 0.639  0.723  0.673  0.752    0.696       0.798  0.799
+ets                       0.692  0.834  0.820  0.818    0.824       0.830  0.942
+seasonal_naive            1.000  1.000  1.000  1.000    1.000       0.904  1.137
+
+DM share better/worse at 5% (h in [1, 7, 14, 28] )
+                         better                   worse               
+h                            1     7     14    28    1    7    14   28
+model                                                                 
+ets                        0.41  0.23  0.10  0.01   0.0  0.0  0.0  0.0
+timestral                  0.49  0.29  0.13  0.01   0.0  0.0  0.0  0.0
+timestral_all_known        0.43  0.26  0.14  0.03   0.0  0.0  0.0  0.0
+timestral_calendar_known   0.43  0.29  0.17  0.00   0.0  0.0  0.0  0.0
+
+rel MASE by id:
+model              ets  seasonal_naive  timestral  timestral_all_known  timestral_calendar_known
+id                                                                                              
+CA_1|FOODS_1      0.94             1.0       0.67                 0.66                      0.66
+CA_1|FOODS_2      0.98             1.0       0.59                 0.57                      0.56
+CA_1|FOODS_3      0.91             1.0       0.74                 0.70                      0.70
+CA_1|HOBBIES_1    0.76             1.0       0.75                 0.74                      0.73
+CA_1|HOBBIES_2    0.81             1.0       0.69                 0.69                      0.68
+CA_1|HOUSEHOLD_1  0.77             1.0       0.71                 0.69                      0.68
+CA_1|HOUSEHOLD_2  0.80             1.0       0.73                 0.70                      0.70
+CA_2|FOODS_1      0.88             1.0       0.79                 0.81                      0.82
+CA_2|FOODS_2      0.88             1.0       0.83                 0.84                      0.85
+CA_2|FOODS_3      0.83             1.0       0.90                 0.91                      0.92
+CA_2|HOBBIES_1    0.79             1.0       0.77                 0.78                      0.77
+CA_2|HOBBIES_2    0.83             1.0       0.69                 0.69                      0.69
+CA_2|HOUSEHOLD_1  0.83             1.0       0.81                 0.83                      0.82
+CA_2|HOUSEHOLD_2  0.83             1.0       0.81                 0.82                      0.82
+CA_3|FOODS_1      0.87             1.0       0.65                 0.65                      0.66
+CA_3|FOODS_2      0.89             1.0       0.57                 0.53                      0.52
+CA_3|FOODS_3      0.86             1.0       0.74                 0.73                      0.73
+CA_3|HOBBIES_1    0.73             1.0       0.72                 0.72                      0.71
+CA_3|HOBBIES_2    0.81             1.0       0.75                 0.74                      0.74
+CA_3|HOUSEHOLD_1  0.82             1.0       0.69                 0.68                      0.67
+CA_3|HOUSEHOLD_2  0.80             1.0       0.75                 0.74                      0.74
+CA_4|FOODS_1      0.88             1.0       0.75                 0.76                      0.76
+CA_4|FOODS_2      0.81             1.0       0.75                 0.73                      0.72
+CA_4|FOODS_3      0.85             1.0       0.74                 0.72                      0.72
+CA_4|HOBBIES_1    0.75             1.0       0.74                 0.74                      0.73
+CA_4|HOBBIES_2    0.81             1.0       0.66                 0.66                      0.66
+CA_4|HOUSEHOLD_1  0.77             1.0       0.74                 0.71                      0.71
+CA_4|HOUSEHOLD_2  0.78             1.0       0.76                 0.74                      0.75
+TX_1|FOODS_1      0.88             1.0       0.78                 0.78                      0.77
+TX_1|FOODS_2      0.88             1.0       0.58                 0.50                      0.50
+TX_1|FOODS_3      0.82             1.0       0.73                 0.69                      0.70
+TX_1|HOBBIES_1    0.80             1.0       0.79                 0.78                      0.79
+TX_1|HOBBIES_2    0.81             1.0       0.66                 0.67                      0.66
+TX_1|HOUSEHOLD_1  0.73             1.0       0.74                 0.72                      0.72
+TX_1|HOUSEHOLD_2  0.86             1.0       0.80                 0.80                      0.80
+TX_2|FOODS_1      0.91             1.0       0.67                 0.66                      0.66
+TX_2|FOODS_2      0.85             1.0       0.64                 0.59                      0.60
+TX_2|FOODS_3      0.78             1.0       0.69                 0.66                      0.65
+TX_2|HOBBIES_1    0.72             1.0       0.72                 0.72                      0.71
+TX_2|HOBBIES_2    0.81             1.0       0.63                 0.62                      0.61
+TX_2|HOUSEHOLD_1  0.78             1.0       0.79                 0.79                      0.78
+TX_2|HOUSEHOLD_2  0.77             1.0       0.72                 0.71                      0.71
+TX_3|FOODS_1      0.89             1.0       0.71                 0.70                      0.69
+TX_3|FOODS_2      0.87             1.0       0.52                 0.44                      0.44
+TX_3|FOODS_3      0.81             1.0       0.66                 0.59                      0.59
+TX_3|HOBBIES_1    0.74             1.0       0.74                 0.75                      0.75
+TX_3|HOBBIES_2    0.83             1.0       0.70                 0.69                      0.68
+TX_3|HOUSEHOLD_1  0.83             1.0       0.73                 0.70                      0.68
+TX_3|HOUSEHOLD_2  0.76             1.0       0.70                 0.68                      0.67
+WI_1|FOODS_1      0.93             1.0       0.64                 0.64                      0.65
+WI_1|FOODS_2      0.84             1.0       0.66                 0.67                      0.65
+WI_1|FOODS_3      0.76             1.0       0.70                 0.68                      0.67
+WI_1|HOBBIES_1    0.71             1.0       0.69                 0.67                      0.67
+WI_1|HOBBIES_2    0.84             1.0       0.70                 0.70                      0.70
+WI_1|HOUSEHOLD_1  0.79             1.0       0.72                 0.71                      0.70
+WI_1|HOUSEHOLD_2  0.76             1.0       0.70                 0.69                      0.68
+WI_2|FOODS_1      0.87             1.0       0.79                 0.76                      0.74
+WI_2|FOODS_2      0.92             1.0       0.41                 0.34                      0.34
+WI_2|FOODS_3      0.88             1.0       0.48                 0.39                      0.39
+WI_2|HOBBIES_1    0.74             1.0       0.72                 0.71                      0.69
+WI_2|HOBBIES_2    0.81             1.0       0.66                 0.65                      0.65
+WI_2|HOUSEHOLD_1  0.82             1.0       0.61                 0.58                      0.59
+WI_2|HOUSEHOLD_2  0.84             1.0       0.71                 0.69                      0.69
+WI_3|FOODS_1      0.91             1.0       0.70                 0.72                      0.72
+WI_3|FOODS_2      0.93             1.0       0.46                 0.40                      0.40
+WI_3|FOODS_3      0.88             1.0       0.58                 0.53                      0.53
+WI_3|HOBBIES_1    0.73             1.0       0.74                 0.75                      0.74
+WI_3|HOBBIES_2    0.79             1.0       0.76                 0.76                      0.76
+WI_3|HOUSEHOLD_1  0.84             1.0       0.69                 0.68                      0.68
+WI_3|HOUSEHOLD_2  0.83             1.0       0.79                 0.78                      0.78
+
+by slice MASE:
+slice                     normal
+model                           
+ets                        0.942
+seasonal_naive             1.137
+timestral                  0.799
+timestral_all_known        0.783
+timestral_calendar_known   0.780

@@ -1,0 +1,18 @@
+/workspace/tbf-domains-b/src/bsforecast/plots.py:216: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+/workspace/tbf-domains-b/src/bsforecast/plots.py:326: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+/workspace/tbf-domains-b/src/bsforecast/plots.py:326: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+/workspace/tbf-domains-b/src/bsforecast/plots.py:326: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+/workspace/tbf-domains-b/src/bsforecast/plots.py:326: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+/workspace/tbf-domains-b/src/bsforecast/plots.py:113: UserWarning: Tight layout not applied. The bottom and top margins cannot be made large enough to accommodate all Axes decorations.
+  fig.tight_layout()
+timestral_calendar_known  rel MASE vs baseline = 0.675
+   timestral_all_known  rel MASE vs baseline = 0.677
+             timestral  rel MASE vs baseline = 0.696
+                   ets  rel MASE vs baseline = 0.824
+        seasonal_naive  rel MASE vs baseline = 1.000
+report: reports/retail/m5/REPORT.md

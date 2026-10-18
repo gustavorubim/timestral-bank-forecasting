@@ -1,0 +1,6 @@
+2026-10-18 18:58:33,892 INFO HTTP Request: GET https://huggingface.co/api/models/mistralai/Timestral-209M/revision/main "HTTP/1.1 200 OK"
+Fetching 2 files:   0%|          | 0/2 [00:00<?, ?it/s]Fetching 2 files: 100%|██████████| 2/2 [00:00<00:00, 911.41it/s]
+/workspace/tbf-domains-b/.venv/lib/python3.12/site-packages/timestral/forecaster.py:234: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /__w/pytorch/pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  x = torch.as_tensor(context, dtype=torch.float32, device=self.device)
+2026-10-18 19:49:45,965 INFO model timestral_calendar_known: 24 origins in 3073.3s
+shard written: reports/retail/m5/backtest_B.parquet
