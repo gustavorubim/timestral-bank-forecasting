@@ -1,0 +1,98 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Electricity demand + temperature (EIA-930)</title><style>
+*{box-sizing:border-box}body{font:16px/1.5 -apple-system,system-ui,Segoe UI,Roboto,sans-serif;margin:0;color:#1b1f24;
+background:#fafbfc}main{max-width:1100px;margin:auto;padding:16px}h1{font-size:1.6em}h2{margin-top:1.6em;border-bottom:1px
+solid #ddd}h3{margin-top:1.2em}a{color:#0b62c4}nav{background:#0d1b2a;padding:10px 16px}nav a{color:#fff;margin-right:14px;
+text-decoration:none;font-weight:600}.tbl{overflow-x:auto;margin:8px 0}table{border-collapse:collapse;font-size:.88em;
+min-width:50%}td,th{border:1px solid #d0d7de;padding:4px 8px;text-align:right;white-space:nowrap}th{background:#eef1f4}
+td:first-child,th:first-child{text-align:left}img{max-width:100%;height:auto;border:1px solid #e1e4e8;border-radius:4px;
+background:#fff}.caveat{background:#fff8e1;border-left:4px solid #f0b400;padding:8px 14px;margin:12px 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}.card{background:#fff;border:1px
+solid #d0d7de;border-radius:8px;padding:12px}.card h3{margin:0 0 6px}.muted{color:#57606a;font-size:.9em}
+code{background:#eef1f4;padding:1px 4px;border-radius:3px}
+</style></head><body><nav><a href="../index.html">Timestral experiments</a></nav><main><h1>Electricity demand + temperature (EIA-930)</h1>
+<p class="muted">Baseline <code>mstl</code>, horizon 7 steps. Relative MASE: Timestral 0.772, best known-covariate variant <code>timestral_temp_known</code> 0.407.</p>
+<h2>Backtest report: electricity</h2>
+<h3>Findings: EIA-930 daily electricity demand, 7 balancing authorities, 7-day one-shot, 78 weekly origins 2025-04-16..2026-10-07 (+ live)</h3>
+<p>Relative MASE vs MSTL (weekly + annual seasonality, AutoETS trend; &lt;1 = better; geometric mean over 7 BAs):</p>
+<div class="tbl"><table><tr><th>Model</th><th>day 1</th><th>day 3</th><th>day 7</th><th>Overall</th><th>80% coverage</th></tr><tr><td><strong>Timestral + known temperature (mean, CDD, HDD)</strong></td><td>0.54</td><td>0.39</td><td>0.36</td><td><strong>0.41</strong></td><td>0.75</td></tr><tr><td>Timestral + past temperature</td><td>0.74</td><td>0.78</td><td>0.73</td><td>0.77</td><td>0.78</td></tr><tr><td>Timestral (no covariates)</td><td>0.75</td><td>0.79</td><td>0.74</td><td>0.77</td><td>0.79</td></tr><tr><td>MSTL</td><td>1.00</td><td>1.00</td><td>1.00</td><td>1.00</td><td>0.67</td></tr><tr><td>Seasonal naive (last week)</td><td>1.86</td><td>1.17</td><td>0.98</td><td>1.16</td><td>0.80</td></tr></table></div>
+<ul><li><strong>Plain Timestral beats MSTL by 23%</strong> with no weather information, in every BA (0.73-0.81) and significantly (Diebold-Mariano at 5%) on all 7 BAs at day 1 and 4 of 7 at day 7.</li><li><strong>Knowing the temperature cuts error a further ~45%</strong> vs plain Timestral (PJM 0.43, ERCOT 0.47, MISO 0.51, ISO-NE 0.64)</li><li>0.41 vs MSTL overall, significantly better in all 7 BAs at every horizon. Unlike the macro panels, the gain <em>grows</em> with horizon (0.54 at day 1 to 0.36 at day 7), because weather is what the model cannot extrapolate from the load history.</li><li><strong>Past-only temperature adds nothing</strong> (0.77 vs 0.77): the value is entirely in the future path.</li><li><strong>Heat waves and cold snaps:</strong> in summer 2025 origins MASE goes 1.24 (MSTL) -&gt; 0.95 (Timestral) -&gt; 0.49 (with temperature); in winter 2025-26 0.96 -&gt; 0.76 -&gt; 0.37.</li><li><strong>Intervals</strong> are somewhat narrow for Timestral (75-79% for nominal 80%); MSTL's are much too narrow (67%).</li></ul>
+<p>Caveats: "known" temperature is the realised daily mean at 3-4 load centres per BA (a perfect weather forecast), so real 7-day weather-forecast error would erode part of the gain, especially at days 5-7. Daily totals, not hourly; no holiday calendar; AutoARIMA(7) was dropped as too slow on the shared CPU box. EIA's own day-ahead demand forecast in the bulk files is a natural next benchmark.</p>
+<p>---</p>
+<h2>Full tables</h2>
+<ul><li>Series: 7 ids x 1 targets = 7</li><li>Data: 2022-01-01 to 2026-10-14 (1748 periods)</li><li>Rolling origins: 78 (2025-04-16 .. 2026-10-07), one-shot direct horizon h=1..7</li><li>Challenger <code>timestral_temp_known</code> vs baseline <code>mstl</code>. MASE scale = in-sample naive (lag 7).</li></ul>
+<h3>Overall</h3>
+<div class="tbl"><table><tr><th>model</th><th>MAE</th><th>RMSE</th><th>MAPE</th><th>sMAPE</th><th>MASE</th><th>coverage80</th><th>dir_acc</th><th>n</th></tr><tr><td>timestral_temp_known</td><td>26.657</td><td>43.794</td><td>2.029</td><td>2.888</td><td>0.397</td><td>0.752</td><td>0.866</td><td>3821</td></tr><tr><td>timestral_temp_past</td><td>53.646</td><td>93.390</td><td>3.839</td><td>5.297</td><td>0.735</td><td>0.775</td><td>0.721</td><td>3821</td></tr><tr><td>timestral</td><td>53.867</td><td>91.979</td><td>3.819</td><td>5.346</td><td>0.742</td><td>0.793</td><td>0.719</td><td>3821</td></tr><tr><td>mstl</td><td>70.298</td><td>119.120</td><td>5.086</td><td>6.981</td><td>0.963</td><td>0.666</td><td>0.622</td><td>3821</td></tr><tr><td>seasonal_naive</td><td>81.496</td><td>132.485</td><td>6.107</td><td>7.949</td><td>1.110</td><td>0.803</td><td>0.603</td><td>3821</td></tr></table></div>
+<h3>MASE by horizon (all series)</h3>
+<div class="tbl"><table><tr><th>h</th><th>seasonal_naive</th><th>mstl</th><th>timestral</th><th>timestral_temp_past</th><th>timestral_temp_known</th></tr><tr><td>1</td><td>1.109</td><td>0.604</td><td>0.469</td><td>0.458</td><td>0.333</td></tr><tr><td>2</td><td>1.130</td><td>0.837</td><td>0.684</td><td>0.674</td><td>0.388</td></tr><tr><td>3</td><td>1.060</td><td>0.910</td><td>0.711</td><td>0.705</td><td>0.362</td></tr><tr><td>4</td><td>1.053</td><td>0.988</td><td>0.757</td><td>0.762</td><td>0.422</td></tr><tr><td>5</td><td>1.109</td><td>1.073</td><td>0.835</td><td>0.832</td><td>0.451</td></tr><tr><td>6</td><td>1.162</td><td>1.161</td><td>0.875</td><td>0.864</td><td>0.396</td></tr><tr><td>7</td><td>1.145</td><td>1.169</td><td>0.861</td><td>0.846</td><td>0.427</td></tr></table></div>
+<p><a href="img/figures/error_by_horizon_mase.jpg"><img loading="lazy" src="img/figures/error_by_horizon_mase.jpg" alt=""></a></p>
+<h3>Skill vs horizon</h3>
+<p><a href="img/figures/skill_vs_horizon.jpg"><img loading="lazy" src="img/figures/skill_vs_horizon.jpg" alt=""></a></p>
+<div class="tbl"><table><tr><th>h</th><th>mstl</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>1</td><td>1.000</td><td>1.864</td><td>0.754</td><td>0.541</td><td>0.740</td></tr><tr><td>2</td><td>1.000</td><td>1.363</td><td>0.812</td><td>0.465</td><td>0.802</td></tr><tr><td>3</td><td>1.000</td><td>1.166</td><td>0.785</td><td>0.391</td><td>0.779</td></tr><tr><td>4</td><td>1.000</td><td>1.066</td><td>0.767</td><td>0.420</td><td>0.772</td></tr><tr><td>5</td><td>1.000</td><td>1.038</td><td>0.781</td><td>0.418</td><td>0.778</td></tr><tr><td>6</td><td>1.000</td><td>1.009</td><td>0.758</td><td>0.337</td><td>0.749</td></tr><tr><td>7</td><td>1.000</td><td>0.979</td><td>0.739</td><td>0.355</td><td>0.727</td></tr></table></div>
+<p><a href="img/figures/relmase_heatmap_line_horizon.jpg"><img loading="lazy" src="img/figures/relmase_heatmap_line_horizon.jpg" alt=""></a></p>
+<p><a href="img/figures/error_by_origin.jpg"><img loading="lazy" src="img/figures/error_by_origin.jpg" alt=""></a></p>
+<h3>Relative MASE vs baseline (geometric mean; &lt;1 = better than baseline)</h3>
+<div class="tbl"><table><tr><th>model</th><th>rel_mase</th></tr><tr><td>timestral_temp_known</td><td>0.407</td></tr><tr><td>timestral_temp_past</td><td>0.765</td></tr><tr><td>timestral</td><td>0.772</td></tr><tr><td>mstl</td><td>1.000</td></tr><tr><td>seasonal_naive</td><td>1.157</td></tr></table></div>
+<h4>By bank</h4>
+<div class="tbl"><table><tr><th>id</th><th>mstl</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>CISO</td><td>1.000</td><td>1.316</td><td>0.812</td><td>0.450</td><td>0.784</td></tr><tr><td>ERCO</td><td>1.000</td><td>1.133</td><td>0.770</td><td>0.365</td><td>0.751</td></tr><tr><td>FPL</td><td>1.000</td><td>1.215</td><td>0.803</td><td>0.433</td><td>0.807</td></tr><tr><td>ISNE</td><td>1.000</td><td>1.033</td><td>0.733</td><td>0.467</td><td>0.729</td></tr><tr><td>MISO</td><td>1.000</td><td>1.242</td><td>0.788</td><td>0.404</td><td>0.803</td></tr><tr><td>NYIS</td><td>1.000</td><td>1.058</td><td>0.754</td><td>0.426</td><td>0.738</td></tr><tr><td>PJM</td><td>1.000</td><td>1.127</td><td>0.748</td><td>0.323</td><td>0.748</td></tr></table></div>
+<p><a href="img/figures/relative_mase.jpg"><img loading="lazy" src="img/figures/relative_mase.jpg" alt=""></a></p>
+<h3>Win rates (share of series where challenger beats baseline)</h3>
+<div class="tbl"><table><tr><th>id</th><th>MAE</th><th>MASE</th><th>RMSE</th><th>dir_acc</th><th>sMAPE</th></tr><tr><td>CISO</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>ERCO</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>FPL</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>ISNE</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>MISO</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>NYIS</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>PJM</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td><td>100%</td></tr></table></div>
+<p><a href="img/figures/winrate_heatmap_target_bank.jpg"><img loading="lazy" src="img/figures/winrate_heatmap_target_bank.jpg" alt=""></a></p>
+<h3>Diebold-Mariano (squared error, HLN-corrected, per series and horizon)</h3>
+<p>Share of bank x target series where the challenger is significantly better / worse at 5%:</p>
+<div class="tbl"><table><tr><th>h</th><th>better</th><th>worse</th></tr><tr><td>1</td><td>100%</td><td>0%</td></tr><tr><td>2</td><td>100%</td><td>0%</td></tr><tr><td>3</td><td>100%</td><td>0%</td></tr><tr><td>4</td><td>100%</td><td>0%</td></tr><tr><td>5</td><td>100%</td><td>0%</td></tr><tr><td>6</td><td>100%</td><td>0%</td></tr><tr><td>7</td><td>100%</td><td>0%</td></tr></table></div>
+<h3>Stress slices (MASE)</h3>
+<div class="tbl"><table><tr><th>model</th><th>normal</th><th>summer_2025</th><th>winter_2025_26</th></tr><tr><td>mstl</td><td>0.881</td><td>1.243</td><td>0.955</td></tr><tr><td>seasonal_naive</td><td>1.032</td><td>1.432</td><td>1.037</td></tr><tr><td>timestral</td><td>0.674</td><td>0.949</td><td>0.762</td></tr><tr><td>timestral_temp_known</td><td>0.376</td><td>0.492</td><td>0.369</td></tr><tr><td>timestral_temp_past</td><td>0.650</td><td>0.954</td><td>0.806</td></tr></table></div>
+<h3>Interval coverage (80%)</h3>
+<p><a href="img/figures/coverage_by_horizon.jpg"><img loading="lazy" src="img/figures/coverage_by_horizon.jpg" alt=""></a></p>
+<h3>Balance-sheet identity consistency</h3>
+<p>(none configured)</p>
+<h3>Forecast fans</h3>
+<p><a href="img/figures/fan_20250716.jpg"><img loading="lazy" src="img/figures/fan_20250716.jpg" alt=""></a></p>
+<p><a href="img/figures/fan_20260114.jpg"><img loading="lazy" src="img/figures/fan_20260114.jpg" alt=""></a></p>
+<p><a href="img/figures/fan_live.jpg"><img loading="lazy" src="img/figures/fan_live.jpg" alt=""></a></p>
+<h3>Diebold-Mariano vs baseline, all models</h3>
+<p>Share of series significantly <strong>better</strong> than <code>mstl</code> at 5% (squared error):</p>
+<div class="tbl"><table><tr><th>h</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>1</td><td>0%</td><td>100%</td><td>100%</td><td>100%</td></tr><tr><td>2</td><td>0%</td><td>86%</td><td>100%</td><td>71%</td></tr><tr><td>3</td><td>0%</td><td>71%</td><td>100%</td><td>57%</td></tr><tr><td>4</td><td>0%</td><td>71%</td><td>100%</td><td>43%</td></tr><tr><td>5</td><td>0%</td><td>57%</td><td>100%</td><td>43%</td></tr><tr><td>6</td><td>0%</td><td>43%</td><td>100%</td><td>43%</td></tr><tr><td>7</td><td>0%</td><td>57%</td><td>100%</td><td>57%</td></tr></table></div>
+<p>Share significantly <strong>worse</strong>:</p>
+<div class="tbl"><table><tr><th>h</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>1</td><td>100%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>2</td><td>71%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>3</td><td>14%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>4</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>5</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>6</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr><tr><td>7</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr></table></div>
+<h3>80% interval coverage by line</h3>
+<div class="tbl"><table><tr><th>model</th><th>gwh</th></tr><tr><td>mstl</td><td>0.666</td></tr><tr><td>seasonal_naive</td><td>0.803</td></tr><tr><td>timestral</td><td>0.793</td></tr><tr><td>timestral_temp_known</td><td>0.752</td></tr><tr><td>timestral_temp_past</td><td>0.775</td></tr></table></div>
+<h3>Relative MASE vs <code>mstl</code> by line</h3>
+<div class="tbl"><table><tr><th>target</th><th>mstl</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>gwh</td><td>1.000</td><td>1.157</td><td>0.772</td><td>0.407</td><td>0.765</td></tr></table></div>
+<h4>gwh: relative MASE by horizon</h4>
+<div class="tbl"><table><tr><th>h</th><th>mstl</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_known</th><th>timestral_temp_past</th></tr><tr><td>1</td><td>1.000</td><td>1.864</td><td>0.754</td><td>0.541</td><td>0.740</td></tr><tr><td>2</td><td>1.000</td><td>1.363</td><td>0.812</td><td>0.465</td><td>0.802</td></tr><tr><td>3</td><td>1.000</td><td>1.166</td><td>0.785</td><td>0.391</td><td>0.779</td></tr><tr><td>4</td><td>1.000</td><td>1.066</td><td>0.767</td><td>0.420</td><td>0.772</td></tr><tr><td>5</td><td>1.000</td><td>1.038</td><td>0.781</td><td>0.418</td><td>0.778</td></tr><tr><td>6</td><td>1.000</td><td>1.009</td><td>0.758</td><td>0.337</td><td>0.749</td></tr><tr><td>7</td><td>1.000</td><td>0.979</td><td>0.739</td><td>0.355</td><td>0.727</td></tr></table></div>
+<h3>How much does <code>timestral_temp_known</code> help vs <code>timestral</code>? (relative MASE, &lt;1 = helps)</h3>
+<div class="tbl"><table><tr><th>target</th><th>rel_mase</th></tr><tr><td>gwh</td><td>0.527</td></tr></table></div>
+<p><a href="img/figures/help_timestral_temp_known_vs_timestral.jpg"><img loading="lazy" src="img/figures/help_timestral_temp_known_vs_timestral.jpg" alt=""></a></p>
+<h3>How much does <code>timestral_temp_past</code> help vs <code>timestral</code>? (relative MASE, &lt;1 = helps)</h3>
+<div class="tbl"><table><tr><th>target</th><th>rel_mase</th></tr><tr><td>gwh</td><td>0.991</td></tr></table></div>
+<p><a href="img/figures/help_timestral_temp_past_vs_timestral.jpg"><img loading="lazy" src="img/figures/help_timestral_temp_past_vs_timestral.jpg" alt=""></a></p>
+<h3>How much does <code>timestral</code> help vs <code>mstl</code>? (relative MASE, &lt;1 = helps)</h3>
+<div class="tbl"><table><tr><th>target</th><th>rel_mase</th></tr><tr><td>gwh</td><td>0.772</td></tr></table></div>
+<p><a href="img/figures/help_timestral_vs_mstl.jpg"><img loading="lazy" src="img/figures/help_timestral_vs_mstl.jpg" alt=""></a></p>
+<h3>Line x variant: relative MASE vs baseline</h3>
+<p><a href="img/figures/relmase_line_x_variant.jpg"><img loading="lazy" src="img/figures/relmase_line_x_variant.jpg" alt=""></a></p>
+<p><a href="img/figures/relmase_line_x_horizon_timestral_temp_past.jpg"><img loading="lazy" src="img/figures/relmase_line_x_horizon_timestral_temp_past.jpg" alt=""></a></p>
+<p><a href="img/figures/relmase_line_x_horizon_timestral_temp_known.jpg"><img loading="lazy" src="img/figures/relmase_line_x_horizon_timestral_temp_known.jpg" alt=""></a></p>
+<h3>Does macro help? (relative MASE of covariate variant vs its no-covariate twin; &lt;1 = helps)</h3>
+<p><a href="img/figures/macro_helps_by_line.jpg"><img loading="lazy" src="img/figures/macro_helps_by_line.jpg" alt=""></a></p>
+<div class="tbl"><table><tr><th>target</th><th>timestral_temp_known vs timestral</th><th>timestral_temp_past vs timestral</th><th>timestral vs mstl</th></tr><tr><td>gwh</td><td>0.527</td><td>0.991</td><td>0.772</td></tr></table></div>
+<h3>Spaghetti pages by group</h3>
+<ul><li><a href="figures/load/index.md">load</a> (1 lines)</li></ul>
+<h3>Relative MASE vs <code>mstl</code> by series</h3>
+<p><a href="img/figures/relmase_id_x_variant.jpg"><img loading="lazy" src="img/figures/relmase_id_x_variant.jpg" alt=""></a></p>
+<div class="tbl"><table><tr><th>id</th><th>seasonal_naive</th><th>timestral</th><th>timestral_temp_past</th><th>timestral_temp_known</th></tr><tr><td>CISO</td><td>1.316</td><td>0.812</td><td>0.784</td><td>0.450</td></tr><tr><td>ERCO</td><td>1.133</td><td>0.770</td><td>0.751</td><td>0.365</td></tr><tr><td>FPL</td><td>1.215</td><td>0.803</td><td>0.807</td><td>0.433</td></tr><tr><td>ISNE</td><td>1.033</td><td>0.733</td><td>0.729</td><td>0.467</td></tr><tr><td>MISO</td><td>1.242</td><td>0.788</td><td>0.803</td><td>0.404</td></tr><tr><td>NYIS</td><td>1.058</td><td>0.754</td><td>0.738</td><td>0.426</td></tr><tr><td>PJM</td><td>1.127</td><td>0.748</td><td>0.748</td><td>0.323</td></tr></table></div>
+<p><a href="img/figures/relmase_id_x_horizon_seasonal_naive.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_seasonal_naive.jpg" alt=""></a></p>
+<p><a href="img/figures/relmase_id_x_horizon_timestral.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_timestral.jpg" alt=""></a></p>
+<p><a href="img/figures/relmase_id_x_horizon_timestral_temp_past.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_timestral_temp_past.jpg" alt=""></a></p>
+<p><a href="img/figures/relmase_id_x_horizon_timestral_temp_known.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_timestral_temp_known.jpg" alt=""></a></p>
+<h2>Spaghetti grids: load</h2>
+<p>Columns: mstl | timestral | timestral_temp_known. Rows: banks. Colour = origin date; black = actual.</p>
+<div class="tbl"><table><tr><th>target</th><th>seasonal_naive</th><th>mstl</th><th>timestral</th><th>timestral_temp_past</th><th>timestral_temp_known</th></tr><tr><td>gwh</td><td>1.157</td><td>1.000</td><td>0.772</td><td>0.765</td><td>0.407</td></tr></table></div>
+<h3>gwh</h3>
+<p><a href="img/figures/load/spaghetti_gwh.jpg"><img loading="lazy" src="img/figures/load/spaghetti_gwh.jpg" alt=""></a></p>
+<h2>Other plots</h2>
+<h3>error_by_horizon_smape</h3><p><a href="img/figures/error_by_horizon_smape.jpg"><img loading="lazy" src="img/figures/error_by_horizon_smape.jpg" alt=""></a></p>
+<h3>winrate_heatmap_bank_horizon</h3><p><a href="img/figures/winrate_heatmap_bank_horizon.jpg"><img loading="lazy" src="img/figures/winrate_heatmap_bank_horizon.jpg" alt=""></a></p>
+<h3>winrate_heatmap_bank_metric</h3><p><a href="img/figures/winrate_heatmap_bank_metric.jpg"><img loading="lazy" src="img/figures/winrate_heatmap_bank_metric.jpg" alt=""></a></p></main></body></html>

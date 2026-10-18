@@ -79,3 +79,13 @@ def test_sec_user_agent_requires_env(monkeypatch):
         sec_user_agent()
     monkeypatch.setenv("SEC_USER_AGENT", "Test research test@example.com")
     assert sec_user_agent() == "Test research test@example.com"
+
+
+def test_site_markdown_renderer():
+    from bsforecast.site import md_to_html
+
+    md = "# Title\n\nSome **bold** text\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n- one\n- two\n\n![](figures/x.png)\n"
+    out = md_to_html(md, lambda rel: "img/" + rel.replace(".png", ".jpg"))
+    assert "<h2>Title</h2>" in out and "<strong>bold</strong>" in out
+    assert "<td>1</td><td>2</td>" in out and "<li>two</li>" in out
+    assert 'src="img/figures/x.jpg"' in out

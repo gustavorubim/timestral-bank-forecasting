@@ -32,6 +32,8 @@ def main(argv: list[str] | None = None) -> None:
     d.add_argument("domain", choices=["earnings", "housing", "retail"])
     d.add_argument("--raw-dir", default="data/raw")
     d.add_argument("--out-dir", default="data/processed")
+    st = sub.add_parser("site", help="build the static HTML site over all experiment reports into docs/")
+    st.add_argument("--docs", default="docs")
     for name in ("run", "report"):
         p = sub.add_parser(name)
         p.add_argument("--config", required=True)
@@ -52,6 +54,14 @@ def main(argv: list[str] | None = None) -> None:
 
         panel = build_macro_panel(Path(args.raw_dir), Path(args.out_dir))
         print(panel.groupby("bank")["date"].agg(["min", "max", "count"]))
+        return
+
+    if args.cmd == "site":
+        from .site import build_site
+
+        res = build_site(Path("."), Path(args.docs))
+        print(res["rows"].drop(columns=["slug", "Takeaway", "Note"]).to_string(index=False))
+        print(f"pages: {len(res['pages'])}  size: {res['size_mb']:.1f} MB  chart: {res['chart']}")
         return
 
     if args.cmd == "fetch-domain":
