@@ -2,8 +2,8 @@
 # Data mirror: huggingface.co/datasets/kashif/M5 (original Kaggle competition files).
 # AutoARIMA omitted: seasonal AutoARIMA on 70 daily series x ~1,100-day contexts did not finish one origin in 10 min on the shared box.
 name: retail_m5
-output_dir: reports/retail/m5
-notes_file: experiments/retail/findings_m5.md
+output_dir: outputs/retail/m5
+notes_file: studies/retail_m5.md
 data:
   path: data/processed/m5_store_dept_panel.parquet
   date_col: date

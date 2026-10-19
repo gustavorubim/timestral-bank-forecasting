@@ -1,8 +1,8 @@
 """Command line interface.
 
 python -m bsforecast fetch-y9c-top4          # build the top-4 BHC + macro panel
-python -m bsforecast run --config configs/y9c_top4.yaml
-python -m bsforecast report --config configs/y9c_top4.yaml   # re-plot from saved backtest
+python -m bsforecast run --config experiments/y9c_top4/config.yaml
+python -m bsforecast report --config experiments/y9c_top4/config.yaml   # re-plot from saved backtest
 """
 
 from __future__ import annotations

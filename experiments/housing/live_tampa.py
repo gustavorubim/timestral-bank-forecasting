@@ -1,7 +1,7 @@
 """Live forecast plot for Tampa from the latest data (FHFA quarterly + Zillow monthly).
 
 uv run python experiments/housing/live_tampa.py
-Reads reports/housing/{fhfa,zillow}/backtest.parquet (live origin rows) and the processed panels.
+Reads outputs/housing/{fhfa,zillow}/backtest.parquet (live origin rows) and the processed panels.
 Known-covariate models hold the last observed macro value flat over the horizon (a "no change" scenario).
 """
 
@@ -28,7 +28,7 @@ def main(metro: str = "Tampa") -> Path:
     fig, axes = plt.subplots(1, 3, figsize=(17, 4.4))
     rows = []
     for ax, (src, tgt, fname, title, hist) in zip(axes, PANELS, strict=True):
-        bt_path = ROOT / "reports/housing" / src / "backtest.parquet"
+        bt_path = ROOT / "outputs/housing" / src / "backtest.parquet"
         if not bt_path.exists():  # that experiment has not finished yet
             ax.set_title(f"{metro}: {title} (pending)", fontsize=10)
             continue
@@ -63,7 +63,7 @@ def main(metro: str = "Tampa") -> Path:
     axes[0].legend(fontsize=8)
     fig.suptitle(f"{metro} live forecast from latest data (median, 80% band); macro held flat for *_known", y=1.02)
     fig.tight_layout()
-    out = ROOT / "reports/housing/figures"
+    out = ROOT / "outputs/housing/figures"
     out.mkdir(parents=True, exist_ok=True)
     path = out / f"live_{metro.lower()}.png"
     fig.savefig(path, dpi=110, bbox_inches="tight")

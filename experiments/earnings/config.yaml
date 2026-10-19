@@ -2,8 +2,8 @@
 # Rebuild data: SEC_USER_AGENT="Your Name research you@example.com" uv run python -m bsforecast fetch-domain earnings
 # Run:          uv run python -m bsforecast run --config experiments/earnings/config.yaml
 name: earnings
-output_dir: reports/earnings
-notes_file: experiments/earnings/findings.md
+output_dir: outputs/earnings
+notes_file: studies/earnings.md
 data:
   path: data/processed/earnings_panel.parquet
   date_col: date

@@ -1,6 +1,6 @@
 """Static, mobile-friendly HTML site over every experiment report: ``python -m bsforecast site``.
 
-Renders reports/<exp>/REPORT.md (findings are already prepended) plus the per-group spaghetti pages into
+Renders outputs/<exp>/REPORT.md (findings are already prepended) plus the per-group spaghetti pages into
 docs/<slug>/index.html, copies figures as downscaled JPEGs, and writes a landing page with a cross-domain summary.
 Plain HTML/CSS, no build step, no extra dependencies.
 """
@@ -29,12 +29,12 @@ class Exp:
 
 
 EXPERIMENTS = [
-    Exp("y9c_top4", "Top-4 banks: aggregate lines", "Banks", "configs/y9c_top4.yaml",
+    Exp("y9c_top4", "Top-4 banks: aggregate lines", "Banks", "experiments/y9c_top4/config.yaml",
         "Timestral roughly ties AutoARIMA over 8 quarters; wins 1-3 quarters ahead, strongest on NII/NIM.",
         "FDIC call-report aggregation (Y-9C substitute)."),
-    Exp("term_structure", "Banks: Treasury curve as known covariate", "Banks", "configs/term_structure.yaml",
+    Exp("term_structure", "Banks: Treasury curve as known covariate", "Banks", "experiments/term_structure/config.yaml",
         "Knowing the future yield curve halves interest-expense error (0.51 vs ARIMA)."),
-    Exp("macro_panel", "Banks: 37 granular lines x 22-variable macro panel", "Banks", "configs/macro_panel.yaml",
+    Exp("macro_panel", "Banks: 37 granular lines x 22-variable macro panel", "Banks", "experiments/macro_panel/config.yaml",
         "Macro helps rate/credit lines (interest expense, provisions) but hurts balance-sheet volumes."),
     Exp("electricity", "Electricity demand + temperature (EIA-930)", "Energy", "experiments/electricity/config.yaml",
         "Plain Timestral beats MSTL by 23%; known temperature cuts error a further ~45% (0.41), gain grows with horizon."),
@@ -269,17 +269,19 @@ def build_site(root: Path = Path("."), docs: Path = Path("docs")) -> dict:
                 f"<code>{r['Best known-covariate variant'] or '-'}</code> {_f(r['Timestral + known'])}.</p>"
             )
         if e.slug.startswith("housing"):
-            live = root / "reports/housing/figures/live_tampa.png"
+            live = root / "outputs/housing/figures/live_tampa.png"
             src = store.put(live, f"{e.slug}/img/live_tampa.png")
             if src:
                 parts.append("<h2>Live Tampa forecast (latest data, macro held flat)</h2>")
                 parts.append(
                     f'<p><a href="{src[len(e.slug) + 1 :]}"><img src="{src[len(e.slug) + 1 :]}" alt=""></a></p>'
                 )
-        parts.append(md_to_html((rep / "REPORT.md").read_text(), img))
+        report_html = md_to_html((rep / "REPORT.md").read_text(), img)
+        # group index.md pages are rendered inline below; point their links at those sections
+        parts.append(re.sub(r'href="figures/([^/"]+)/index\.md"', r'href="#grid-\1"', report_html))
         for idx in sorted((rep / "figures").glob("*/index.md")):
             gdir = idx.parent
-            parts.append(f"<h2>Spaghetti grids: {html.escape(gdir.name)}</h2>")
+            parts.append(f'<h2 id="grid-{html.escape(gdir.name)}">Spaghetti grids: {html.escape(gdir.name)}</h2>')
             parts.append(
                 md_to_html(
                     idx.read_text().split("\n", 1)[-1], lambda rel, g=gdir, r0=rep: img(str((g / rel).relative_to(r0)))
@@ -302,7 +304,7 @@ def build_site(root: Path = Path("."), docs: Path = Path("docs")) -> dict:
     chart = docs / "summary_relmase.png"
     if len(tab):
         summary_chart(tab, chart)
-        shutil.copy(chart, root / "reports" / "summary_relmase.png")
+        shutil.copy(chart, root / "outputs" / "summary_relmase.png")
         tab.drop(columns=["slug"]).to_csv(docs / "summary.csv", index=False)
     trs = "".join(
         f'<tr><td><a href="{r.slug}/index.html">{html.escape(r.Experiment)}</a></td><td>{r.Domain}</td>'
@@ -327,7 +329,9 @@ revenue; larger companies need a commercial license from Mistral. Code is Apache
     body = f"""<h1>Timestral-209M forecasting experiments</h1>
 <p>Zero-shot <a href="https://huggingface.co/mistralai/Timestral-209M">Timestral-209M</a> vs classical baselines,
 one-shot multi-step forecasts from many rolling origins, across {len(built)} experiments. Code:
-<a href="https://github.com/gustavorubim/timestral-bank-forecasting">github.com/gustavorubim/timestral-bank-forecasting</a>.</p>
+<a href="https://github.com/gustavorubim/timestral-bank-forecasting">github.com/gustavorubim/timestral-bank-forecasting</a>
+(write-ups in <a href="https://github.com/gustavorubim/timestral-bank-forecasting/blob/main/studies/README.md">studies/</a>,
+configs in <code>experiments/</code>, results in <code>outputs/</code>).</p>
 {caveats}
 <h2>Cross-domain summary</h2>
 <p><a href="summary_relmase.png"><img src="summary_relmase.png" alt="summary chart"></a></p>

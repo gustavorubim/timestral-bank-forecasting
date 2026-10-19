@@ -1,7 +1,7 @@
 # Housing (monthly): Zillow ZHVI (home values, $k) and ZORI (rents, $) for 22 metros, 24-month one-shot.
 name: housing_zillow
-output_dir: reports/housing/zillow
-notes_file: experiments/housing/findings_zillow.md
+output_dir: outputs/housing/zillow
+notes_file: studies/housing_zillow.md
 data:
   path: data/processed/housing_zillow_panel.parquet
   date_col: date

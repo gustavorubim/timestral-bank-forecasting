@@ -2,8 +2,8 @@
 # 8-quarter one-shot forecasts. Known-future macro = realised CCAR-style path (scenario test).
 # Build data: python -m bsforecast.data.credit_losses ; run: python -m bsforecast run --config experiments/credit_losses/config.yaml
 name: credit_losses
-output_dir: reports/credit_losses
-notes_file: experiments/credit_losses/FINDINGS.md
+output_dir: outputs/credit_losses
+notes_file: studies/credit_losses.md
 data:
   path: data/processed/credit_losses.parquet
   date_col: date

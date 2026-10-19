@@ -1,8 +1,8 @@
 # Macro-panel experiment: granular FDIC lines x CCAR-style known-future macro (scenario forecasts).
-# Rerun: uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config configs/macro_panel.yaml
+# Rerun: uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config experiments/macro_panel/config.yaml
 name: macro_panel
-output_dir: reports/macro_panel
-notes_file: docs/macro_panel_findings.md
+output_dir: outputs/macro_panel
+notes_file: studies/macro_panel.md
 data:
   path: data/processed/macro_panel.parquet
   date_col: date

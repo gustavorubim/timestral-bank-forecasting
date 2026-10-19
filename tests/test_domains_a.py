@@ -74,3 +74,18 @@ def test_electricity_daily_load_flags_short_days(tmp_path):
     pd.DataFrame(rows).to_csv(p, index=False)
     out = daily_load([p]).set_index("date")["gwh"]
     assert np.isclose(out.loc["2024-01-01"], 24.0) and np.isnan(out.loc["2024-01-02"])
+
+
+def test_layout_every_site_experiment_resolves():
+    """Repo layout: experiments/<name>/ configs -> outputs/<name>/ results, studies/<slug>.md findings."""
+    from pathlib import Path
+
+    from bsforecast.site import EXPERIMENTS
+
+    for e in EXPERIMENTS:
+        assert e.config.startswith("experiments/"), e.config
+        cfg = load_config(e.config)
+        assert cfg.output_dir.startswith("outputs/"), cfg.output_dir
+        assert (Path(cfg.output_dir) / "backtest.parquet").exists(), cfg.output_dir
+        assert cfg.notes_file is None or Path(cfg.notes_file).exists(), cfg.notes_file
+        assert Path(f"studies/{e.slug}.md").exists(), e.slug

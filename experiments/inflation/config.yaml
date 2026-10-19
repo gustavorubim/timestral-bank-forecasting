@@ -2,8 +2,8 @@
 # Known-future covariates = realised WTI y/y, 3m/2y/10y Treasury, unemployment (scenario test).
 # Build data: python -m bsforecast.data.inflation ; run: python -m bsforecast run --config experiments/inflation/config.yaml
 name: inflation
-output_dir: reports/inflation
-notes_file: experiments/inflation/FINDINGS.md
+output_dir: outputs/inflation
+notes_file: studies/inflation.md
 data:
   path: data/processed/inflation.parquet
   date_col: date

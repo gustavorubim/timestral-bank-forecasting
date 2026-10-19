@@ -7,5 +7,5 @@ data/cache/
 *.safetensors
 .pytest_cache/
 .ruff_cache/
-reports/backtest_raw.parquet
+outputs/backtest_raw.parquet
 data/processed/*_long.parquet

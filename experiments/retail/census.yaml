@@ -1,8 +1,8 @@
 # Retail (monthly): Census retail sales by kind of business (FRED, NSA, $bn), 14 categories, 24-month one-shot.
 # Rebuild data: uv run python -m bsforecast fetch-domain retail
 name: retail_census
-output_dir: reports/retail/census
-notes_file: experiments/retail/findings_census.md
+output_dir: outputs/retail/census
+notes_file: studies/retail_census.md
 data:
   path: data/processed/retail_census_panel.parquet
   date_col: date

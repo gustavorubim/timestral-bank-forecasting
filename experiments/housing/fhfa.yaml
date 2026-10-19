@@ -1,8 +1,8 @@
 # Housing (quarterly): FHFA all-transactions metro HPI for 22 metros incl. Tampa, 8-quarter one-shot.
 # Rebuild data: uv run python -m bsforecast fetch-domain housing
 name: housing_fhfa
-output_dir: reports/housing/fhfa
-notes_file: experiments/housing/findings_fhfa.md
+output_dir: outputs/housing/fhfa
+notes_file: studies/housing_fhfa.md
 data:
   path: data/processed/housing_fhfa_panel.parquet
   date_col: date

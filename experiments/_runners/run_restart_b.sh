@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Session-3 restart of zillow + census without AutoARIMA. Log: experiments/queue_b.log
-cd "$(dirname "$0")/.." || exit 1
+cd "$(dirname "$0")/../.." || exit 1
 log=experiments/queue_b.log
 for c in experiments/housing/zillow.yaml experiments/retail/census.yaml; do
   ( out=$(grep '^output_dir:' "$c" | awk '{print $2}'); mkdir -p "$out"; echo "$(date) restart $c" >>"$log"

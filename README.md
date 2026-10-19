@@ -10,15 +10,29 @@ The pipeline is generic: point a YAML config at **any CSV/parquet panel** with a
 an optional id column, target columns and optional covariates, and it runs the same rolling-origin
 backtest, metrics, plots and markdown report.
 
+## Where things are
+
+| Folder | What's in it |
+|---|---|
+| [`studies/`](studies/README.md) | **Start here.** One write-up per study plus an index with each study's question, data, models, headline result, cross-domain summary and caveats. |
+| [`experiments/<name>/`](experiments/) | Config (`config.yaml` or `<variant>.yaml`) and scripts for each experiment: `y9c_top4`, `term_structure`, `macro_panel`, `electricity`, `inflation`, `credit_losses`, `treasury_curve`, `earnings`, `housing` (fhfa, zillow), `retail` (census, m5). Batch runners in `experiments/_runners/`. |
+| [`outputs/<name>/`](outputs/) | Results for each experiment: `backtest.parquet`, `tables/`, `figures/`, `summary.json`, `REPORT.md`. |
+| [`docs/`](docs/) | The GitHub Pages site: <https://gustavorubim.github.io/timestral-bank-forecasting/> (`python -m bsforecast site` rebuilds it). |
+| `src/bsforecast/`, `tests/` | The forecasting harness (data loaders, models, backtest, metrics, plots, report, site) and its tests. |
+| `data/processed/` | Committed processed panels (raw downloads are cached in git-ignored `data/raw/`). |
+
+Re-run any study: `uv run python -m bsforecast run --config experiments/<name>/config.yaml`; re-plot from the saved
+backtest with `report` instead of `run`.
+
 ## Quick start
 
 ```bash
 uv sync                                         # Python 3.12, CPU torch, statsforecast, timestral
 uv run python -m bsforecast fetch-y9c-top4      # -> data/processed/top4_bhc_panel.{parquet,csv}
-uv run python -m bsforecast run --config configs/y9c_top4.yaml
-open reports/y9c_top4/REPORT.md                 # tables + figures/ PNGs
-uv run python -m bsforecast report --config configs/y9c_top4.yaml        # re-plot without re-forecasting
-uv run python -m bsforecast run --config configs/y9c_top4.yaml --models timestral arima   # partial re-run
+uv run python -m bsforecast run --config experiments/y9c_top4/config.yaml
+open outputs/y9c_top4/REPORT.md                 # tables + figures/ PNGs
+uv run python -m bsforecast report --config experiments/y9c_top4/config.yaml        # re-plot without re-forecasting
+uv run python -m bsforecast run --config experiments/y9c_top4/config.yaml --models timestral arima   # partial re-run
 uv run pytest && uv run ruff check .
 ```
 
@@ -28,7 +42,7 @@ minute per Timestral variant; AutoARIMA is the slow part (~2 min).
 
 ## Headline results (top-4 BHCs, 24 origins 2018Q3–2024Q2, 15 lines × 4 banks, h = 1..8)
 
-Full report: [`reports/y9c_top4/REPORT.md`](reports/y9c_top4/REPORT.md). Relative MASE is the geometric mean over series
+Full report: [`outputs/y9c_top4/REPORT.md`](outputs/y9c_top4/REPORT.md). Relative MASE is the geometric mean over series
 of MASE(model) / MASE(AutoARIMA), so a value below 1 means the model beats ARIMA.
 
 | h | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | overall |
@@ -63,18 +77,18 @@ of MASE(model) / MASE(AutoARIMA), so a value below 1 means the model beats ARIMA
 
 ## Experiment 2: Treasury term structure as a known-future covariate
 
-`uv run python -m bsforecast run --config configs/term_structure.yaml` produces [`reports/term_structure/REPORT.md`](reports/term_structure/REPORT.md).
+`uv run python -m bsforecast run --config experiments/term_structure/config.yaml` produces [`outputs/term_structure/REPORT.md`](outputs/term_structure/REPORT.md).
 Given the realised curve, Timestral cuts interest-expense MASE about 40% vs no covariates (0.51× ARIMA). The gain
 grows with horizon. The exception is the 2023Q2 rate peak, where lagged deposit repricing defeats a level-only mapping.
-See [`docs/term_structure_findings.md`](docs/term_structure_findings.md).
+See [`studies/term_structure.md`](studies/term_structure.md).
 
 ## Experiment 3: granular lines x CCAR-style macro panel
 
-`uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config configs/macro_panel.yaml`
-produces [`reports/macro_panel/REPORT.md`](reports/macro_panel/REPORT.md), with per-group spaghetti pages under
-`reports/macro_panel/figures/{income,assets,liabilities}/`. A known-future macro path helps interest income and
+`uv run python -m bsforecast fetch-macro-panel && uv run python -m bsforecast run --config experiments/macro_panel/config.yaml`
+produces [`outputs/macro_panel/REPORT.md`](outputs/macro_panel/REPORT.md), with per-group spaghetti pages under
+`outputs/macro_panel/figures/{income,assets,liabilities}/`. A known-future macro path helps interest income and
 expense, provisions, the allowance and noninterest-bearing deposits. It hurts loan, debt and noninterest lines.
-See [`docs/macro_panel_findings.md`](docs/macro_panel_findings.md).
+See [`studies/macro_panel.md`](studies/macro_panel.md).
 
 ## Design
 
@@ -97,7 +111,7 @@ the harness chains one-step forecasts. For Timestral, 8 steps fit inside a singl
 patch, so the whole path comes from one forward pass. AutoARIMA's multi-step forecast is the model's
 own recursive state-space projection, which is how ARIMA is normally used in practice.
 
-**Model variants** (all in `configs/y9c_top4.yaml`):
+**Model variants** (all in `experiments/y9c_top4/config.yaml`):
 
 | name | what |
 |---|---|
@@ -116,7 +130,7 @@ They are not real-time forecasts. Compare them with each other, not with the unc
 
 ```yaml
 name: my_run
-output_dir: reports/my_run
+output_dir: outputs/my_run
 data:
   path: path/to/panel.csv        # or .parquet; long-by-id, wide-by-variable
   date_col: quarter_end
@@ -134,7 +148,7 @@ identities: [{name: assets, total: assets, components: [loans, other]}]
 plots: {fan_series: [assets], fan_origins: ["2022-06-30"]}
 ```
 
-Then run `uv run python -m bsforecast run --config configs/my_run.yaml`. Any new model only needs a
+Then run `uv run python -m bsforecast run --config experiments/my_run/config.yaml`. Any new model only needs a
 `predict(Batch) -> (B, V, H, Q)` method and an entry in `models.REGISTRY`.
 
 ## Data sources and caveats (read this)

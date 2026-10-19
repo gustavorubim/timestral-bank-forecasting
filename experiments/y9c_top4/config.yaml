@@ -1,5 +1,5 @@
 name: y9c_top4
-output_dir: reports/y9c_top4
+output_dir: outputs/y9c_top4
 data:
   path: data/processed/top4_bhc_panel.parquet
   date_col: date

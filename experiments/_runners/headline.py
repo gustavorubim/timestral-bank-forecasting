@@ -1,4 +1,4 @@
-"""Print headline numbers for a domain report: python experiments/headline.py reports/<domain>"""
+"""Print headline numbers for a domain report: python experiments/_runners/headline.py outputs/<domain>"""
 
 import sys
 from pathlib import Path

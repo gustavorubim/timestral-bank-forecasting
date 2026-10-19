@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Sharded reruns (2 lanes, BSF_THREADS=3) after CPU oversubscription made 8-thread runs crawl.
 # Each step: domain shard "models...". Shards merge on `python -m bsforecast report`.
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")/../.."
 PY=${PY:-python}
 export BSF_THREADS=${BSF_THREADS:-3}
 step() { d=$1; s=$2; shift 2
   echo "=== $d/$s start $(date)"
-  $PY -m bsforecast run --config experiments/$d/config.yaml --shard $s --models "$@" > reports/run_${d}_$s.log 2>&1 \
+  $PY -m bsforecast run --config experiments/$d/config.yaml --shard $s --models "$@" > outputs/run_${d}_$s.log 2>&1 \
     && echo "=== $d/$s OK $(date)" || echo "=== $d/$s FAILED $(date)"; }
 if [ "$1" = 1 ]; then
   step inflation i1 naive arima arimax_macro_known timestral

@@ -93,7 +93,7 @@ code{background:#eef1f4;padding:1px 4px;border-radius:3px}
 <p><a href="img/figures/macro_helps_by_line.jpg"><img loading="lazy" src="img/figures/macro_helps_by_line.jpg" alt=""></a></p>
 <div class="tbl"><table><tr><th>target</th><th>timestral_macro_known vs timestral</th><th>timestral_unemp_known vs timestral</th><th>timestral_macro_past vs timestral</th><th>timestral_joint vs timestral</th><th>timestral vs arima</th><th>arimax_macro_known vs arima</th></tr><tr><td>chargeoff</td><td>1.561</td><td>1.405</td><td>0.949</td><td>0.952</td><td>0.846</td><td>1.891</td></tr><tr><td>delinquency</td><td>1.247</td><td>1.270</td><td>0.975</td><td>0.947</td><td>0.860</td><td>1.168</td></tr></table></div>
 <h3>Spaghetti pages by group</h3>
-<ul><li><a href="figures/chargeoff/index.md">chargeoff</a> (1 lines)</li><li><a href="figures/delinquency/index.md">delinquency</a> (1 lines)</li></ul>
+<ul><li><a href="#grid-chargeoff">chargeoff</a> (1 lines)</li><li><a href="#grid-delinquency">delinquency</a> (1 lines)</li></ul>
 <h3>Relative MASE vs <code>arima</code> by series</h3>
 <p><a href="img/figures/relmase_id_x_variant.jpg"><img loading="lazy" src="img/figures/relmase_id_x_variant.jpg" alt=""></a></p>
 <div class="tbl"><table><tr><th>id</th><th>naive</th><th>timestral</th><th>timestral_joint</th><th>timestral_macro_past</th><th>timestral_macro_known</th><th>timestral_unemp_known</th><th>arimax_macro_known</th></tr><tr><td>all_loans</td><td>0.563</td><td>0.540</td><td>0.501</td><td>0.504</td><td>1.064</td><td>0.910</td><td>0.996</td></tr><tr><td>business</td><td>0.699</td><td>0.883</td><td>0.873</td><td>0.893</td><td>1.334</td><td>1.130</td><td>1.358</td></tr><tr><td>consumer</td><td>1.207</td><td>1.040</td><td>1.057</td><td>1.022</td><td>1.185</td><td>1.346</td><td>1.477</td></tr><tr><td>cre_ex_farm</td><td>0.620</td><td>0.872</td><td>0.728</td><td>0.716</td><td>0.816</td><td>0.787</td><td>1.596</td></tr><tr><td>credit_card</td><td>0.896</td><td>0.861</td><td>0.753</td><td>0.842</td><td>1.174</td><td>1.244</td><td>1.456</td></tr><tr><td>other_consumer</td><td>1.012</td><td>0.999</td><td>1.090</td><td>0.956</td><td>1.214</td><td>1.249</td><td>1.395</td></tr><tr><td>resi_mortgage</td><td>1.249</td><td>0.882</td><td>0.828</td><td>0.944</td><td>1.727</td><td>1.467</td><td>2.473</td></tr></table></div>
@@ -104,12 +104,12 @@ code{background:#eef1f4;padding:1px 4px;border-radius:3px}
 <p><a href="img/figures/relmase_id_x_horizon_timestral_macro_known.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_timestral_macro_known.jpg" alt=""></a></p>
 <p><a href="img/figures/relmase_id_x_horizon_timestral_unemp_known.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_timestral_unemp_known.jpg" alt=""></a></p>
 <p><a href="img/figures/relmase_id_x_horizon_arimax_macro_known.jpg"><img loading="lazy" src="img/figures/relmase_id_x_horizon_arimax_macro_known.jpg" alt=""></a></p>
-<h2>Spaghetti grids: chargeoff</h2>
+<h2 id="grid-chargeoff">Spaghetti grids: chargeoff</h2>
 <p>Columns: arima | timestral | timestral_macro_known | timestral_unemp_known. Rows: banks. Colour = origin date; black = actual.</p>
 <div class="tbl"><table><tr><th>target</th><th>naive</th><th>arima</th><th>timestral</th><th>timestral_joint</th><th>timestral_macro_past</th><th>timestral_macro_known</th><th>timestral_unemp_known</th><th>arimax_macro_known</th></tr><tr><td>chargeoff</td><td>0.803</td><td>1.000</td><td>0.846</td><td>0.806</td><td>0.803</td><td>1.321</td><td>1.188</td><td>1.891</td></tr></table></div>
 <h3>chargeoff</h3>
 <p><a href="img/figures/chargeoff/spaghetti_chargeoff.jpg"><img loading="lazy" src="img/figures/chargeoff/spaghetti_chargeoff.jpg" alt=""></a></p>
-<h2>Spaghetti grids: delinquency</h2>
+<h2 id="grid-delinquency">Spaghetti grids: delinquency</h2>
 <p>Columns: arima | timestral | timestral_macro_known | timestral_unemp_known. Rows: banks. Colour = origin date; black = actual.</p>
 <div class="tbl"><table><tr><th>target</th><th>naive</th><th>arima</th><th>timestral</th><th>timestral_joint</th><th>timestral_macro_past</th><th>timestral_macro_known</th><th>timestral_unemp_known</th><th>arimax_macro_known</th></tr><tr><td>delinquency</td><td>0.910</td><td>1.000</td><td>0.860</td><td>0.814</td><td>0.838</td><td>1.072</td><td>1.092</td><td>1.168</td></tr></table></div>
 <h3>delinquency</h3>

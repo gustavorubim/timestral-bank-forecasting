@@ -21,7 +21,7 @@ one-shot 8-quarter forecasts. Relative MASE vs AutoARIMA (<1 = better).
 - Rate shock 2022 origins: ARIMA collapses (MASE 12.3), Timestral 7.6, ETS 6.9 - ARIMA extrapolated the 2021 boom.
 - Tampa: Timestral 0.73 vs ARIMA (ETS 1.12). Biggest Timestral wins: Austin 0.61, Denver 0.67, Phoenix 0.70, Nashville 0.73.
 - Known-future = realised macro path (scenario test). Covariates are national, not metro-level.
-- Live Tampa forecast from 2026Q2 (FHFA HPI 516.6): Timestral median +2.6% by 2028Q2 (80% band 487-564); with flat macro +2.8%; ARIMA -2.2%; ETS +9.1%. Plot: `reports/housing/figures/live_tampa.png` (Zillow panels pending).
+- Live Tampa forecast from 2026Q2 (FHFA HPI 516.6): Timestral median +2.6% by 2028Q2 (80% band 487-564); with flat macro +2.8%; ARIMA -2.2%; ETS +9.1%. Plot: `outputs/housing/figures/live_tampa.png` (Zillow panels pending).
 
 Best plots: `figures/house_prices/spaghetti_hpi.png`, `figures/error_by_horizon_mase.png`, `figures/coverage_by_horizon.png`.
 

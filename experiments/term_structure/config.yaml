@@ -1,8 +1,8 @@
 # Term-structure experiment: does knowing the realised Treasury curve over the forecast window
 # (a scenario / oracle setup, as in stress testing) help forecast bank interest income & expense?
 name: term_structure
-output_dir: reports/term_structure
-notes_file: docs/term_structure_findings.md
+output_dir: outputs/term_structure
+notes_file: studies/term_structure.md
 data:
   path: data/processed/top4_bhc_panel.parquet
   date_col: date

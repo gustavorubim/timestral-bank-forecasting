@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Sequential runner for the domains-b experiments (nohup-friendly). Log: experiments/queue_b.log
-cd "$(dirname "$0")/.." || exit 1
+cd "$(dirname "$0")/../.." || exit 1
 log=experiments/queue_b.log
 while pgrep -f "config experiments/earnings/config.yaml" >/dev/null; do sleep 30; done
 echo "$(date) earnings run finished" >>"$log"

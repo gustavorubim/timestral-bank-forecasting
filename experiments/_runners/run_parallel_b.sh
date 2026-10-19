@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Parallel runner (session 2): small domains now, M5 after earnings finishes. Log: experiments/queue_b.log
-cd "$(dirname "$0")/.." || exit 1
+cd "$(dirname "$0")/../.." || exit 1
 log=experiments/queue_b.log
 run() {
   c=$1; out=$(grep '^output_dir:' "$c" | awk '{print $2}'); mkdir -p "$out"

@@ -12,7 +12,9 @@ code{background:#eef1f4;padding:1px 4px;border-radius:3px}
 </style></head><body><nav><a href="index.html">Timestral experiments</a></nav><main><h1>Timestral-209M forecasting experiments</h1>
 <p>Zero-shot <a href="https://huggingface.co/mistralai/Timestral-209M">Timestral-209M</a> vs classical baselines,
 one-shot multi-step forecasts from many rolling origins, across 12 experiments. Code:
-<a href="https://github.com/gustavorubim/timestral-bank-forecasting">github.com/gustavorubim/timestral-bank-forecasting</a>.</p>
+<a href="https://github.com/gustavorubim/timestral-bank-forecasting">github.com/gustavorubim/timestral-bank-forecasting</a>
+(write-ups in <a href="https://github.com/gustavorubim/timestral-bank-forecasting/blob/main/studies/README.md">studies/</a>,
+configs in <code>experiments/</code>, results in <code>outputs/</code>).</p>
 <div class="caveat"><strong>Caveats.</strong><ul>
 <li><strong>Known-future covariates are scenario tests:</strong> models were given the <em>realised</em> path of the
 covariates (rates, macro, weather, prices) over the forecast window. That measures how well a model follows a given

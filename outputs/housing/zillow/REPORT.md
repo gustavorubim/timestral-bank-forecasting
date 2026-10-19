@@ -20,7 +20,7 @@ baseline is AutoETS, with seasonal naive also shown. Relative MASE vs AutoETS (<
   their own momentum; the realised macro path (scenario test) adds little.
 - Tampa (vs ETS): ZHVI 0.85-0.88, ZORI 0.80-0.82 for the macro variants.
 - Live Tampa from 2026-09: ZHVI $356.8k -> Timestral median $356.0k by 2028-09 (-0.2%, 80% band 323-381k); ETS -2.1%.
-  ZORI $1,991 -> $2,018 (+1.4%). Plot: `reports/housing/figures/live_tampa.png`.
+  ZORI $1,991 -> $2,018 (+1.4%). Plot: `outputs/housing/figures/live_tampa.png`.
 
 Best plots: `figures/values_and_rents/spaghetti_zori.png`, `figures/values_and_rents/spaghetti_zhvi.png`, `figures/error_by_horizon_mase.png`.
 

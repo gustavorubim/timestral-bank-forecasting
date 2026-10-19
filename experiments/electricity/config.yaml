@@ -2,8 +2,8 @@
 # weekly rolling origins. Known-future covariate = realised population-weighted temperature (scenario test).
 # Build data: python -m bsforecast.data.electricity ; run: python -m bsforecast run --config experiments/electricity/config.yaml
 name: electricity
-output_dir: reports/electricity
-notes_file: experiments/electricity/FINDINGS.md
+output_dir: outputs/electricity
+notes_file: studies/electricity.md
 data:
   path: data/processed/electricity.parquet
   date_col: date

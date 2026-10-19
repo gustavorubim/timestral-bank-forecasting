@@ -143,7 +143,7 @@ def test_metrics_values():
 
 
 def test_example_config_parses():
-    cfg = load_config("configs/y9c_top4.yaml")
+    cfg = load_config("experiments/y9c_top4/config.yaml")
     assert cfg.backtest.horizon == 8 and any(m.type == "timestral" for m in cfg.models)
 
 

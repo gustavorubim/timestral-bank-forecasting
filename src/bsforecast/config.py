@@ -95,7 +95,7 @@ class Config:
     evaluation: EvalConfig
     identities: list[IdentityConfig] = field(default_factory=list)
     plots: PlotConfig = field(default_factory=PlotConfig)
-    output_dir: str = "reports"
+    output_dir: str = "outputs"
     notes_file: str | None = None  # markdown prepended to REPORT.md (headline findings)
 
     @property
@@ -119,6 +119,6 @@ def load_config(path: str | Path) -> Config:
         evaluation=EvalConfig(**raw.get("evaluation", {})),
         identities=[IdentityConfig(**i) for i in raw.get("identities", [])],
         plots=PlotConfig(**raw.get("plots", {})),
-        output_dir=raw.get("output_dir", f"reports/{raw.get('name', 'run')}"),
+        output_dir=raw.get("output_dir", f"outputs/{raw.get('name', 'run')}"),
         notes_file=raw.get("notes_file"),
     )

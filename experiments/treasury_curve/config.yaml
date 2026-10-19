@@ -2,8 +2,8 @@
 # Known-future covariates: realised fed funds path (policy scenario) and macro (unemployment, core CPI).
 # Build data: python -m bsforecast.data.treasury_curve ; run: python -m bsforecast run --config experiments/treasury_curve/config.yaml
 name: treasury_curve
-output_dir: reports/treasury_curve
-notes_file: experiments/treasury_curve/FINDINGS.md
+output_dir: outputs/treasury_curve
+notes_file: studies/treasury_curve.md
 data:
   path: data/processed/treasury_curve.parquet
   date_col: date
