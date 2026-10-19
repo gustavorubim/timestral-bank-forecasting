@@ -32,6 +32,10 @@ def main(argv: list[str] | None = None) -> None:
     d.add_argument("domain", choices=["earnings", "housing", "retail"])
     d.add_argument("--raw-dir", default="data/raw")
     d.add_argument("--out-dir", default="data/processed")
+    mhp = sub.add_parser("macro-horse", help="Timestral vs NY Fed DSGE macro horse race (see experiments/macro_horse)")
+    mhp.add_argument("step", choices=["data", "run", "report"])
+    mhp.add_argument("--raw-dir", default="data/raw")
+    mhp.add_argument("--out-dir", default="data/processed/macro_horse")
     st = sub.add_parser("site", help="build the static HTML site over all experiment reports into docs/")
     st.add_argument("--docs", default="docs")
     for name in ("run", "report"):
@@ -54,6 +58,10 @@ def main(argv: list[str] | None = None) -> None:
 
         panel = build_macro_panel(Path(args.raw_dir), Path(args.out_dir))
         print(panel.groupby("bank")["date"].agg(["min", "max", "count"]))
+        return
+
+    if args.cmd == "macro-horse":
+        _macro_horse(args.step, Path(args.raw_dir), Path(args.out_dir))
         return
 
     if args.cmd == "site":
@@ -101,6 +109,32 @@ def main(argv: list[str] | None = None) -> None:
     for r in sorted(s["rel_mase"], key=lambda r: r["rel_mase"]):
         print(f"{r['model']:>22s}  rel MASE vs baseline = {r['rel_mase']:.3f}")
     print(f"report: {cfg.out / 'REPORT.md'}")
+
+
+def _macro_horse(step: str, raw: Path, out: Path) -> None:
+    import yaml
+
+    from . import macro_horse as mh
+
+    cfgp = Path("experiments/macro_horse/config.yaml")
+    if cfgp.exists():
+        c = yaml.safe_load(cfgp.read_text())
+        mh.FIRST_ORIGIN, mh.LAST_ORIGIN, mh.H = c["first_origin"], c["last_origin"], int(c["horizon"])
+        mh.PAST_COVS = list(c.get("past_covariates", mh.PAST_COVS))
+    if step == "data":
+        p = mh.build_panel(raw, out)
+        s = mh.build_spf(raw, out)
+        print(p.index.min(), p.index.max(), len(s), "SPF rows")
+    elif step == "run":
+        panel = pd.read_csv(out / "panel.csv", index_col=0)
+        panel.index = pd.PeriodIndex(panel.index, freq="Q")
+        models = c.get("models") if cfgp.exists() else None
+        mh.run_backtest(panel, models).to_parquet(out / "forecasts.parquet", index=False)
+    else:
+        from .macro_horse_report import build
+
+        res = build(Path("."))
+        print(res["best"])
 
 
 def _fetch_domain(domain: str, raw: Path, out: Path) -> None:
