@@ -26,6 +26,7 @@ class Exp:
     config: str
     takeaway: str
     note: str = ""
+    report_dir: str = ""  # set for experiments outside the YAML/backtest pipeline (no summary row)
 
 
 EXPERIMENTS = [
@@ -55,6 +56,9 @@ EXPERIMENTS = [
         "AutoARIMA dropped."),
     Exp("retail_m5", "Retail: M5 Walmart store x dept", "Retail", "experiments/retail/m5.yaml",
         "Timestral ~30% better than seasonal naive, 16% better than ETS; known calendar/SNAP adds ~3%.", "AutoARIMA dropped."),
+    Exp("macro_horse", "Macro horse race: Timestral vs NY Fed DSGE (ss104)", "Macro", "experiments/macro_horse/config.yaml",
+        "GDP/core PCE: roughly a tie; Timestral clearly better on the fed funds path; DSGE better on GDP-deflator at 5-8q.",
+        "Latest-vintage pseudo-OOS, fixed published ss104 parameters, AR(p) reference.", "outputs/macro_horse"),
 ]  # fmt: skip
 
 CSS = """
@@ -243,11 +247,10 @@ def build_site(root: Path = Path("."), docs: Path = Path("docs")) -> dict:
     store = ImageStore(docs)
     rows, built = [], []
     for e in EXPERIMENTS:
-        cfg = load_config(root / e.config)
-        rep = root / cfg.output_dir
+        rep = root / (e.report_dir or load_config(root / e.config).output_dir)
         if not (rep / "REPORT.md").exists():
             continue
-        r = _summary_row(e, root)
+        r = None if e.report_dir else _summary_row(e, root)
         if r:
             rows.append(r)
         used: set[str] = set()

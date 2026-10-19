@@ -1,0 +1,17 @@
+# Macro horse race: Timestral-209M vs NY Fed DSGE (Model1002 ss104, fixed published-code parameters).
+# Read by `python -m bsforecast macro-horse run|report` (overrides the module defaults).
+name: macro_horse
+output_dir: outputs/macro_horse
+data_dir: data/processed/macro_horse
+first_origin: "2005Q1"   # last observed quarter T of the first origin
+last_origin: "2024Q2"    # every origin has 8 realised quarters (data end 2026Q2)
+horizon: 8
+reference_model: ar      # relative RMSE/MAE/CRPS denominators
+models: [rw, ar, arima, timestral, timestral_mv, timestral_cov, timestral_scenario]
+past_covariates: [unrate, term_spread, oil_growth, ffr]
+dsge:
+  runner: experiments/macro_horse/dsge_runner.py   # run inside a nydsge-python checkout, not /workspace/nydsge
+  nydsge_commit: e2ff029
+  parameters: DSGE.jl ss104 defaults (no estimation at any origin)
+  headline: frozen regime for origins < 2020Q1, ss104 dated regime schedule from 2020Q1
+vintage: latest (FRED snapshot 2026-10-06 for GDP/GDPDEF/PCEPILFE/DFF/GS10; other FRED series fetched 2026-10-18)
