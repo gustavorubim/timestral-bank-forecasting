@@ -84,6 +84,11 @@ def test_layout_every_site_experiment_resolves():
 
     for e in EXPERIMENTS:
         assert e.config.startswith("experiments/"), e.config
+        assert Path(f"studies/{e.slug}.md").exists(), e.slug
+        if e.report_dir:  # standalone study (e.g. macro_horse): own CLI, no YAML backtest pipeline
+            assert e.report_dir.startswith("outputs/") and (Path(e.report_dir) / "REPORT.md").exists()
+            assert Path(e.config).exists(), e.config
+            continue
         cfg = load_config(e.config)
         assert cfg.output_dir.startswith("outputs/"), cfg.output_dir
         assert (Path(cfg.output_dir) / "backtest.parquet").exists(), cfg.output_dir
