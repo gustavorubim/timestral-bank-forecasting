@@ -9,3 +9,6 @@ data/cache/
 .ruff_cache/
 outputs/backtest_raw.parquet
 data/processed/*_long.parquet
+
+# Local agent settings
+.claude/settings.local.json

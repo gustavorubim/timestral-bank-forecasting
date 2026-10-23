@@ -40,10 +40,10 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
 ## 2026-10-18 18:03 ET (session 3)
 - Zillow + census restarted WITHOUT AutoARIMA (baseline = AutoETS, plus seasonal naive; census max_context 240), commit 5637833.
   Box restart via experiments/run_restart_b.sh (log experiments/queue_b.log, ends RESTART_DONE).
-- Offloaded to Gus (Windows, 24 threads; clone C:\Users\gusta\master\tbf-gus, `python -m uv sync` took ~2 min):
+- Offloaded to Gus (Windows, 24 threads; clone <WIN_HOME>\tbf-gus, `python -m uv sync` took ~2 min):
   M5 (experiments/retail/m5_gus.yaml = m5.yaml with threads 12; M5 is NOT running on the box any more),
-  plus duplicate races of earnings, zillow, census. Logs: C:\Users\gusta\master\tbf-gus\<domain>_<cfg>.err.log, m5_err.log.
-  Results: C:\Users\gusta\master\tbf-gus\reports\<domain>\...\backtest.parquet -> CopyToBox into reports/<same path>,
+  plus duplicate races of earnings, zillow, census. Logs: <WIN_HOME>\tbf-gus\<domain>_<cfg>.err.log, m5_err.log.
+  Results: <WIN_HOME>\tbf-gus\reports\<domain>\...\backtest.parquet -> CopyToBox into reports/<same path>,
   then `uv run python -m bsforecast report --config <cfg>` on the box (whichever copy finishes first wins).
 - Box state 18:02: earnings still in timestral_macro_past (since 17:04); fhfa in timestral_macro_past;
   zillow + census done baselines + timestral, now on covariate variants.
@@ -54,7 +54,7 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
 ## 2026-10-18 18:50 ET (session 4)
 - DONE + pushed: earnings, housing_fhfa (box), housing_zillow (Gus run, report on box), live_tampa.png.
 - PENDING on Gus only (box duplicates killed): retail census (on timestral_macro_known), M5 (on timestral_calendar_known,
-  then timestral_all_known). When done: CopyToBox C:\Users\gusta\master\tbf-gus\reports\retail\{census,m5}\backtest.parquet
+  then timestral_all_known). When done: CopyToBox <WIN_HOME>\tbf-gus\reports\retail\{census,m5}\backtest.parquet
   -> reports/retail/{census,m5}/, `bsforecast report --config experiments/retail/{census,m5}.yaml`, headline.py,
   write findings_{census,m5}.md (ETS / seasonal-naive baselines, ARIMA dropped), report again, ruff, pytest, push.
 
@@ -73,7 +73,7 @@ Branch `domains-b`, worktree /workspace/tbf-domains-b. Domains: earnings (SEC XB
   one page per experiment, figures as JPEG ~32 MB). Pushed 5df32f1. GitHub Pages enabled (main:/docs):
   https://gustavorubim.github.io/timestral-bank-forecasting/ (200 OK).
 - PhoneShare: CopyFromBox of the zip failed ("Gus temporarily unreachable"), so docs were copied on Gus from a fresh
-  clone (C:\Users\gusta\master\tbf-site) into C:\Users\gusta\PhoneShare\timestral\; server (tailscale serve -> 127.0.0.1:8765)
-  serves subfolders: https://gus.tail8b7b2e.ts.net/timestral/index.html -> 200.
+  clone (<WIN_HOME>\tbf-site) into <WIN_HOME>\PhoneShare\timestral\; server (tailscale serve -> 127.0.0.1:8765)
+  serves subfolders: https://<tailnet-host>/timestral/index.html -> 200.
 - M5 box shards B/C still running; when M5_DONE: findings_m5.md, report, then `bsforecast site`, push, and refresh
   PhoneShare (git pull in tbf-site + Copy-Item docs). Gus M5: calendar_known done 19:10 (4383 s), now on all_known.
